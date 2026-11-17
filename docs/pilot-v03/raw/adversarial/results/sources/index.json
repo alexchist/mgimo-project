@@ -1,0 +1,54 @@
+[
+  {
+    "source_id": "S-001",
+    "kind": "csv",
+    "title": "Метрики кейса",
+    "origin": "materials/metrics.csv",
+    "stored_path": "sources/originals/S-001__metrics.csv",
+    "extract_path": "sources/extracts/S-001.md",
+    "sha256": "8f891a8fe323942da09e0afe676ecc2797f22bf987a4d605a8c687b1b448b70e",
+    "extract_sha256": "a1c2f3d57307ba998fa3856ad2b7fbf9ee2a0a40f203944b38d50af4eea7289f",
+    "retrieved_at": "2026-11-17T14:47:59+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 12,
+    "gaps": [],
+    "status": "active"
+  },
+  {
+    "source_id": "S-002",
+    "kind": "txt",
+    "title": "Бриф кейса Линия (точная копия materials/brief.md)",
+    "origin": "results/analysis/materials-brief-verbatim.txt",
+    "stored_path": "sources/originals/S-002__materials-brief-verbatim.txt",
+    "extract_path": "sources/extracts/S-002.md",
+    "sha256": "dbb7db41a2269a6d321101ab89760ec8c0a37b8fe1d9ea2a081f61f5086c4593",
+    "extract_sha256": "c27ffdf43ba6e5c9d9d88c753d4ce32add310994e9a86493e1fb34c676ad3da4",
+    "retrieved_at": "2026-11-17T14:49:17+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 2,
+    "gaps": [
+      "Content-Type text/plain: HTML-разметка не интерпретировалась."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-003",
+    "kind": "txt",
+    "title": "Заметки команды (точная копия materials/notes.md)",
+    "origin": "results/analysis/materials-notes-verbatim.txt",
+    "stored_path": "sources/originals/S-003__materials-notes-verbatim.txt",
+    "extract_path": "sources/extracts/S-003.md",
+    "sha256": "a4329f836d5cb86164095d9cd151332ed8c0853ffa628b47ecd79af47b1f9f5c",
+    "extract_sha256": "137c165aa08ee2266c7daff0b389d9d30c1ab63e1430e4150526114aa183a12c",
+    "retrieved_at": "2026-11-17T14:49:18+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 2,
+    "gaps": [
+      "Content-Type text/plain: HTML-разметка не интерпретировалась."
+    ],
+    "status": "active"
+  }
+]

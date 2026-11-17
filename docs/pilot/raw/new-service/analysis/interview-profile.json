@@ -1,0 +1,27 @@
+{
+  "file": "/home/alexchist/strategist-evaluation-50043d69/new-service/projects/new-service-run/sources/originals/S-003__interview-codes.csv",
+  "sha256": "ba69009afa3a22f48a90fbf55754bf1410465fdbab97ecebee7e058528cb0113",
+  "rows": 4,
+  "columns": {
+    "respondent": {
+      "missing": 0,
+      "distinct_nonempty": 4,
+      "numeric_count": 0
+    },
+    "past_behavior": {
+      "missing": 0,
+      "distinct_nonempty": 3,
+      "numeric_count": 0
+    },
+    "privacy_barrier": {
+      "missing": 0,
+      "distinct_nonempty": 2,
+      "numeric_count": 0
+    },
+    "willingness_to_pay_tested": {
+      "missing": 0,
+      "distinct_nonempty": 1,
+      "numeric_count": 0
+    }
+  }
+}

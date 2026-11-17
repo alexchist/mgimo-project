@@ -1,0 +1,2 @@
+operation_id,started_at,finished_at,status,tool,inputs,artifact,cost_status,cost_amount,currency,human_minutes,related_operation_id,resolution,notes
+OP-001,2026-11-17T12:37:48+00:00,2026-11-17T12:37:51+00:00,succeeded,urllib,https://example.com/,sources/extracts/S-001.md,not_applicable,,,1,,,"Approved public smoke test, no paid API; HTTP and extraction succeeded"

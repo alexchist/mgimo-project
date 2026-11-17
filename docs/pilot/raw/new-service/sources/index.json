@@ -1,0 +1,66 @@
+[
+  {
+    "source_id": "S-001",
+    "kind": "docx",
+    "title": "S-001__research-notes.docx",
+    "origin": "case/input/research-notes.docx",
+    "stored_path": "sources/originals/S-001__research-notes.docx",
+    "extract_path": "sources/extracts/S-001.md",
+    "sha256": "050d176bf7ef671e451d3991b96aaf5c358d5bccc9b7132b74595acf5df76107",
+    "retrieved_at": "2026-11-17T12:51:59+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 11,
+    "gaps": [
+      "Не извлечены текст из изображений, рукописные пометки, комментарии и отслеживаемые правки вне основного текста."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-002",
+    "kind": "xlsx",
+    "title": "S-002__economics.xlsx",
+    "origin": "case/input/economics.xlsx",
+    "stored_path": "sources/originals/S-002__economics.xlsx",
+    "extract_path": "sources/extracts/S-002.md",
+    "sha256": "757e6b6bddeabac1ea3184453b02675e7bc4d0b49cd0ed466399a24535cbefb4",
+    "retrieved_at": "2026-11-17T12:52:00+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 29,
+    "gaps": [
+      "Формулы не вычисляются: фиксируются формула и сохранённое cached value, если оно присутствует."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-003",
+    "kind": "csv",
+    "title": "S-003__interview-codes.csv",
+    "origin": "case/input/interview-codes.csv",
+    "stored_path": "sources/originals/S-003__interview-codes.csv",
+    "extract_path": "sources/extracts/S-003.md",
+    "sha256": "ba69009afa3a22f48a90fbf55754bf1410465fdbab97ecebee7e058528cb0113",
+    "retrieved_at": "2026-11-17T12:52:01+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 16,
+    "gaps": [],
+    "status": "active"
+  },
+  {
+    "source_id": "S-004",
+    "kind": "html",
+    "title": "S-004__product-page.html",
+    "origin": "case/input/product-page.html",
+    "stored_path": "sources/originals/S-004__product-page.html",
+    "extract_path": "sources/extracts/S-004.md",
+    "sha256": "44608399f07dec01153f590b5f28de362d3c1685dda44ec33e2939bb64d0c2c1",
+    "retrieved_at": "2026-11-17T12:52:01+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 5,
+    "gaps": [],
+    "status": "active"
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "source_id": "S-001",
+    "kind": "pdf",
+    "title": "S-001__brief.pdf",
+    "origin": "case/input/brief.pdf",
+    "stored_path": "sources/originals/S-001__brief.pdf",
+    "extract_path": "sources/extracts/S-001.md",
+    "sha256": "89a2dab46b37a141e57e3b5e3ca6d64baeeddf0b664796c41406dc06e9aa6230",
+    "retrieved_at": "2026-11-17T12:51:44+00:00",
+    "permission": "owner-provided",
+    "synthetic": true,
+    "record_count": 6,
+    "gaps": [],
+    "status": "active"
+  },
+  {
+    "source_id": "S-002",
+    "kind": "csv",
+    "title": "S-002__retention.csv",
+    "origin": "case/input/retention.csv",
+    "stored_path": "sources/originals/S-002__retention.csv",
+    "extract_path": "sources/extracts/S-002.md",
+    "sha256": "331d2cc26af1106a52d236cfce63ebcddbb8e019496f6ceae1bda628975d2cbc",
+    "retrieved_at": "2026-11-17T12:51:45+00:00",
+    "permission": "owner-provided",
+    "synthetic": true,
+    "record_count": 40,
+    "gaps": [],
+    "status": "active"
+  },
+  {
+    "source_id": "S-003",
+    "kind": "xlsx",
+    "title": "S-003__events.xlsx",
+    "origin": "case/input/events.xlsx",
+    "stored_path": "sources/originals/S-003__events.xlsx",
+    "extract_path": "sources/extracts/S-003.md",
+    "sha256": "375bdc016bad6dd0cbf033f3875f0b757d534ef68cd97f058967c90ca26b0ab7",
+    "retrieved_at": "2026-11-17T12:51:45+00:00",
+    "permission": "owner-provided",
+    "synthetic": true,
+    "record_count": 12,
+    "gaps": [
+      "Формулы не вычисляются: фиксируются формула и сохранённое cached value, если оно присутствует."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-004",
+    "kind": "html",
+    "title": "S-004__research-site.html",
+    "origin": "case/input/research-site.html",
+    "stored_path": "sources/originals/S-004__research-site.html",
+    "extract_path": "sources/extracts/S-004.md",
+    "sha256": "ed588b0f639fc64e52f563cf775db6c4ac7587815a2699e767c3a96cef0de4ed",
+    "retrieved_at": "2026-11-17T12:51:46+00:00",
+    "permission": "owner-provided",
+    "synthetic": true,
+    "record_count": 6,
+    "gaps": [],
+    "status": "active"
+  }
+]

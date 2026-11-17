@@ -1,0 +1,2 @@
+commitment_id,decision_id,description,owner,status,due_on,metric,review_condition,confirmed_by,confirmed_at
+K-001,D-001,Synthetic proposal: check Q&A promise before communication test; NOT a real obligation,unassigned,proposed,,,Product capability changes,,

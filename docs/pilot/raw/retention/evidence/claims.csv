@@ -1,0 +1,14 @@
+claim_id,type,statement,source_ids,locator,period,unit,status,supersedes,limitations
+E-001,fact,Orbit описан как мобильная обучающая подписка,S-001,"page:1,line:2",,not_applicable,active,,Синтетический учебный материал
+E-002,fact,В брифе требуется решить менять ли onboarding до Q2,S-001,"page:1,line:3",,not_applicable,active,,Горизонт пользовательского запроса точнее задан как восемь недель
+E-003,fact,Бриф сообщает о снижении blended W4 retention с 31% до 25%,S-001,"page:1,line:4",,percent,active,,Это сообщённый симптом; документ не даёт расчёт и не устанавливает причину
+E-004,fact,Изменение цены запрещено в ближайшие восемь недель,S-001,"page:1,line:5",next 8 weeks,not_applicable,active,,Не известны прочие коммерческие ограничения
+E-005,fact,Бриф прямо предупреждает что не устанавливает причину изменения retention,S-001,"page:1,line:6",,not_applicable,active,,Причинная проверка отсутствует
+E-006,fact,Active week 4 означает хотя бы один завершённый урок в дни 22–28 в UTC+3,S-003,"definitions!A2:B3",,binary user event,active,,Не определены дедупликация пользователя и момент старта когорты
+E-007,fact,Доля пропавших completion-событий указана как 0.5% в августе и 4.0% в сентябре,S-003,"quality!A1:B3",2026-08 to 2026-09,percent of events,active,,Метрика дана на уровне событий; влияние на число удержанных пользователей неизвестно
+E-008,fact,В августовском organic cohort size 400 и active W4 160,S-002,"row:2,column:cohort_size;row:3,column:active_users",2026-08,users,active,,Агрегированная строка без user-level проверки
+E-009,fact,В августовском promo cohort size 100 и active W4 10,S-002,"row:4,column:cohort_size;row:5,column:active_users",2026-08,users,active,,Агрегированная строка без user-level проверки
+E-010,fact,В сентябрьском organic cohort size 200 и active W4 82,S-002,"row:6,column:cohort_size;row:7,column:active_users",2026-09,users,active,,Агрегированная строка без user-level проверки
+E-011,fact,В сентябрьском promo cohort size 800 и active W4 88,S-002,"row:8,column:cohort_size;row:9,column:active_users",2026-09,users,active,,Агрегированная строка без user-level проверки
+E-012,fact,Шесть из восьми promo-участников сказали что trial wording создал ожидание live tutor,S-004,p[1],,participants,active,,Convenience sample не оценивает распространённость
+E-013,fact,Текущий продукт предлагает записанные уроки и еженедельный групповой Q&A; индивидуального live tutor нет,S-004,p[2],,capability,active,,Учебная заметка не описывает качество и доступность функций

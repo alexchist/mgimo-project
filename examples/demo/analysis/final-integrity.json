@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "structural_only": true,
+  "completion": {
+    "artifact_stage": "decision_draft",
+    "label": "черновик решения",
+    "has_recorded_human_decision": false,
+    "is_completed_decision": false,
+    "not_proven": "Смысловая поддержка claims, качество вариантов и стратегии кодом не проверяются."
+  },
+  "errors": [],
+  "warnings": [
+    "Источник S-003: есть пробелы извлечения (1).",
+    "Источник S-005: есть пробелы извлечения (1).",
+    "Источник S-006: есть пробелы извлечения (1).",
+    "E-001: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-002: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-003: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-004: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-005: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-006: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-007: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-008: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-009: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-010: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-011: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-012: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "E-013: legacy/complex locator не проверен; новый формат `S-001#locator;S-002#locator`.",
+    "OP-014: стоимость неизвестна.",
+    "OP-025: стоимость неизвестна."
+  ],
+  "counts": {
+    "sources": 6,
+    "claims": 15,
+    "conclusions": 7,
+    "decisions": 1,
+    "commitments": 1,
+    "revisions": 1,
+    "operations": 26,
+    "ingest_failures": 0
+  }
+}

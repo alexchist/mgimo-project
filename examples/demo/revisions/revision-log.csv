@@ -1,0 +1,2 @@
+revision_id,recorded_at,old_claim_id,old_status,new_status,new_claim_id,reason,evidence_action,affected_conclusions,affected_decisions,affected_commitments,human_review_required
+R-001,2026-11-17T13:23:52+00:00,E-013,active,superseded,E-014,S-005 explicitly corrects the prior research note: weekly group Q&A is not currently available and remains undated roadmap; capability promises and dependent strategy require review.,new,C-003;C-006,D-001,K-001,yes

@@ -1,0 +1,11 @@
+accounts,paid_pilot_3m_result_rub,manual_service_3m_result_rub,interpretation
+1,-236400,-26100,sensitivity
+3,-229200,-18300,proposed_lower_learning_gate
+5,-222000,-10500,proposed_upper_small_pilot
+8,-211200,1200,manual_break_even_integer
+10,-204000,9000,sensitivity
+18,-175200,40200,former_paid_break_even_now_invalid
+20,-168000,48000,manual_source_scenario_account_count
+22,-160800,55800,former_crossover_now_invalid
+30,-132000,87000,paid_source_scenario_account_count
+67,1200,231300,revised_paid_break_even_integer

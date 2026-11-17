@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.ouroboros/
+submission/
+# Private evaluation keys are retained locally, not distributed.
+evals/evaluator_only/

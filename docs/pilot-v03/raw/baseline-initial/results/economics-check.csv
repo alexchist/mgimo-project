@@ -1,0 +1,10 @@
+accounts,paid_pilot_3m_result_rub,manual_service_3m_result_rub,interpretation
+1,-226500,-26100,sensitivity
+3,-199500,-18300,proposed_lower_learning_gate
+5,-172500,-10500,proposed_upper_small_pilot
+8,-132000,1200,manual_break_even_integer
+10,-105000,9000,sensitivity
+18,3000,40200,paid_pilot_break_even_integer
+20,30000,48000,manual_source_scenario_account_count
+22,57000,55800,paid_overtakes_manual
+30,165000,87000,paid_source_scenario_account_count

@@ -1,0 +1,18 @@
+[
+  {
+    "source_id": "S-001",
+    "kind": "web",
+    "title": "Example Domain",
+    "origin": "https://example.com/",
+    "stored_path": "sources/originals/S-001__index.html",
+    "extract_path": "sources/extracts/S-001.md",
+    "sha256": "25ddf2c883e0d1958ea971d279a7e4f0fd446724ee3db7db19dadabd4a62e484",
+    "extract_sha256": "35d97acecf495c3f1cd740b8362269d1de876aac37920e2a32811186c20d030d",
+    "retrieved_at": "2026-11-17T12:37:49+00:00",
+    "permission": "open-public",
+    "synthetic": false,
+    "record_count": 2,
+    "gaps": [],
+    "status": "active"
+  }
+]

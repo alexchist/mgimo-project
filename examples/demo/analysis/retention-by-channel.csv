@@ -1,0 +1,9 @@
+record_type,cohort,channel,active_week4,cohort_size,retention_rate,channel_share,source_rows
+channel,2026-08,organic,160,400,0.400000,0.800000,row:2;row:3
+channel,2026-08,promo,10,100,0.100000,0.200000,row:4;row:5
+blended,2026-08,all,170,500,0.340000,1.000000,row:2;row:3;row:4;row:5
+channel,2026-09,organic,82,200,0.410000,0.200000,row:6;row:7
+channel,2026-09,promo,88,800,0.110000,0.800000,row:8;row:9
+blended,2026-09,all,170,1000,0.170000,1.000000,row:6;row:7;row:8;row:9
+counterfactual,2026-08_rates,2026-09_mix,,,0.160000,,derived
+counterfactual,2026-09_rates,2026-08_mix,,,0.350000,,derived

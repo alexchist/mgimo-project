@@ -1,0 +1,7 @@
+---
+description: Canonical Product Factory Strategist workflow
+alwaysApply: true
+---
+
+Read and follow the repository-root `AGENTS.md`. Treat it as the canonical workflow. Do not copy rules into case artifacts. Load a specific `skills/*/SKILL.md` only when that procedure is needed.
+

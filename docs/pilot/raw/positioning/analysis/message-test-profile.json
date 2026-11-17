@@ -1,0 +1,36 @@
+{
+  "file": "/home/alexchist/strategist-evaluation-50043d69/positioning/projects/positioning-run/sources/originals/S-002__message-test.csv",
+  "sha256": "a4b778883a29cb9144917dfb358708e68f72c3c82007b29b963b733f91debe91",
+  "rows": 2,
+  "columns": {
+    "variant": {
+      "missing": 0,
+      "distinct_nonempty": 2,
+      "numeric_count": 0
+    },
+    "participants": {
+      "missing": 0,
+      "distinct_nonempty": 1,
+      "numeric_count": 2,
+      "min": 8.0,
+      "max": 8.0,
+      "mean": 8.0
+    },
+    "understood_core_value": {
+      "missing": 0,
+      "distinct_nonempty": 2,
+      "numeric_count": 2,
+      "min": 5.0,
+      "max": 7.0,
+      "mean": 6.0
+    },
+    "expected_jira_integration": {
+      "missing": 0,
+      "distinct_nonempty": 2,
+      "numeric_count": 2,
+      "min": 2.0,
+      "max": 7.0,
+      "mean": 4.5
+    }
+  }
+}

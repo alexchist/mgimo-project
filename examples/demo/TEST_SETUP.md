@@ -1,0 +1,1 @@
+Cold fixture: earlier CLI pilot state, corrected CLI now. Retain old artifacts, document schema migration, never call it new evidence. D-001/K-001 are simulated coordinator setup, not owner approval. Incoming update synthetic. Coordinator fixed a setup-only CSV field error before launch; original consumer remains unchanged. No prior conversation/evaluator keys supplied.

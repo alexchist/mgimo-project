@@ -1,0 +1,2 @@
+decision_id,recorded_at,decider,decision_kind,status,chosen_option,conclusion_ids,rejected_options,revisit_on,revisit_if,notes
+D-001,2026-11-17T13:18:14.159807+00:00,scenario-test,simulated,simulated,O-002,C-003;C-006,O-001;O-003;O-004,2026-11-24,Product capability or audience evidence changes,"Synthetic test setup by coordinator; NOT owner approval, no real rollout."

@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "slug": "web-smoke",
+  "title": "Web extraction smoke test",
+  "created_at": "2026-11-17T12:37:48+00:00",
+  "artifact_stage": "working",
+  "mode": "on-demand",
+  "business_decision_status": "pending"
+}
