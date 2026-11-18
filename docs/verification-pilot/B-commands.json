@@ -1,0 +1,30 @@
+{
+  "arm": "B",
+  "requested_model": "gpt-5.6-sol",
+  "requested_effort": "medium",
+  "usage": {
+    "input_tokens": 101983,
+    "cached_input_tokens": 86272,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1312,
+    "reasoning_output_tokens": 578
+  },
+  "commands": [
+    {
+      "command": "/bin/bash -lc \"sed -n '1,240p' BIBLE.md && rg --files -g 'state.md' -g 'scenarios.csv' -g 'decision-memo.md' -g 'brief.md' -g 'options.md' -g 'strategy.md' -g 'SKILL.md' -g 'agenda.md' .\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc \"cat prompts/agenda.md && cat skills/analyze-data/SKILL.md && printf '\\\\n--- scenarios.csv ---\\\\n' && nl -ba materials/scenarios.csv && printf '\\\\n--- project dirs ---\\\\n' && find projects -maxdepth 2 -type f 2>/dev/null | sort\"",
+      "exit_code": 0
+    },
+    {
+      "command": "/bin/bash -lc 'rg -n -C 8 \"провер|scenario|profile|экономик\" tools/README.md README.md tools/strategist.py && sha256sum materials/scenarios.csv && python3 tools/strategist.py profile materials/scenarios.csv'",
+      "exit_code": 2
+    },
+    {
+      "command": "/bin/bash -lc 'python3 tools/economics.py materials/scenarios.csv --months 4 --expect-net subscription 5400 --expect-net manual 9400'",
+      "exit_code": 1
+    }
+  ]
+}

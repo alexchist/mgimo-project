@@ -1,0 +1,3 @@
+option,monthly_price_rub,variable_cost_per_account_month_rub,setup_cost_rub,monthly_fixed_cost_rub,accounts_scenario,scenario_kind
+subscription,1150,790,23000,8200,35,forecast_not_demand
+manual,1050,700,4600,2800,18,forecast_not_demand

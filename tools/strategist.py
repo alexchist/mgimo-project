@@ -29,7 +29,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = "0.4.0"
+VERSION = "0.5.0"
 ROOT = Path(__file__).resolve().parents[1]
 ID_RE = re.compile(r"^[A-Z]+-\d{3,}$")
 OP_STATUSES = {"planned", "in_progress", "succeeded", "failed", "outcome_unknown"}
@@ -46,6 +46,8 @@ REQUIRED_PROJECT_FILES = [
     "decisions/decisions.csv", "commitments.csv", "revisions/revision-log.csv", "runs/operations.csv",
     "runs/ingest-failures.csv",
 ]
+REVISION_SNAPSHOT_DOCUMENTS = ("brief.md", "options.md", "strategy.md", "decision-memo.md", "state.md")
+REVISION_SNAPSHOT_CONTRACT = "strategist.revision-snapshot/1.0"
 SECRET_QUERY_KEYS = {"token", "sig", "signature", "key", "password", "secret", "auth", "authorization",
                      "access_token", "api_key", "apikey", "session", "sessionid", "code"}
 
@@ -60,6 +62,10 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def sha256_bytes(content: bytes) -> str:
+    return hashlib.sha256(content).hexdigest()
 
 
 def atomic_text(path: Path, content: str) -> None:
@@ -844,15 +850,39 @@ def command_revise(args: argparse.Namespace) -> int:
     commitments = read_rows(root / "commitments.csv")
     affected_commitments = [row.get("commitment_id", "") for row in commitments if row.get("decision_id") in affected_decisions and row.get("commitment_id")]
     revision_path = root / "revisions" / "revision-log.csv"
-    revision_fields = ["revision_id", "recorded_at", "old_claim_id", "old_status", "new_status", "new_claim_id", "reason", "evidence_action", "affected_conclusions", "affected_decisions", "affected_commitments", "human_review_required"]
+    revision_fields = ["revision_id", "recorded_at", "old_claim_id", "old_status", "new_status", "new_claim_id", "reason", "evidence_action", "affected_conclusions", "affected_decisions", "affected_commitments", "human_review_required", "snapshot_manifest_sha256"]
     revisions = read_rows(revision_path)
     revision_id = next_id([row["revision_id"] for row in revisions], "R")
+    snapshot = root / "revisions" / f"{revision_id}-before"
+    snapshot_manifest = root / "revisions" / f"{revision_id}-before.manifest.json"
+    if (root / "revisions").is_symlink() or snapshot.is_symlink():
+        raise SystemExit("Архивы должны находиться в обычном каталоге revisions внутри кейса.")
+    if snapshot.exists() and (not snapshot.is_dir() or any(p.name in REVISION_SNAPSHOT_DOCUMENTS for p in snapshot.iterdir())):
+        raise SystemExit(f"Снимок {snapshot.name} уже существует; перезапись истории запрещена.")
+    if snapshot_manifest.exists() or snapshot_manifest.is_symlink():
+        raise SystemExit(f"Опись {snapshot_manifest.name} уже существует; перезапись истории запрещена.")
+    snapshots: dict[str, bytes] = {}
+    snapshot_inventory: dict[str, dict[str, str | int]] = {}
+    for name in REVISION_SNAPSHOT_DOCUMENTS:
+        source = root / name
+        if source.is_file():
+            content = source.read_bytes()
+            snapshots[(snapshot / name).relative_to(root).as_posix()] = content
+            snapshot_inventory[name] = {"sha256": sha256_bytes(content), "bytes": len(content)}
+    snapshot_manifest_bytes = (json.dumps({
+        "contract": REVISION_SNAPSHOT_CONTRACT,
+        "revision_id": revision_id,
+        "kind": "before_revision_archive",
+        "files": snapshot_inventory,
+    }, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+    snapshot_manifest_digest = sha256_bytes(snapshot_manifest_bytes)
     revisions.append({"revision_id": revision_id, "recorded_at": now(), "old_claim_id": args.claim, "old_status": old_status,
                       "new_status": old["status"], "new_claim_id": new_id, "reason": args.reason,
                       "evidence_action": evidence_action,
                       "affected_conclusions": ";".join(affected), "affected_decisions": ";".join(affected_decisions),
                       "affected_commitments": ";".join(affected_commitments),
-                      "human_review_required": "yes" if affected else "no"})
+                      "human_review_required": "yes" if affected else "no",
+                      "snapshot_manifest_sha256": snapshot_manifest_digest})
     report = root / "revisions" / f"{revision_id}.md"
     report_text = f"# {revision_id}: пересмотр основания\n\n- Старое утверждение: `{args.claim}` ({old_status} → {old['status']})\n- Новое утверждение: `{new_id or 'нет'}`\n- Evidence: {evidence_action}\n- Причина: {args.reason}\n- Выводы на проверку: {', '.join(affected) or 'нет автоматических связей'}\n- Исторические решения, которые могут быть затронуты: {', '.join(affected_decisions) or 'нет'}\n- Связанные обязательства на проверку: {', '.join(affected_commitments) or 'нет'}\n\n## Обязательный смысловой пересчёт агентом\n\nПосле проверки `C-*` заново сравнить рекомендацию с ближайшей альтернативой и обновить `options.md`, продуктовую и коммуникационную части `strategy.md`, матрицу обещаний, существующий `decision-memo.md` (в legacy 1.0 без него — краткое резюме в `state.md`) и cold-resume блок `state.md`. Явно перечислить изменившееся и неизменное.\n\nКод не менял и не отменял решения человека или обязательства. Пересчитанная рекомендация не является решением. Для затронутого действующего решения требуется новый явный человеческий выбор и новая append-only запись.\n"
     changes = {
@@ -861,17 +891,12 @@ def command_revise(args: argparse.Namespace) -> int:
         revision_path.relative_to(root).as_posix(): rows_text(revision_fields, revisions),
         report.relative_to(root).as_posix(): report_text,
     }
-    snapshot = root / "revisions" / f"{revision_id}-before"
-    documents = ("brief.md", "options.md", "strategy.md", "decision-memo.md", "state.md")
-    if snapshot.exists() and (not snapshot.is_dir() or any((snapshot / name).exists() for name in documents)):
-        raise SystemExit(f"Снимок {snapshot.name} уже существует; перезапись истории запрещена.")
-    snapshots = {}
-    for name in documents:
-        source = root / name
-        if source.is_file():
-            snapshots[(snapshot / name).relative_to(root).as_posix()] = source.read_bytes()
-    changes[report.relative_to(root).as_posix()] += f"\nСнимок существовавших документов до пересмотра: `{snapshot.name}/`. Сначала revise, затем редактура документов; снимок не восстанавливает правки, сделанные до вызова.\n"
-    changes = {**snapshots, **{name: text.encode("utf-8") for name, text in changes.items()}}
+    changes[report.relative_to(root).as_posix()] += f"\nСнимок существовавших документов до пересмотра: `{snapshot.name}/`; контрольная опись: `{snapshot_manifest.name}`. Сначала revise, затем редактура документов; снимок не восстанавливает правки, сделанные до вызова.\n"
+    changes = {
+        **snapshots,
+        snapshot_manifest.relative_to(root).as_posix(): snapshot_manifest_bytes,
+        **{name: text.encode("utf-8") for name, text in changes.items()},
+    }
     pending = root / "revisions" / f".pending-{revision_id}.json"
     if pending.exists():
         raise SystemExit(f"Незавершённый {revision_id}: сначала revision-recover.")
@@ -944,6 +969,182 @@ def command_revision_recover(args: argparse.Namespace) -> int:
     pending.unlink()
     print(json.dumps({"revision_id": args.revision, "result": args.mode}, ensure_ascii=False))
     return 0
+
+
+def inspect_revision_snapshots(root: Path, revisions: list[dict[str, str]]) -> tuple[dict, list[str], list[str]]:
+    """Verify durable before-revision archives without treating them as current documents."""
+    items: list[dict] = []
+    errors: list[str] = []
+    warnings: list[str] = []
+    allowed_names = set(REVISION_SNAPSHOT_DOCUMENTS)
+
+    for row in revisions:
+        revision_id = row.get("revision_id", "")
+        if not re.fullmatch(r"R-\d{3,}", revision_id):
+            continue  # The revision registry check reports the unsafe/invalid identifier.
+        snapshot_relative = f"revisions/{revision_id}-before"
+        manifest_relative = f"revisions/{revision_id}-before.manifest.json"
+        snapshot = root / snapshot_relative
+        manifest_path = root / manifest_relative
+        recorded_digest = row.get("snapshot_manifest_sha256", "")
+        item = {
+            "revision_id": revision_id,
+            "kind": "before_revision_archive",
+            "snapshot_path": snapshot_relative,
+            "manifest_path": manifest_relative if recorded_digest else None,
+            "status": "verified",
+            "files": [],
+            "issues": [],
+        }
+
+        def damage(code: str, message: str, path: str | None = None) -> None:
+            issue = {"code": code, "message": message}
+            if path is not None:
+                issue["path"] = path
+            item["issues"].append(issue)
+            item["status"] = "damaged"
+            errors.append(message)
+
+        if not recorded_digest:
+            item["status"] = "legacy_unverifiable"
+            item["snapshot_present"] = snapshot.is_dir() and not snapshot.is_symlink()
+            message = (
+                f"{revision_id}: legacy revision без сохранённой описи; наличие и неизменность "
+                "архива до исправления не доказаны."
+            )
+            item["issues"].append({"code": "legacy_no_manifest_evidence", "message": message})
+            warnings.append(message)
+            items.append(item)
+            continue
+
+        if not re.fullmatch(r"[0-9a-f]{64}", recorded_digest):
+            damage(
+                "manifest_digest_invalid",
+                f"{revision_id}: в журнале некорректный hash описи архива до исправления.",
+                "revisions/revision-log.csv",
+            )
+            items.append(item)
+            continue
+        if manifest_path.is_symlink() or not manifest_path.is_file():
+            damage(
+                "manifest_missing",
+                f"{revision_id}: сохранённая опись архива до исправления отсутствует: {manifest_relative}.",
+                manifest_relative,
+            )
+            items.append(item)
+            continue
+        if sha256(manifest_path) != recorded_digest:
+            damage(
+                "manifest_modified",
+                f"{revision_id}: сохранённая опись архива до исправления изменена: {manifest_relative}.",
+                manifest_relative,
+            )
+            items.append(item)
+            continue
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            damage(
+                "manifest_invalid",
+                f"{revision_id}: сохранённая опись архива до исправления не читается как JSON: {exc}.",
+                manifest_relative,
+            )
+            items.append(item)
+            continue
+        if not isinstance(manifest, dict):
+            damage(
+                "manifest_invalid",
+                f"{revision_id}: сохранённая опись архива до исправления должна быть JSON object.",
+                manifest_relative,
+            )
+            items.append(item)
+            continue
+        if manifest.get("contract") != REVISION_SNAPSHOT_CONTRACT or manifest.get("revision_id") != revision_id or manifest.get("kind") != "before_revision_archive":
+            damage(
+                "manifest_identity_mismatch",
+                f"{revision_id}: сохранённая опись не подтверждает ожидаемый архив до исправления.",
+                manifest_relative,
+            )
+            items.append(item)
+            continue
+        inventory = manifest.get("files")
+        if not isinstance(inventory, dict):
+            damage(
+                "manifest_invalid",
+                f"{revision_id}: в сохранённой описи нет object `files`.",
+                manifest_relative,
+            )
+            items.append(item)
+            continue
+        unsafe_names = sorted(name for name in inventory if not isinstance(name, str) or name not in allowed_names)
+        if unsafe_names:
+            damage(
+                "manifest_file_name_invalid",
+                f"{revision_id}: опись содержит недопустимые имена файлов; произвольные пути не читаются: {unsafe_names!r}.",
+                manifest_relative,
+            )
+        valid_inventory: dict[str, dict] = {}
+        for name, record in inventory.items():
+            if not isinstance(name, str) or name not in allowed_names:
+                continue
+            if (not isinstance(record, dict)
+                    or not re.fullmatch(r"[0-9a-f]{64}", str(record.get("sha256", "")))
+                    or isinstance(record.get("bytes"), bool)
+                    or not isinstance(record.get("bytes"), int)
+                    or record["bytes"] < 0):
+                damage(
+                    "manifest_file_record_invalid",
+                    f"{revision_id}: опись содержит некорректную запись файла {name}.",
+                    manifest_relative,
+                )
+                continue
+            valid_inventory[name] = record
+        item["files"] = sorted(valid_inventory)
+
+        if snapshot.is_symlink() or (snapshot.exists() and not snapshot.is_dir()):
+            damage(
+                "snapshot_not_directory",
+                f"{revision_id}: путь архива до исправления не является обычным каталогом: {snapshot_relative}.",
+                snapshot_relative,
+            )
+            items.append(item)
+            continue
+        if not snapshot.is_dir():
+            damage(
+                "snapshot_missing",
+                f"{revision_id}: каталог архива до исправления отсутствует: {snapshot_relative}.",
+                snapshot_relative,
+            )
+            items.append(item)
+            continue
+        for name, record in valid_inventory.items():
+            archived_relative = f"{snapshot_relative}/{name}"
+            archived = snapshot / name  # name was checked against the fixed allow-list above.
+            if archived.is_symlink() or not archived.is_file():
+                damage(
+                    "file_missing",
+                    f"{revision_id}: из архива до исправления исчез файл {archived_relative}.",
+                    archived_relative,
+                )
+                continue
+            if archived.stat().st_size != record["bytes"] or sha256(archived) != record["sha256"]:
+                damage(
+                    "file_modified",
+                    f"{revision_id}: файл архива до исправления изменён относительно описи: {archived_relative}.",
+                    archived_relative,
+                )
+        items.append(item)
+
+    summary = {
+        "scope": "Проверяются только архивы документов до revise; текущие brief/options/strategy/memo/state с ними не сравниваются.",
+        "items": items,
+        "counts": {
+            "verified": sum(item["status"] == "verified" for item in items),
+            "damaged": sum(item["status"] == "damaged" for item in items),
+            "legacy_unverifiable": sum(item["status"] == "legacy_unverifiable" for item in items),
+        },
+    }
+    return summary, errors, warnings
 
 
 def check_project(root: Path) -> dict:
@@ -1169,6 +1370,9 @@ def check_project(root: Path) -> dict:
             errors.append(f"{identifier}: неизвестные affected_decisions {sorted(affected_decisions - decision_ids)}.")
         if affected_commitments - commitment_ids:
             errors.append(f"{identifier}: неизвестные affected_commitments {sorted(affected_commitments - commitment_ids)}.")
+    revision_snapshots, snapshot_errors, snapshot_warnings = inspect_revision_snapshots(root, revisions)
+    errors.extend(snapshot_errors)
+    warnings.extend(snapshot_warnings)
     operations = read_rows(root / "runs" / "operations.csv")
     operation_ids = {row.get("operation_id", "") for row in operations}
     if len(operation_ids) != len(operations):
@@ -1227,6 +1431,7 @@ def check_project(root: Path) -> dict:
                              "is_completed_decision": artifact_stage == "decision_recorded" and recorded_human_decision and not errors,
                              "not_proven": "Смысловая поддержка claims, качество вариантов и стратегии кодом не проверяются."},
               "errors": errors, "warnings": warnings,
+              "revision_snapshots": revision_snapshots,
               "counts": {"sources": len(sources), "claims": len(claims), "conclusions": len(conclusions), "decisions": len(decisions), "commitments": len(commitments), "revisions": len(revisions), "operations": len(operations), "ingest_failures": len(ingest_failures)}}
     return result
 
@@ -1379,6 +1584,7 @@ def command_resume(args: argparse.Namespace) -> int:
             "ok": check["ok"],
             "errors": check["errors"],
             "warnings": check["warnings"],
+            "revision_snapshots": check["revision_snapshots"],
             "reproduce_with": "python3 tools/strategist.py check " + str(root),
         },
         "read_full_artifacts": ["brief.md", "options.md", "strategy.md"]

@@ -6,6 +6,8 @@
 
 **[Как пользоваться промптами — четыре запроса](docs/prompt-guide.md)** · [Конституция Стратега](BIBLE.md) · [Обзор для владельца](docs/OWNER_REPORT.md) · [Что перенесено из Ouroboros и зачем](docs/architecture.md#что-взято-из-ouroboros).
 
+В v0.5 `resume` замечает порчу сохранённой стратегии, а цифру в записке можно сравнить с расчётом подписки отдельной командой. [Пример ошибки и парная проверка](docs/verification-pilot/README.md).
+
 ## Быстрый старт за 3 минуты
 
 Нужно: Python 3.11+ и `pdftotext` (Poppler) для PDF с текстовым слоем. Для DOCX/CSV/XLSX/HTML/TXT/Markdown используются только стандартные модули Python; API-ключи и `pip install` не нужны.
@@ -66,6 +68,9 @@ python3 tools/strategist.py ingest projects/my-case https://example.com/page --p
 python3 tools/strategist.py profile data.csv --output projects/my-case/analysis/profile.json
 python3 tools/strategist.py retention data.csv --output projects/my-case/analysis/retention.csv
 
+# Проверить сумму в черновике по простому сценарию подписки (без записи)
+python3 tools/economics.py evals/cases/decision-economics/economics.csv --months 3 --expect-net paid_pilot 165000
+
 # Integrity, unknown outcomes и correction impact
 python3 tools/strategist.py check projects/my-case
 python3 tools/strategist.py recover projects/my-case
@@ -95,7 +100,7 @@ python3 tools/strategist.py revision-recover projects/my-case --revision R-002 -
 
 [Практики пяти авторов](docs/research/books-to-practice.md) стали частью существующих skills: диагноз до функции, сильная ближайшая альтернатива, условия смены, реальные ресурсы и короткая записка. Книги целиком не прочитаны: открытые статьи и официальный фрагмент.
 
-[Пять новых прогонов и честное сравнение](docs/pilot-v03/README.md): оба initial, оба cold и неудобный кейс. Превосходство над обычной сильной сессией не доказано; папка медленнее в этом пилоте. Последний cold-run потерял прежние тексты (их сохранил координатор); после этого `revise` научен сохранять существующие brief/options/strategy/memo/state в `revisions/R-*-before/` перед обновлением. Исправление проверено тестами и на копии реального кейса, не новым полным LLM-прогоном. Вызывать revise нужно **до** редактирования документов. Снимки не защищены от ручной правки/удаления, `check` не контролирует их hashes.
+[Пять новых прогонов и честное сравнение](docs/pilot-v03/README.md): оба initial, оба cold и неудобный кейс. Превосходство над обычной сильной сессией не доказано; папка медленнее в этом пилоте. Последний cold-run потерял прежние тексты (их сохранил координатор); после этого `revise` научен сохранять существующие brief/options/strategy/memo/state в `revisions/R-*-before/` перед обновлением. Исправление проверено тестами и на копии реального кейса, не новым полным LLM-прогоном. Вызывать revise нужно **до** редактирования документов. В v0.3 `check` не замечал ручную порчу снимков. С v0.5 он сверяет снимки новых ревизий с описью; данные старых кейсов не переаттестуются.
 
 Для чтения результата: `docs/pilot-v03/raw/folder-cold/results/decision-memo.md`; рядом отчёт отмечает оставшиеся смысловые ошибки raw. Старые PDF/видео v0.2 не обновлялись, в новый исходный архив не входят.
 

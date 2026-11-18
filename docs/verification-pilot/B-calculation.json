@@ -1,0 +1,56 @@
+{
+  "schema": "strategist.subscription-scenario/1",
+  "months": 4,
+  "input_sha256": "9ecda3b85f23d2e2cbd57a3eb5a40e7ce3b4013af7bd4c0080f9c67789f8338e",
+  "scope": "Constant paying accounts and rates for all months; scenario arithmetic only.",
+  "formula": "months * accounts * (price - variable) - setup - months * fixed",
+  "scenarios": {
+    "subscription": {
+      "data_record": 1,
+      "inputs": {
+        "option": "subscription",
+        "monthly_price_rub": "1150",
+        "variable_cost_per_account_month_rub": "790",
+        "setup_cost_rub": "23000",
+        "monthly_fixed_cost_rub": "8200",
+        "accounts_scenario": "35",
+        "scenario_kind": "forecast_not_demand"
+      },
+      "revenue_rub": "161000.00",
+      "variable_total_rub": "110600.00",
+      "fixed_total_including_setup_rub": "55800.00",
+      "net_rub": "-5400.00",
+      "min_accounts_for_net_nonnegative": 39
+    },
+    "manual": {
+      "data_record": 2,
+      "inputs": {
+        "option": "manual",
+        "monthly_price_rub": "1050",
+        "variable_cost_per_account_month_rub": "700",
+        "setup_cost_rub": "4600",
+        "monthly_fixed_cost_rub": "2800",
+        "accounts_scenario": "18",
+        "scenario_kind": "forecast_not_demand"
+      },
+      "revenue_rub": "75600.00",
+      "variable_total_rub": "50400.00",
+      "fixed_total_including_setup_rub": "15800.00",
+      "net_rub": "9400.00",
+      "min_accounts_for_net_nonnegative": 12
+    }
+  },
+  "comparisons": {
+    "subscription": {
+      "claimed_net_rub": "5400.00",
+      "calculated_net_rub": "-5400.00",
+      "matches": false
+    },
+    "manual": {
+      "claimed_net_rub": "9400.00",
+      "calculated_net_rub": "9400.00",
+      "matches": true
+    }
+  },
+  "status": "mismatch"
+}
