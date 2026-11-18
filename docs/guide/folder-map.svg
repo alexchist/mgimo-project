@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 830" width="1080" height="830" xml:lang="ru"><title>Как устроена папка Стратега</title><desc>Снаружи — руководитель и модель в редакторе. Внутри — инструкции, инструменты и рабочая папка каждого кейса.</desc>
+<rect x="0" y="0" width="1080" height="830" rx="0" fill="#FAF8F1" stroke="none" stroke-width="1.6"/>
+<text x="40" y="42" font-family="DejaVu Sans" font-size="15" font-weight="bold" fill="#006554">Стратег Фабрики продуктов</text>
+<text x="725" y="42" font-family="DejaVu Sans" font-size="16" font-weight="normal" fill="#425B57">Путеводитель по папке  /  v0.5</text>
+<path d="M40 58 H1040" fill="none" stroke="#AAC3BA" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="115" font-family="DejaVu Serif" font-size="42" font-weight="normal" fill="#182E2C">Как устроена папка Стратега</text>
+<text x="42" y="150" font-family="DejaVu Sans" font-size="19" font-weight="normal" fill="#425B57">Модель работает в редакторе. В папке остаются материалы, записка и история выбора.</text>
+<rect x="40" y="178" width="1000" height="68" rx="10" fill="#182E2C" stroke="none" stroke-width="1.6"/>
+<text x="62" y="207" font-family="DejaVu Sans" font-size="21" font-weight="bold" fill="#FFFFFF">Руководитель</text>
+<text x="62" y="230" font-family="DejaVu Sans" font-size="16" font-weight="normal" fill="#D0E2DB">Ставит вопрос и принимает решение</text>
+<path d="M452,212 L396,212" fill="none" stroke="#C3E6DA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M402,207 l-6,5 l6,5" fill="none" stroke="#C3E6DA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M396,202 L452,202" fill="none" stroke="#C3E6DA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M446,197 l6,5 l-6,5" fill="none" stroke="#C3E6DA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="502" y="207" font-family="DejaVu Sans" font-size="21" font-weight="bold" fill="#FFFFFF">Модель в Cursor или Codex</text>
+<text x="502" y="230" font-family="DejaVu Sans" font-size="16" font-weight="normal" fill="#D0E2DB">Читает файлы, выбирает шаг и готовит совет</text>
+<path d="M735,247 L735,281" fill="none" stroke="#006554" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M730,275 l5,6 l5,-6" fill="none" stroke="#006554" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M40 745 V273 Q40 263 50 263 H247 L271 288 H1030 Q1040 288 1040 298 V745 Q1040 755 1030 755 H50 Q40 755 40 745 Z" fill="#FFFFFF" stroke="#AAC3BA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="58" y="284" font-family="DejaVu Sans Mono" font-size="16" font-weight="bold" fill="#006554">mgimo-project/</text>
+<text x="65" y="326" font-family="DejaVu Sans" font-size="25" font-weight="bold" fill="#182E2C">Общее для всех задач</text>
+<text x="65" y="354" font-family="DejaVu Sans" font-size="17" font-weight="normal" fill="#425B57">Чем пользуется агент</text>
+<path d="M461 307 V658" fill="none" stroke="#AAC3BA" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="65" y="406" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#006554">Правила работы</text>
+<text x="65" y="434" font-family="DejaVu Sans Mono" font-size="16" font-weight="normal" fill="#182E2C">AGENTS.md  →  BIBLE.md</text>
+<text x="65" y="459" font-family="DejaVu Sans" font-size="15.5" font-weight="normal" fill="#425B57">С чего начать и что решает человек.</text>
+<text x="65" y="505" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#006554">Методики по задаче</text>
+<text x="65" y="533" font-family="DejaVu Sans Mono" font-size="16" font-weight="normal" fill="#182E2C">skills/   knowledge/   prompts/</text>
+<text x="65" y="558" font-family="DejaVu Sans" font-size="15.5" font-weight="normal" fill="#425B57">Как оценить вариант или проверить письмо.</text>
+<text x="65" y="606" font-family="DejaVu Sans" font-size="20" font-weight="bold" fill="#006554">Инструменты</text>
+<text x="65" y="634" font-family="DejaVu Sans Mono" font-size="16" font-weight="normal" fill="#182E2C">tools/</text>
+<text x="65" y="659" font-family="DejaVu Sans" font-size="15.5" font-weight="normal" fill="#425B57">Читают документы, считают, сверяют архив.</text>
+<text x="489" y="326" font-family="DejaVu Sans" font-size="25" font-weight="bold" fill="#182E2C">Рабочая папка одной задачи</text>
+<text x="489" y="354" font-family="DejaVu Sans Mono" font-size="17" font-weight="normal" fill="#006554">projects/&lt;кейс&gt;/</text>
+<rect x="489" y="385" width="31" height="29" rx="6" fill="#E0EEE8" stroke="none" stroke-width="1.6"/>
+<text x="497" y="406" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="#006554">1</text>
+<text x="535" y="405" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#182E2C">Собрать материалы</text>
+<text x="535" y="430" font-family="DejaVu Sans Mono" font-size="15.5" font-weight="normal" fill="#425B57">sources/   →   evidence/   +   analysis/</text>
+<path d="M505,420 L505,455" fill="none" stroke="#AAC3BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M500,449 l5,6 l5,-6" fill="none" stroke="#AAC3BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="489" y="463" width="31" height="29" rx="6" fill="#E0EEE8" stroke="none" stroke-width="1.6"/>
+<text x="497" y="484" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="#006554">2</text>
+<text x="535" y="483" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#182E2C">Сравнить варианты и написать совет</text>
+<text x="535" y="508" font-family="DejaVu Sans Mono" font-size="15.5" font-weight="normal" fill="#425B57">options.md   →   strategy.md   →   decision-memo.md</text>
+<path d="M505,498 L505,533" fill="none" stroke="#AAC3BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M500,527 l5,6 l5,-6" fill="none" stroke="#AAC3BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="489" y="541" width="31" height="29" rx="6" fill="#E0EEE8" stroke="none" stroke-width="1.6"/>
+<text x="497" y="562" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="#006554">3</text>
+<text x="535" y="561" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#182E2C">Записать решение и договорённости</text>
+<text x="535" y="586" font-family="DejaVu Sans Mono" font-size="15.5" font-weight="normal" fill="#425B57">decisions/   +   commitments.csv</text>
+<path d="M505,576 L505,611" fill="none" stroke="#AAC3BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M500,605 l5,6 l5,-6" fill="none" stroke="#AAC3BA" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="489" y="619" width="31" height="29" rx="6" fill="#E0EEE8" stroke="none" stroke-width="1.6"/>
+<text x="497" y="640" font-family="DejaVu Sans" font-size="18" font-weight="bold" fill="#006554">4</text>
+<text x="535" y="639" font-family="DejaVu Sans" font-size="19" font-weight="bold" fill="#182E2C">Продолжить работу или уточнить совет</text>
+<text x="535" y="664" font-family="DejaVu Sans Mono" font-size="15.5" font-weight="normal" fill="#425B57">state.md   +   revisions/   +   runs/</text>
+<rect x="56" y="687" width="968" height="53" rx="8" fill="#E0EEE8" stroke="none" stroke-width="1.6"/>
+<text x="72" y="719" font-family="DejaVu Sans Mono" font-size="18" font-weight="bold" fill="#006554">.portfolio/</text>
+<text x="229" y="719" font-family="DejaVu Sans" font-size="18" font-weight="normal" fill="#182E2C">Урок для других кейсов — только с разрешения, без переноса решения.</text>
+<path d="M40 780 H1040" fill="none" stroke="#AAC3BA" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="40" y="808" font-family="DejaVu Sans" font-size="14" font-weight="normal" fill="#425B57">18 ноября 2026   /   Версия проекта: 91ab1d2</text>
+<text x="985" y="808" font-family="DejaVu Sans" font-size="14" font-weight="bold" fill="#006554">01 / 03</text>
+</svg>
