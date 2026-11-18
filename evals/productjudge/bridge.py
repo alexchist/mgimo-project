@@ -51,7 +51,7 @@ def checked_answer(out, name, turn, messages):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('step', choices=['prepare','repairs','assemble']); p.add_argument('split', type=Path); p.add_argument('work', type=Path)
-    args = p.parse_args(); work=args.work
+    p.add_argument('--model',default='GigaChat-3-Ultra'); args = p.parse_args(); work=args.work
     root=Path(__file__).resolve().parents[2]
     work.mkdir(parents=True, exist_ok=True)
     batch=[]; records=[]
@@ -67,9 +67,11 @@ def main():
             continue
         used=[]
         def replay(msgs):
-            r=checked_answer(work, name, len(used)+1, prefix+msgs); used.append(r)
-            return Completion(r['answer'], Usage(r['usage']['prompt_tokens'], r['usage']['completion_tokens']))
-        rec=run_scenario(s, 'GigaChat-3-Ultra/'+arm, replay)
+            r=checked_answer(work, name, len(used)+1, prefix+msgs)
+            if r['served'].split(':')[0] != args.model: raise ValueError('wrong model')
+            used.append(r)
+            return Completion(r['answer'], Usage(r['usage']['prompt_tokens'] or 0, r['usage']['completion_tokens'] or 0))
+        rec=run_scenario(s, args.model+'/'+arm, replay)
         if rec.is_provider_failure: raise ValueError(rec.error)
         rec.duration_s=round(sum(r['seconds'] for r in used),3)
         records.append(rec)
