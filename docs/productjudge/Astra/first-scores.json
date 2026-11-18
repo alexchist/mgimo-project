@@ -1,0 +1,1222 @@
+[
+  {
+    "model": "gpt-6.2-astra/A",
+    "benchmark_version": "0.2.0",
+    "n_scenarios": 24,
+    "format_compliance": 1.0,
+    "branch_accuracy": 0.9583333333333334,
+    "decision": 0.96875,
+    "dimensions": {
+      "clarification": {
+        "fraction": 1.0,
+        "n_families": 2,
+        "n_items": 3
+      },
+      "coverage": {
+        "fraction": 0.5,
+        "n_families": 1,
+        "n_items": 4
+      },
+      "decision": {
+        "fraction": 0.9583333333333334,
+        "n_families": 8,
+        "n_items": 21
+      },
+      "sequencing": {
+        "fraction": 1.0,
+        "n_families": 1,
+        "n_items": 2
+      },
+      "signal_analysis": {
+        "fraction": 1.0,
+        "n_families": 1,
+        "n_items": 2
+      }
+    },
+    "overall": 0.8916666666666666,
+    "feasibility_rate": 1.0,
+    "mean_regret": 0.0,
+    "scenarios": [
+      {
+        "instance_id": "ab-market-001",
+        "family": "ab-readout",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='ship' acceptable=['ship']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "ab-market-002",
+        "family": "ab-readout",
+        "variant": "precomputed",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='ship' acceptable=['ship']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "ab-simpson-001",
+        "family": "ab-readout",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='hold' acceptable=['hold']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "ab-simpson-002",
+        "family": "ab-readout",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='ship' acceptable=['ship']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "act-logistics-001",
+        "family": "build-configure-decline",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.CONFIGURE acceptable=['configure']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "act-logistics-002",
+        "family": "build-configure-decline",
+        "variant": "invariance",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.CONFIGURE acceptable=['configure']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "cap-cloud-001",
+        "family": "capacity-prioritization",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['autoscale-v2', 'billing-api', 'data-residency', 'sla-dashboard', 'spot-orchestrator'] optimal=[['autoscale-v2', 'billing-api', 'data-residency', 'sla-dashboard', 'spot-orchestrator']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "1/1 dependency edges respected"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "all criteria covered"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "cap-cloud-002",
+        "family": "capacity-prioritization",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['autoscale-v2', 'data-residency', 'gpu-serving', 'sla-dashboard'] optimal=[['autoscale-v2', 'data-residency', 'gpu-serving', 'sla-dashboard']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": false,
+            "score": 0.0,
+            "detail": "no dependency edges among the model's selected set"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 0.0,
+            "detail": "S1: no coverage claimed; S2: no coverage claimed"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "cap-fintech-001",
+        "family": "capacity-prioritization",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['ledger-api', 'sso-scim', 'webhooks-v2'] optimal=[['ledger-api', 'sso-scim', 'webhooks-v2']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "1/1 dependency edges respected"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "all criteria covered"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "cap-fintech-002",
+        "family": "capacity-prioritization",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['card-issuing', 'sandbox-env', 'sso-scim'] optimal=[['card-issuing', 'sandbox-env', 'sso-scim']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": false,
+            "score": 0.0,
+            "detail": "no dependency edges among the model's selected set"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 0.0,
+            "detail": "S1: no coverage claimed"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "clarify-hipaa-001",
+        "family": "clarify-vs-decide",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.DECLINE acceptable=['decline']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "clarify-hipaa-002",
+        "family": "clarify-vs-decide",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_clarify",
+            "dimension": "clarification",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-scope']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "clarify-iot-001",
+        "family": "clarify-vs-decide",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_clarify",
+            "dimension": "clarification",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-cloud']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "clarify-iot-002",
+        "family": "clarify-vs-decide",
+        "variant": "control",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "conf-devtools-001",
+        "family": "conflicting-customers",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['problem-api-webhooks'] optimal=[['problem-api-webhooks']] feasible=True regret=0.0"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "conf-devtools-002",
+        "family": "conflicting-customers",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['acme-deep-integration'] optimal=[['acme-deep-integration']] feasible=True regret=0.0"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "hist-onboarding-001",
+        "family": "historical-attribution",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "hist-onboarding-002",
+        "family": "historical-attribution",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.EXPERIMENT acceptable=['experiment']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-featureask-001",
+        "family": "messy-intake",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.DEFER acceptable=['defer']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-featureask-002",
+        "family": "messy-intake",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": false,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 0.0,
+            "detail": "action=None acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-renewal-001",
+        "family": "messy-intake",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_clarify",
+            "dimension": "clarification",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "asked=['q-budget'] required=['q-budget'] allowed=['q-billing', 'q-budget']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-renewal-002",
+        "family": "messy-intake",
+        "variant": "control",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "sig-hrtech-001",
+        "family": "signal-analysis",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          },
+          {
+            "gold_id": "g2",
+            "check": "cluster_labels",
+            "dimension": "signal_analysis",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "balanced_accuracy=1.000 per_dim={'confidence': 1.0, 'materiality': 1.0, 'signal_type': 1.0} exact=15/15"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "sig-hrtech-002",
+        "family": "signal-analysis",
+        "variant": "haystack",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          },
+          {
+            "gold_id": "g2",
+            "check": "cluster_labels",
+            "dimension": "signal_analysis",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "balanced_accuracy=1.000 per_dim={'confidence': 1.0, 'materiality': 1.0, 'signal_type': 1.0} exact=15/15"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      }
+    ]
+  },
+  {
+    "model": "gpt-6.2-astra/B",
+    "benchmark_version": "0.2.0",
+    "n_scenarios": 24,
+    "format_compliance": 1.0,
+    "branch_accuracy": 0.9583333333333334,
+    "decision": 0.96875,
+    "dimensions": {
+      "clarification": {
+        "fraction": 1.0,
+        "n_families": 2,
+        "n_items": 3
+      },
+      "coverage": {
+        "fraction": 0.5,
+        "n_families": 1,
+        "n_items": 4
+      },
+      "decision": {
+        "fraction": 0.9583333333333334,
+        "n_families": 8,
+        "n_items": 21
+      },
+      "sequencing": {
+        "fraction": 1.0,
+        "n_families": 1,
+        "n_items": 2
+      },
+      "signal_analysis": {
+        "fraction": 1.0,
+        "n_families": 1,
+        "n_items": 2
+      }
+    },
+    "overall": 0.8916666666666666,
+    "feasibility_rate": 1.0,
+    "mean_regret": 0.0,
+    "scenarios": [
+      {
+        "instance_id": "ab-market-001",
+        "family": "ab-readout",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='ship' acceptable=['ship']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "ab-market-002",
+        "family": "ab-readout",
+        "variant": "precomputed",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='ship' acceptable=['ship']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "ab-simpson-001",
+        "family": "ab-readout",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='hold' acceptable=['hold']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "ab-simpson-002",
+        "family": "ab-readout",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_slot",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "slot[ab_decision]='ship' acceptable=['ship']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "act-logistics-001",
+        "family": "build-configure-decline",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.CONFIGURE acceptable=['configure']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "act-logistics-002",
+        "family": "build-configure-decline",
+        "variant": "invariance",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.CONFIGURE acceptable=['configure']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "cap-cloud-001",
+        "family": "capacity-prioritization",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['autoscale-v2', 'billing-api', 'data-residency', 'sla-dashboard', 'spot-orchestrator'] optimal=[['autoscale-v2', 'billing-api', 'data-residency', 'sla-dashboard', 'spot-orchestrator']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "1/1 dependency edges respected"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "all criteria covered"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "cap-cloud-002",
+        "family": "capacity-prioritization",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['autoscale-v2', 'data-residency', 'gpu-serving', 'sla-dashboard'] optimal=[['autoscale-v2', 'data-residency', 'gpu-serving', 'sla-dashboard']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": false,
+            "score": 0.0,
+            "detail": "no dependency edges among the model's selected set"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 0.0,
+            "detail": "S1: no coverage claimed; S2: no coverage claimed"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "cap-fintech-001",
+        "family": "capacity-prioritization",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['ledger-api', 'sso-scim', 'webhooks-v2'] optimal=[['ledger-api', 'sso-scim', 'webhooks-v2']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "1/1 dependency edges respected"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "all criteria covered"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "cap-fintech-002",
+        "family": "capacity-prioritization",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['card-issuing', 'sandbox-env', 'sso-scim'] optimal=[['card-issuing', 'sandbox-env', 'sso-scim']] feasible=True regret=0.0"
+          },
+          {
+            "gold_id": "g2",
+            "check": "sequence",
+            "dimension": "sequencing",
+            "weight": 1.0,
+            "applicable": false,
+            "score": 0.0,
+            "detail": "no dependency edges among the model's selected set"
+          },
+          {
+            "gold_id": "g3",
+            "check": "coverage",
+            "dimension": "coverage",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 0.0,
+            "detail": "S1: no coverage claimed"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "clarify-hipaa-001",
+        "family": "clarify-vs-decide",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.DECLINE acceptable=['decline']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "clarify-hipaa-002",
+        "family": "clarify-vs-decide",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_clarify",
+            "dimension": "clarification",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-scope']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "clarify-iot-001",
+        "family": "clarify-vs-decide",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_clarify",
+            "dimension": "clarification",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-cloud']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "clarify-iot-002",
+        "family": "clarify-vs-decide",
+        "variant": "control",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "conf-devtools-001",
+        "family": "conflicting-customers",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['problem-api-webhooks'] optimal=[['problem-api-webhooks']] feasible=True regret=0.0"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "conf-devtools-002",
+        "family": "conflicting-customers",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_selection",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "selected=['acme-deep-integration'] optimal=[['acme-deep-integration']] feasible=True regret=0.0"
+          }
+        ],
+        "feasible": true,
+        "regret": 0.0
+      },
+      {
+        "instance_id": "hist-onboarding-001",
+        "family": "historical-attribution",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "hist-onboarding-002",
+        "family": "historical-attribution",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.EXPERIMENT acceptable=['experiment']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-featureask-001",
+        "family": "messy-intake",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.DEFER acceptable=['defer']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-featureask-002",
+        "family": "messy-intake",
+        "variant": "counterfactual",
+        "format_compliant": true,
+        "branch_correct": false,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 0.0,
+            "detail": "action=None acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-renewal-001",
+        "family": "messy-intake",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_clarify",
+            "dimension": "clarification",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "asked=['q-budget'] required=['q-budget'] allowed=['q-billing', 'q-budget']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "messy-renewal-002",
+        "family": "messy-intake",
+        "variant": "control",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "sig-hrtech-001",
+        "family": "signal-analysis",
+        "variant": "base",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          },
+          {
+            "gold_id": "g2",
+            "check": "cluster_labels",
+            "dimension": "signal_analysis",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "balanced_accuracy=1.000 per_dim={'confidence': 1.0, 'materiality': 1.0, 'signal_type': 1.0} exact=15/15"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      },
+      {
+        "instance_id": "sig-hrtech-002",
+        "family": "signal-analysis",
+        "variant": "haystack",
+        "format_compliant": true,
+        "branch_correct": true,
+        "items": [
+          {
+            "gold_id": "g1",
+            "check": "principal_action",
+            "dimension": "decision",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "action=Action.BUILD acceptable=['build']"
+          },
+          {
+            "gold_id": "g2",
+            "check": "cluster_labels",
+            "dimension": "signal_analysis",
+            "weight": 1.0,
+            "applicable": true,
+            "score": 1.0,
+            "detail": "balanced_accuracy=1.000 per_dim={'confidence': 1.0, 'materiality': 1.0, 'signal_type': 1.0} exact=15/15"
+          }
+        ],
+        "feasible": null,
+        "regret": null
+      }
+    ]
+  }
+]

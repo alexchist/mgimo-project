@@ -45,6 +45,11 @@ def checked_answer(out, name, turn, messages):
     r = load(out / f'{name}.{turn}.json')
     if r['status'] != 'answered' or r['messages_sha256'] != digest(messages):
         raise ValueError(f'Missing answer or changed messages: {name}.{turn}')
+    if 'wire_text_sha256' in r:
+        from cursor_collect import PREFIX
+        text = PREFIX + '\n\n'.join(m['content'] for m in messages)
+        if r['wire_text_sha256'] != sha256(text.encode()).hexdigest():
+            raise ValueError(f'CLI prompt text does not match the batch: {name}.{turn}')
     return r
 
 
