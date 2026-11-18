@@ -1,0 +1,22 @@
+{
+  "seq": 112,
+  "model": "GigaChat-3-Ultra",
+  "case": "04",
+  "rep": 2,
+  "arm": "B",
+  "system_sha": "1197a45d82fe66a7e70819d1fb9c6a8431ea97e92015c41680d3338b155b31ad",
+  "user_sha": "e05bec5bddfb4e6b84cd6a042b597058480ba9e4de25e830d9ee4fa84c0f58ec",
+  "utc": "2026-11-18T11:19:01.270604+00:00",
+  "status": "ok",
+  "answer": "{\"stores\":36,\"vendor_rub\":10300,\"net_rub\":18500,\"prepaid_now\":0}",
+  "answer_sha": "63391a93f2045b4c1404d18eba99eb1200f64e476e0d07afd90723f4b0c9cc0a",
+  "served": "GigaChat-3-Ultra:32.9.16.9",
+  "finish": "stop",
+  "usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 33,
+    "precached_prompt_tokens": 0,
+    "total_tokens": 1245
+  },
+  "seconds": 1.226
+}

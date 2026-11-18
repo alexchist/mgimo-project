@@ -1,0 +1,22 @@
+{
+  "seq": 7,
+  "model": "GigaChat-3-Ultra",
+  "case": "06",
+  "rep": 1,
+  "arm": "B",
+  "system_sha": "d8bf292dfb4f3333a53a2ba24e372257f3f19ab5b3057aa4474b4fab852024f7",
+  "user_sha": "c6b805c2afd8a7e2645e261b23d6c7cc26f7525edecdb1bbfdec6cfd2285d89e",
+  "utc": "2026-11-18T11:15:47.782898+00:00",
+  "status": "ok",
+  "answer": "{\n  \"A\": true,\n  \"B\": false,\n  \"C\": true,\n  \"D\": false\n}",
+  "answer_sha": "83ae645cc8cd24452d4208a8f39f5f48438e206d7986abee85a8cfca41142f18",
+  "served": "GigaChat-3-Ultra:32.9.16.9",
+  "finish": "stop",
+  "usage": {
+    "prompt_tokens": 1321,
+    "completion_tokens": 27,
+    "precached_prompt_tokens": 0,
+    "total_tokens": 1348
+  },
+  "seconds": 2.827
+}

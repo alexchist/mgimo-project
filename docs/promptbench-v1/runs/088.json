@@ -1,0 +1,22 @@
+{
+  "seq": 88,
+  "model": "GigaChat-3-Pro",
+  "case": "03",
+  "rep": 2,
+  "arm": "B",
+  "system_sha": "16a5192f76a1287002cd859ef8efe16c4b6bede44f296042e87e457084f82200",
+  "user_sha": "f2d5ce919750fd2438edac957d65964ddb66200b79bbf23154b46ebbba9a9e18",
+  "utc": "2026-11-18T11:18:21.227887+00:00",
+  "status": "ok",
+  "answer": "{\n  \"paid_delta_pp\": -0.3,\n  \"complaints_delta_pp\": 5.7,\n  \"n_b\": 220,\n  \"passes_rollout_filter\": false\n}",
+  "answer_sha": "76de5a6dc655f5e4ace7dea267e36ae88c0626476b7b2750f8ed0e9b5cfd75cd",
+  "served": "GigaChat-3-Pro:32.4.30.3",
+  "finish": "stop",
+  "usage": {
+    "prompt_tokens": 1226,
+    "completion_tokens": 46,
+    "precached_prompt_tokens": 13,
+    "total_tokens": 1272
+  },
+  "seconds": 1.126
+}

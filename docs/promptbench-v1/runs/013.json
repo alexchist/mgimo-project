@@ -1,0 +1,22 @@
+{
+  "seq": 13,
+  "model": "GigaChat-3-Lightning",
+  "case": "07",
+  "rep": 1,
+  "arm": "B",
+  "system_sha": "16a5192f76a1287002cd859ef8efe16c4b6bede44f296042e87e457084f82200",
+  "user_sha": "7e0a550b44eaba738a31e3206e7555d1689bef26b524a2664538abeea8d50bab",
+  "utc": "2026-11-18T11:15:54.898855+00:00",
+  "status": "ok",
+  "answer": "{\n  \"earliest_full_day\": null,\n  \"mature_pct\": null,\n  \"pending_n\": 26,\n  \"full_pct_now\": null\n}",
+  "answer_sha": "7e77345d02cfbbcfbb2e56da3c48a803d8c26413bd97e36c939e7e5a6775eb50",
+  "served": "GigaChat-3-Lightning:32.4.16.3",
+  "finish": "stop",
+  "usage": {
+    "prompt_tokens": 661,
+    "completion_tokens": 37,
+    "precached_prompt_tokens": 589,
+    "total_tokens": 698
+  },
+  "seconds": 0.409
+}

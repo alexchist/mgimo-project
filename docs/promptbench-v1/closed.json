@@ -1,0 +1,284 @@
+{
+  "GigaChat-3-Pro": {
+    "arms": {
+      "A": {
+        "observed": 20,
+        "closed": 16,
+        "json_ok": 16,
+        "strict": 6,
+        "fields": 44,
+        "fields_total": 64,
+        "seconds_median": 1.494,
+        "tokens": {
+          "prompt_tokens": 5249,
+          "completion_tokens": 1754,
+          "total_tokens": 7003
+        }
+      },
+      "B": {
+        "observed": 20,
+        "closed": 16,
+        "json_ok": 15,
+        "strict": 5,
+        "fields": 40,
+        "fields_total": 64,
+        "seconds_median": 1.144,
+        "tokens": {
+          "prompt_tokens": 18166,
+          "completion_tokens": 1943,
+          "total_tokens": 20109
+        }
+      }
+    },
+    "paired_strict_B_minus_A": [
+      {
+        "case": "01",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "02",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "03",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "04",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "05",
+        "deltas": [
+          0,
+          -1
+        ]
+      },
+      {
+        "case": "06",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "07",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "08",
+        "deltas": [
+          0,
+          0
+        ]
+      }
+    ],
+    "statuses": {
+      "ok": 40
+    },
+    "missing_rows": 0
+  },
+  "GigaChat-3-Ultra": {
+    "arms": {
+      "A": {
+        "observed": 20,
+        "closed": 16,
+        "json_ok": 16,
+        "strict": 7,
+        "fields": 46,
+        "fields_total": 64,
+        "seconds_median": 1.1285,
+        "tokens": {
+          "prompt_tokens": 5392,
+          "completion_tokens": 1931,
+          "total_tokens": 7323
+        }
+      },
+      "B": {
+        "observed": 20,
+        "closed": 16,
+        "json_ok": 16,
+        "strict": 7,
+        "fields": 45,
+        "fields_total": 64,
+        "seconds_median": 1.3279999999999998,
+        "tokens": {
+          "prompt_tokens": 25542,
+          "completion_tokens": 2071,
+          "total_tokens": 27613
+        }
+      }
+    },
+    "paired_strict_B_minus_A": [
+      {
+        "case": "01",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "02",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "03",
+        "deltas": [
+          -1,
+          0
+        ]
+      },
+      {
+        "case": "04",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "05",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "06",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "07",
+        "deltas": [
+          1,
+          0
+        ]
+      },
+      {
+        "case": "08",
+        "deltas": [
+          0,
+          0
+        ]
+      }
+    ],
+    "statuses": {
+      "ok": 40
+    },
+    "missing_rows": 0
+  },
+  "GigaChat-3-Lightning": {
+    "arms": {
+      "A": {
+        "observed": 20,
+        "closed": 16,
+        "json_ok": 16,
+        "strict": 2,
+        "fields": 27,
+        "fields_total": 64,
+        "seconds_median": 0.613,
+        "tokens": {
+          "prompt_tokens": 4019,
+          "completion_tokens": 1824,
+          "total_tokens": 5843
+        }
+      },
+      "B": {
+        "observed": 20,
+        "closed": 16,
+        "json_ok": 16,
+        "strict": 2,
+        "fields": 26,
+        "fields_total": 64,
+        "seconds_median": 0.526,
+        "tokens": {
+          "prompt_tokens": 8783,
+          "completion_tokens": 1897,
+          "total_tokens": 10680
+        }
+      }
+    },
+    "paired_strict_B_minus_A": [
+      {
+        "case": "01",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "02",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "03",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "04",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "05",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "06",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "07",
+        "deltas": [
+          0,
+          0
+        ]
+      },
+      {
+        "case": "08",
+        "deltas": [
+          0,
+          0
+        ]
+      }
+    ],
+    "statuses": {
+      "ok": 40
+    },
+    "missing_rows": 0
+  }
+}
