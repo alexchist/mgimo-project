@@ -21,7 +21,8 @@ def collect(j, out):
     with dest.open('x') as f:json.dump(dict(row,status='dispatch_intent'),f)
     start=time.monotonic()
     with tempfile.TemporaryDirectory(prefix='pj-text-') as cwd:
-        cmd=['agent','--mode','ask','--model',MODEL,'--print','--output-format','stream-json','--workspace',cwd,prompt]
+        if any(Path(cwd).iterdir()): raise RuntimeError('expected a newly created empty workspace')
+        cmd=['agent','--trust','--mode','ask','--model',MODEL,'--print','--output-format','stream-json','--workspace',cwd,prompt]
         r=subprocess.run(cmd,cwd=cwd,stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=600)
         events=[json.loads(x) for x in r.stdout.splitlines() if x.strip()]
         init=[x for x in events if x.get('type')=='system' and x.get('subtype')=='init']; results=[x for x in events if x.get('type')=='result']
