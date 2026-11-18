@@ -35,6 +35,136 @@ class StrategistCLITest(unittest.TestCase):
         self.assertEqual(result.returncode, expected, msg=f"stdout={result.stdout}\nstderr={result.stderr}")
         return result
 
+    def project_snapshot(self):
+        return {
+            path.relative_to(self.project).as_posix(): (path.read_bytes(), path.stat().st_mtime_ns)
+            for path in self.project.rglob("*") if path.is_file()
+        }
+
+    def test_resume_cli_separates_authored_checkpoint_from_observed_facts_and_is_read_only(self):
+        (self.project / "state.md").write_text(
+            "# Состояние\n\n## Cold resume — прочитать первым\n\n- Текущая рекомендация агента: O-authored\n"
+            "- Запрос к человеку: подтвердить\n\n## Техническое состояние\n\n- Не входит в excerpt\n",
+            encoding="utf-8",
+        )
+        conclusions = [
+            f"C-{number:03d},Вывод {number},,,Условие {number},active,no"
+            for number in range(1, 11)
+        ]
+        (self.project / "evidence/conclusions.csv").write_text(
+            "conclusion_id,statement,evidence_ids,alternative_explanations,change_condition,status,review_needed\n"
+            + "\n".join(conclusions) + "\n",
+            encoding="utf-8",
+        )
+        decisions = []
+        for number in range(1, 11):
+            kind, status, decider = ("human", "accepted", "Владелец") if number % 2 == 0 else ("simulated", "simulated", "Сценарий")
+            decisions.append(
+                f"D-{number:03d},2026-01-{number:02d}T00:00:00+00:00,{decider},{kind},{status},O-{number},C-{number:03d},,,,"
+            )
+        (self.project / "decisions/decisions.csv").write_text(
+            "decision_id,recorded_at,decider,decision_kind,status,chosen_option,conclusion_ids,rejected_options,revisit_on,revisit_if,notes\n"
+            + "\n".join(decisions) + "\n",
+            encoding="utf-8",
+        )
+        (self.project / "commitments.csv").write_text(
+            "commitment_id,decision_id,description,owner,status,due_on,metric,review_condition,confirmed_by,confirmed_at\n"
+            "K-001,D-010,Проверить эффект,,proposed,,,,,\n",
+            encoding="utf-8",
+        )
+
+        before = self.project_snapshot()
+        result = json.loads(self.run_cli("resume", str(self.project)).stdout)
+        self.assertEqual(self.project_snapshot(), before)
+        self.assertEqual(result["contract"], "strategist.resume/1.0")
+        self.assertEqual(result["authored_checkpoint"]["kind"], "authored_not_observed")
+        self.assertIn("O-authored", result["authored_checkpoint"]["text"])
+        self.assertNotIn("Техническое состояние", result["authored_checkpoint"]["text"])
+        self.assertEqual(result["observed_facts"]["decisions"]["omitted"], 2)
+        self.assertEqual(result["observed_facts"]["conclusions"]["omitted"], 2)
+        statuses = {(row["decision_kind"], row["status"]) for row in result["observed_facts"]["decisions"]["items"]}
+        self.assertIn(("human", "accepted"), statuses)
+        self.assertIn(("simulated", "simulated"), statuses)
+        self.assertEqual(
+            result["observed_facts"]["decisions"]["items"][-1]["record"],
+            "decisions/decisions.csv#decision_id=D-010",
+        )
+        self.assertTrue(result["structural_check"]["warnings"])
+
+        metadata_path = self.project / "project.json"
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata["schema_version"] = "1.0"
+        metadata_path.write_text(json.dumps(metadata), encoding="utf-8")
+        (self.project / "decision-memo.md").unlink()
+        legacy_before = self.project_snapshot()
+        legacy = json.loads(self.run_cli("resume", str(self.project)).stdout)
+        self.assertEqual(self.project_snapshot(), legacy_before)
+        self.assertEqual(legacy["project"]["schema_version"], "1.0")
+        self.assertNotIn("decision-memo.md", legacy["read_full_artifacts"])
+
+    def test_resume_without_named_checkpoint_keeps_facts_and_still_unknown(self):
+        (self.project / "state.md").write_text("# Старое состояние\nУже запущено?", encoding="utf-8")
+        op = ("operation", str(self.project))
+        self.run_cli(*op, "start", "--id", "OP-001", "--tool", "local")
+        self.run_cli(*op, "unknown", "--id", "OP-001")
+        self.run_cli(*op, "resolve", "--id", "OP-001", "--resolution", "still_unknown")
+        data = json.loads(self.run_cli("resume", str(self.project)).stdout)
+        self.assertEqual(data["authored_checkpoint"], {"kind": "section_not_recorded", "text": None, "path": "state.md"})
+        self.assertEqual([x["operation_id"] for x in data["recovery_and_errors"]["unresolved_operations"]["items"]], ["OP-001"])
+
+    def test_resume_cli_reports_problem_facts_pending_work_and_errors_without_writes(self):
+        (self.project / "evidence/conclusions.csv").write_text(
+            "conclusion_id,statement,evidence_ids,alternative_explanations,change_condition,status,review_needed\n"
+            "C-001,Требует проверки,,,Новые данные,active,yes\n",
+            encoding="utf-8",
+        )
+        (self.project / "decisions/decisions.csv").write_text(
+            "decision_id,recorded_at,decider,decision_kind,status,chosen_option,conclusion_ids,rejected_options,revisit_on,revisit_if,notes\n"
+            "D-001,2026-01-01T00:00:00+00:00,Сценарий,simulated,simulated,O-1,C-001,,,,не согласие\n"
+            "D-002,2026-01-02T00:00:00+00:00,Владелец,human,accepted,O-2,C-001,,,,явный выбор\n",
+            encoding="utf-8",
+        )
+        (self.project / "commitments.csv").write_text(
+            "commitment_id,decision_id,description,owner,status,due_on,metric,review_condition,confirmed_by,confirmed_at\n"
+            "K-001,D-001,Черновая проверка,,proposed,,,,,\n"
+            "K-002,D-002,Запустить тест,Ирина,confirmed,2026-02-01,retention,Если ниже 20%,Владелец,2026-01-02T00:00:00+00:00\n",
+            encoding="utf-8",
+        )
+        (self.project / "runs/operations.csv").write_text(
+            "operation_id,started_at,finished_at,status,tool,inputs,artifact,cost_status,cost_amount,currency,human_minutes,related_operation_id,resolution,notes\n"
+            "OP-001,2026-01-01T00:00:00+00:00,,in_progress,web,,,,unknown,,,,,не завершено\n"
+            "OP-002,2026-01-01T00:00:00+00:00,2026-01-01T01:00:00+00:00,outcome_unknown,web,,,,unknown,,,,,не повторять\n"
+            "OP-003,2026-01-01T00:00:00+00:00,2026-01-01T01:00:00+00:00,failed,parser,,,,not_applicable,,,,,ошибка parse\n",
+            encoding="utf-8",
+        )
+        (self.project / "runs/ingest-failures.csv").write_text(
+            "failure_id,recorded_at,source_id,input,status,cost_status,error\n"
+            "IF-001,2026-01-03T00:00:00+00:00,S-001,broken.docx,failed,not_applicable,broken zip\n",
+            encoding="utf-8",
+        )
+        staging = self.project / "sources/.staging"
+        staging.mkdir(parents=True)
+        (staging / "S-009.pending.json").write_text("{}", encoding="utf-8")
+        (self.project / "revisions/.pending-R-009.json").write_text("{}", encoding="utf-8")
+
+        before = self.project_snapshot()
+        payload = json.loads(self.run_cli("resume", str(self.project), expected=1).stdout)
+        self.assertEqual(self.project_snapshot(), before)
+        self.assertFalse(payload["ok"])
+        self.assertEqual(
+            [(row["decision_kind"], row["status"]) for row in payload["observed_facts"]["decisions"]["items"]],
+            [("simulated", "simulated"), ("human", "accepted")],
+        )
+        self.assertEqual(payload["observed_facts"]["commitments"]["items"][-1]["status"], "confirmed")
+        self.assertEqual(payload["observed_facts"]["conclusions"]["items"][0]["review_needed"], "yes")
+        self.assertEqual(payload["recovery_and_errors"]["pending_ingests"]["paths"], ["sources/.staging/S-009.pending.json"])
+        self.assertEqual(payload["recovery_and_errors"]["pending_revisions"]["paths"], ["revisions/.pending-R-009.json"])
+        self.assertEqual(len(payload["recovery_and_errors"]["unresolved_operations"]["items"]), 2)
+        self.assertEqual(payload["recovery_and_errors"]["failed_operations"]["items"][0]["operation_id"], "OP-003")
+        self.assertEqual(payload["recovery_and_errors"]["ingest_failures"]["items"][0]["error"], "broken zip")
+        self.assertTrue(any("Незавершённый ingest" in error for error in payload["structural_check"]["errors"]))
+        self.assertTrue(any("требуется пересмотр" in warning for warning in payload["structural_check"]["warnings"]))
+
     def test_mixed_format_ingest_has_precise_locators_and_gaps(self):
         files = [
             FIXTURES / "retention/input/brief.pdf",

@@ -2,6 +2,8 @@
 
 No third-party source code is vendored into the Strategist core.
 
+- Ouroboros by Anton Razzhigaev (MIT; [source and licence at the inspected revision](https://github.com/razzant/ouroboros/blob/4be731ffcd2990acff55fb746b0daa073c22d5af/LICENSE)) informed the decision loop, separation of memory from evidence and advisory review. The Strategist instructions are independently worded for product decisions; the Ouroboros prompts and runtime are not bundled. See the [design mapping](docs/architecture.md#что-взято-из-ouroboros).
+
 - GitHub Spec Kit (`github/spec-kit`, commit `e210504aa09c9273a38bba665b12b8088468c96f`) was inspected under the MIT License for a documented process comparison. Its command files are not redistributed here.
 - `pdftotext` from Poppler is invoked as an external executable when available and is not bundled.
 - Python is required from the user's environment; no Python packages are vendored.

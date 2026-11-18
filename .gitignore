@@ -6,3 +6,5 @@ __pycache__/
 submission/
 # Private evaluation keys are retained locally, not distributed.
 evals/evaluator_only/
+# Selected precedents may contain a team's private context; never auto-publish them.
+/.portfolio/

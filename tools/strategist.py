@@ -29,7 +29,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 import zipfile
 
-VERSION = "0.3.0"
+VERSION = "0.4.0"
 ROOT = Path(__file__).resolve().parents[1]
 ID_RE = re.compile(r"^[A-Z]+-\d{3,}$")
 OP_STATUSES = {"planned", "in_progress", "succeeded", "failed", "outcome_unknown"}
@@ -946,8 +946,8 @@ def command_revision_recover(args: argparse.Namespace) -> int:
     return 0
 
 
-def command_check(args: argparse.Namespace) -> int:
-    root = project_root(args.project)
+def check_project(root: Path) -> dict:
+    """Return the structural check result without printing or changing the project."""
     errors: list[str] = []
     warnings: list[str] = []
     for relative in REQUIRED_PROJECT_FILES:
@@ -1228,8 +1228,164 @@ def command_check(args: argparse.Namespace) -> int:
                              "not_proven": "Смысловая поддержка claims, качество вариантов и стратегии кодом не проверяются."},
               "errors": errors, "warnings": warnings,
               "counts": {"sources": len(sources), "claims": len(claims), "conclusions": len(conclusions), "decisions": len(decisions), "commitments": len(commitments), "revisions": len(revisions), "operations": len(operations), "ingest_failures": len(ingest_failures)}}
+    return result
+
+
+def command_check(args: argparse.Namespace) -> int:
+    result = check_project(project_root(args.project))
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 0 if not errors else 1
+    return 0 if result["ok"] else 1
+
+
+RESUME_ITEM_LIMIT = 8
+
+
+def cold_resume_text(path: Path) -> str | None:
+    """Read the authored cold-resume section without interpreting its claims."""
+    text = path.read_text(encoding="utf-8")
+    lines = text.splitlines()
+    start = next((index for index, line in enumerate(lines) if re.match(r"^##\s+Cold resume\b", line, re.IGNORECASE)), None)
+    if start is None:
+        return None  # Some valid projects predate the heading. Keep their observed facts.
+    end = next((index for index in range(start + 1, len(lines)) if re.match(r"^##\s+", lines[index])), len(lines))
+    return "\n".join(lines[start:end]).strip()
+
+
+def resume_locator(relative: str, id_field: str, row: dict[str, str]) -> str:
+    identifier = row.get(id_field)
+    return f"{relative}#{id_field}={identifier}" if identifier else relative
+
+
+def limited_resume_rows(rows: list[dict], *, relative: str, id_field: str, fields: tuple[str, ...], limit: int = RESUME_ITEM_LIMIT) -> dict:
+    selected = rows[-limit:]
+    items = []
+    for row in selected:
+        item = {field: row.get(field, "") for field in fields}
+        item["record"] = resume_locator(relative, id_field, row)
+        items.append(item)
+    return {"path": relative, "items": items, "omitted": max(0, len(rows) - len(selected))}
+
+
+def limited_resume_paths(paths: list[str], limit: int = RESUME_ITEM_LIMIT) -> dict:
+    selected = paths[-limit:]
+    return {"paths": selected, "omitted": max(0, len(paths) - len(selected))}
+
+
+def read_resume_registry(path: Path, required_headers: tuple[str, ...]) -> list[dict[str, str]]:
+    """Use the canonical CSV reader, but refuse a missing/ambiguous resume schema."""
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle, strict=True)
+        headers = reader.fieldnames
+        rows = list(reader)
+    if not headers:
+        raise ValueError(f"{path}: CSV не содержит заголовок; resume не подставляет пустой реестр.")
+    missing = [header for header in required_headers if header not in headers]
+    if missing:
+        raise ValueError(f"{path}: нет обязательных колонок resume: {', '.join(missing)}.")
+    if len(headers) != len(set(headers)) or any(None in row or None in row.values() for row in rows):
+        raise ValueError(f"{path}: повтор колонок или неверная ширина строки CSV; запись неоднозначна.")
+    return rows
+
+
+def command_resume(args: argparse.Namespace) -> int:
+    root = project_root(args.project)
+    check = check_project(root)
+    metadata = load_json(root / "project.json", None)
+    if not isinstance(metadata, dict):
+        raise ValueError("project.json: корень должен быть JSON object; resume не может собрать проектные факты.")
+
+    registry_paths = {
+        "decisions": root / "decisions" / "decisions.csv",
+        "commitments": root / "commitments.csv",
+        "conclusions": root / "evidence" / "conclusions.csv",
+        "operations": root / "runs" / "operations.csv",
+        "ingest_failures": root / "runs" / "ingest-failures.csv",
+    }
+    missing = [path.relative_to(root).as_posix() for path in registry_paths.values() if not path.is_file()]
+    if not (root / "state.md").is_file():
+        missing.append("state.md")
+    if missing:
+        print(json.dumps({
+            "ok": False,
+            "error": "resume не собран: отсутствуют канонические файлы; пустые значения не подставлены.",
+            "missing": missing,
+            "structural_check": check,
+        }, ensure_ascii=False, indent=2))
+        return 1
+
+    decisions = read_resume_registry(registry_paths["decisions"], ("decision_id", "decision_kind", "status"))
+    commitments = read_resume_registry(registry_paths["commitments"], ("commitment_id", "status"))
+    conclusions = read_resume_registry(registry_paths["conclusions"], ("conclusion_id", "status", "review_needed"))
+    operations = read_resume_registry(registry_paths["operations"], ("operation_id", "status", "cost_status"))
+    ingest_failures = read_resume_registry(registry_paths["ingest_failures"], ("failure_id", "status", "error"))
+    resolutions = {row["related_operation_id"]: row.get("resolution") for row in operations if row.get("related_operation_id")}
+    unresolved_operations = [
+        row for row in operations
+        if row.get("status") in {"planned", "in_progress"}
+        or (row.get("status") == "outcome_unknown" and resolutions.get(row.get("operation_id")) not in {"confirmed_succeeded", "confirmed_failed"})
+    ]
+    failed_operations = [row for row in operations if row.get("status") == "failed"]
+    pending_ingests = [
+        path.relative_to(root).as_posix()
+        for path in sorted((root / "sources" / ".staging").glob("S-*.pending.json"))
+    ] if (root / "sources" / ".staging").exists() else []
+    pending_revisions = [
+        path.relative_to(root).as_posix()
+        for path in sorted((root / "revisions").glob(".pending-R-*.json"))
+    ] if (root / "revisions").exists() else []
+
+    checkpoint = cold_resume_text(root / "state.md")
+    result = {
+        "contract": "strategist.resume/1.0",
+        "ok": check["ok"],
+        "project": {
+            "schema_version": metadata.get("schema_version"),
+            "slug": metadata.get("slug"),
+            "title": metadata.get("title"),
+            "artifact_stage": metadata.get("artifact_stage", "scaffold"),
+            "business_decision_status": metadata.get("business_decision_status"),
+            "record": "project.json",
+        },
+        "authored_checkpoint": {
+            "kind": "authored_not_observed" if checkpoint is not None else "section_not_recorded",
+            "path": "state.md",
+            "text": checkpoint,
+        },
+        "observed_facts": {
+            "decisions": limited_resume_rows(
+                decisions, relative="decisions/decisions.csv", id_field="decision_id",
+                fields=("decision_id", "recorded_at", "decider", "decision_kind", "status", "chosen_option", "revisit_on", "revisit_if")),
+            "commitments": limited_resume_rows(
+                commitments, relative="commitments.csv", id_field="commitment_id",
+                fields=("commitment_id", "decision_id", "description", "owner", "status", "due_on", "review_condition")),
+            "conclusions": limited_resume_rows(
+                conclusions, relative="evidence/conclusions.csv", id_field="conclusion_id",
+                fields=("conclusion_id", "statement", "evidence_ids", "change_condition", "status", "review_needed")),
+        },
+        "recovery_and_errors": {
+            "unresolved_operations": limited_resume_rows(
+                unresolved_operations, relative="runs/operations.csv", id_field="operation_id",
+                fields=("operation_id", "started_at", "status", "tool", "artifact", "cost_status", "related_operation_id", "resolution", "notes")),
+            "failed_operations": limited_resume_rows(
+                failed_operations, relative="runs/operations.csv", id_field="operation_id",
+                fields=("operation_id", "started_at", "finished_at", "status", "tool", "artifact", "cost_status", "notes")),
+            "ingest_failures": limited_resume_rows(
+                ingest_failures, relative="runs/ingest-failures.csv", id_field="failure_id",
+                fields=("failure_id", "recorded_at", "source_id", "input", "status", "cost_status", "error")),
+            "pending_ingests": limited_resume_paths(pending_ingests),
+            "pending_revisions": limited_resume_paths(pending_revisions),
+        },
+        "structural_check": {
+            "ok": check["ok"],
+            "errors": check["errors"],
+            "warnings": check["warnings"],
+            "reproduce_with": "python3 tools/strategist.py check " + str(root),
+        },
+        "read_full_artifacts": ["brief.md", "options.md", "strategy.md"]
+        + (["decision-memo.md"] if (root / "decision-memo.md").is_file() else []),
+    }
+    print(json.dumps(result, ensure_ascii=False, indent=2))
+    return 0 if check["ok"] else 1
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -1256,6 +1412,8 @@ def build_parser() -> argparse.ArgumentParser:
     revise.add_argument("project"); revise.add_argument("--claim", required=True); revise.add_argument("--status", choices=["disputed", "retracted", "superseded"], default="retracted"); revise.add_argument("--reason", required=True); revise.add_argument("--new-statement"); revise.add_argument("--type", choices=sorted(CLAIM_TYPES)); revise.add_argument("--source-ids"); revise.add_argument("--locator"); revise.add_argument("--reuse-evidence", action="store_true"); revise.add_argument("--reuse-reason"); revise.add_argument("--period"); revise.add_argument("--unit"); revise.add_argument("--limitations", default=""); revise.add_argument("--allow-nonactive", action="store_true"); revise.set_defaults(func=command_revise)
     revision_recover = sub.add_parser("revision-recover", help="Завершить или откатить явно выбранный pending revision")
     revision_recover.add_argument("project"); revision_recover.add_argument("--revision", required=True); revision_recover.add_argument("--mode", choices=["complete", "rollback"], required=True); revision_recover.set_defaults(func=command_revision_recover)
+    resume = sub.add_parser("resume", help="Собрать read-only JSON для продолжения в новом чате")
+    resume.add_argument("project"); resume.set_defaults(func=command_resume)
     check = sub.add_parser("check", help="Проверить ссылки, hash, состояния и неизвестные исходы")
     check.add_argument("project"); check.set_defaults(func=command_check)
     return parser
@@ -1265,7 +1423,7 @@ def main() -> int:
     try:
         args = build_parser().parse_args()
         return args.func(args)
-    except (ValueError, OSError, json.JSONDecodeError) as exc:
+    except (ValueError, OSError, csv.Error) as exc:
         print(f"Ошибка: {exc}", file=sys.stderr)
         return 2
 

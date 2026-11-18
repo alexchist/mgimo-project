@@ -1,0 +1,88 @@
+{
+  "A": {
+    "entry_prompt_sha256": "47409e9609a33aa5e5c9367cb95c144dcea0b98a8c1bd230d274c36d1fbaba57",
+    "entry_prompt_bytes": 13325,
+    "updated_memo_sha256": "41e1b31054054e9527a9925f5a00f58192b8cd4bb92743fc3e3aa8c0b53114ad",
+    "source_check": {
+      "ok": true,
+      "structural_only": true,
+      "completion": {
+        "artifact_stage": "decision_draft",
+        "label": "черновик решения",
+        "has_recorded_human_decision": false,
+        "is_completed_decision": false,
+        "not_proven": "Смысловая поддержка claims, качество вариантов и стратегии кодом не проверяются."
+      },
+      "errors": [],
+      "warnings": [
+        "Источник S-002: есть пробелы извлечения (1).",
+        "Источник S-003: есть пробелы извлечения (1).",
+        "Источник S-004: есть пробелы извлечения (1).",
+        "Источник S-005: есть пробелы извлечения (1).",
+        "Зафиксированы failed ingest attempts: 1; они не считаются источниками."
+      ],
+      "counts": {
+        "sources": 5,
+        "claims": 21,
+        "conclusions": 8,
+        "decisions": 0,
+        "commitments": 3,
+        "revisions": 3,
+        "operations": 2,
+        "ingest_failures": 1
+      }
+    },
+    "first_snapshot": "R-001-before",
+    "first_snapshot_equal_to_input": {
+      "brief.md": true,
+      "decision-memo.md": true,
+      "options.md": true,
+      "strategy.md": true,
+      "state.md": true
+    },
+    "decision_log_unchanged": true
+  },
+  "B": {
+    "entry_prompt_sha256": "fff4d85f00a9a71995e521b4bdd2e97dc9dc55899257f607e90ff31b8d396254",
+    "entry_prompt_bytes": 9195,
+    "updated_memo_sha256": "9b3373b4b797cabea91d541b694b591513de049ab61ea2912d2f2dbd7db4dd5d",
+    "source_check": {
+      "ok": true,
+      "structural_only": true,
+      "completion": {
+        "artifact_stage": "decision_draft",
+        "label": "черновик решения",
+        "has_recorded_human_decision": false,
+        "is_completed_decision": false,
+        "not_proven": "Смысловая поддержка claims, качество вариантов и стратегии кодом не проверяются."
+      },
+      "errors": [],
+      "warnings": [
+        "Источник S-002: есть пробелы извлечения (1).",
+        "Источник S-003: есть пробелы извлечения (1).",
+        "Источник S-004: есть пробелы извлечения (1).",
+        "Источник S-005: есть пробелы извлечения (1).",
+        "Зафиксированы failed ingest attempts: 1; они не считаются источниками."
+      ],
+      "counts": {
+        "sources": 5,
+        "claims": 21,
+        "conclusions": 8,
+        "decisions": 0,
+        "commitments": 3,
+        "revisions": 3,
+        "operations": 2,
+        "ingest_failures": 1
+      }
+    },
+    "first_snapshot": "R-001-before",
+    "first_snapshot_equal_to_input": {
+      "brief.md": true,
+      "decision-memo.md": true,
+      "options.md": true,
+      "strategy.md": true,
+      "state.md": true
+    },
+    "decision_log_unchanged": true
+  }
+}
