@@ -1,0 +1,20 @@
+{
+  "arm": "E1-1",
+  "requested_model": "GigaChat-3-Lightning",
+  "sdk": "0.2.3",
+  "temperature": 0.2,
+  "max_tokens": 2200,
+  "system_sha256": "d1c72aa1670bbbf86accdad49790e67ae25828aff7b07572ee5bf6778916b216",
+  "user_sha256": "e2e8e61033631ad0093e09d55a7bb8555101d5800d028dade05dd8c6ecaf4500",
+  "utc": "2026-11-18T10:55:22.463483+00:00",
+  "model": "GigaChat-3-Lightning:32.4.16.3",
+  "finish": "stop",
+  "elapsed_s": 1.881,
+  "usage": {
+    "prompt_tokens": 4174,
+    "completion_tokens": 445,
+    "total_tokens": 4619,
+    "precached_prompt_tokens": 0
+  },
+  "answer_sha256": "5af3bc822b805c3d5c3ed72be27e7d4d5c81f6bb5a1ba42438166b2634f7faa2"
+}
