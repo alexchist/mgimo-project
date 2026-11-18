@@ -1,0 +1,500 @@
+{
+  "A": {
+    "cli": {
+      "requested": "grok-4.7-medium",
+      "seconds": 160.26,
+      "exit": 0
+    },
+    "cursor_model": "Grok 4.7 256K Medium",
+    "cursor_outcome": "success",
+    "duration_ms": 155981,
+    "usage_as_reported": {
+      "inputTokens": 17352,
+      "outputTokens": 9299,
+      "cacheReadTokens": 18688,
+      "cacheWriteTokens": 0,
+      "reasoningTokens": 7647
+    },
+    "cash": null,
+    "workspace_unchanged": true,
+    "before_sha256": {
+      "inputs/brief.md": "76a7ef18c8c7ee279b7b2eb64e68768fe27636f69d4917a2666ea4fa9ed66303",
+      "inputs/economics.csv": "09e105efef94ef9e0e83969da9e389df610fe79cd52dbe1db35c23f3ef65b67e",
+      "inputs/interviews.md": "560bb8447c3a465ae653bb4eb18892ad8fa4cad37b2342e9267147c5c7011f2c",
+      "inputs/product.md": "6d6eefeba353ba2a4f2bea8b72ff5db81e7cec32b88469f080256ae4942d7b35",
+      "inputs/supplier-update.md": "f02aca3865da55ecbd2b72a6da8dc420ec82270d12f3888856fd67c079f4d8c2"
+    },
+    "tools_completed": [
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": ".",
+        "pattern": "**/*"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/brief.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/supplier-update.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/product.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/interviews.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/economics.csv"
+      }
+    ],
+    "answer_sha256": "115ca7de349384c8775ed0b3c4da84c713406ea48e26cf39254edcb3f0ed50d1"
+  },
+  "B": {
+    "cli": {
+      "requested": "grok-4.7-medium",
+      "seconds": 283.22,
+      "exit": 0
+    },
+    "cursor_model": "Grok 4.7 256K Medium",
+    "cursor_outcome": "success",
+    "duration_ms": 279378,
+    "usage_as_reported": {
+      "inputTokens": 62647,
+      "outputTokens": 15613,
+      "cacheReadTokens": 35712,
+      "cacheWriteTokens": 0,
+      "reasoningTokens": 12646
+    },
+    "cash": null,
+    "workspace_unchanged": true,
+    "before_sha256": {
+      ".cursor/rules/strategist.mdc": "bb7450889efdd055c09f364bbbcc02c9970ebd27a9be686691037100165cdcf1",
+      "AGENTS.md": "62ee467f60bda8116c4cf35a3d87ae8c3649939717c765c684a096849347721d",
+      "BIBLE.md": "38d9bb3094088b8986c39b3cb6140a1e34c0f5e83810996ffe7e98ce4853692c",
+      "inputs/brief.md": "76a7ef18c8c7ee279b7b2eb64e68768fe27636f69d4917a2666ea4fa9ed66303",
+      "inputs/economics.csv": "09e105efef94ef9e0e83969da9e389df610fe79cd52dbe1db35c23f3ef65b67e",
+      "inputs/interviews.md": "560bb8447c3a465ae653bb4eb18892ad8fa4cad37b2342e9267147c5c7011f2c",
+      "inputs/product.md": "6d6eefeba353ba2a4f2bea8b72ff5db81e7cec32b88469f080256ae4942d7b35",
+      "inputs/supplier-update.md": "f02aca3865da55ecbd2b72a6da8dc420ec82270d12f3888856fd67c079f4d8c2",
+      "knowledge/index.md": "2d77c1ece4e719c37aaf88cfd8e276c4275bd72910132038fd3680d96ae9dbe1",
+      "knowledge/methods/audience-and-positioning.md": "c169662a7fe93ef65b38fd845d31fde6b4dc52274f391446bba49174ff981a26",
+      "knowledge/methods/decision-and-strategy.md": "5f59be25cf875f31512603474e3d4be65905bd4d7732d7de30ecf049649aa25f",
+      "knowledge/methods/metrics-economics-experiments.md": "76678b85e809910026136400a199c5e25b6ce8e783ff285d2d5859ae3cd40f78",
+      "prompts/agenda.md": "d12eaadcf00a950223cf4cd6183b9edc705a0f972719567e667ef34989332b70",
+      "skills/align-strategies/SKILL.md": "3fa7c48eb02cda5a4959c4ec3bcf6935126ef8cac9b1bedc57102c974e18282d",
+      "skills/analyze-data/SKILL.md": "963a465d9c855847247f8dec93876a43ee21602badeec291071ad9b26217ed1e",
+      "skills/compare-options/SKILL.md": "8a0017f97113594f0f9c5458de9c2936f7379523f89d3d7c5ea225e73c5ce4e7",
+      "skills/frame-decision/SKILL.md": "c4349095fb6e94c9a60788cdfbf1aa50c45276b87c7df3c32fb94b5c2b70011f",
+      "skills/investigate/SKILL.md": "23ece121f0f2ec1e97c835cab4e886abcc84f45039bc426513c455e55104020e",
+      "skills/review-decision/SKILL.md": "b152cf4432b30ed179195ecd74357709065460eaf61e0b99a820d1d3748ad198",
+      "skills/review-decision/challenge.md": "70fe2fe3c6f8992847c6cabb15f9f636d796502f67b499a190e9ed270fb1c373"
+    },
+    "tools_completed": [
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "pattern": "BIBLE.md"
+      },
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": ".",
+        "pattern": "**/*"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "BIBLE.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "prompts/agenda.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/review-decision/challenge.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/review-decision/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/supplier-update.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/brief.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/economics.csv"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/product.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/interviews.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/analyze-data/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/compare-options/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "knowledge/methods/metrics-economics-experiments.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/align-strategies/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/frame-decision/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "knowledge/methods/audience-and-positioning.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "knowledge/methods/decision-and-strategy.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/economics.csv"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/interviews.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/product.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/supplier-update.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/brief.md"
+      }
+    ],
+    "answer_sha256": "f3f5cc75f36d44b0fc95693e1ea84b9e00eae9b59fb887bdf00540a46d0a9d06"
+  },
+  "C": {
+    "cli": {
+      "requested": "grok-4.7-medium",
+      "seconds": 105.43,
+      "exit": 0
+    },
+    "cursor_model": "Grok 4.7 256K Medium",
+    "cursor_outcome": "success",
+    "duration_ms": 100653,
+    "usage_as_reported": {
+      "inputTokens": 12596,
+      "outputTokens": 5248,
+      "cacheReadTokens": 47488,
+      "cacheWriteTokens": 0,
+      "reasoningTokens": 3967
+    },
+    "cash": null,
+    "workspace_unchanged": true,
+    "before_sha256": {
+      ".cursor/rules/strategist.mdc": "bb7450889efdd055c09f364bbbcc02c9970ebd27a9be686691037100165cdcf1",
+      "AGENTS.md": "62ee467f60bda8116c4cf35a3d87ae8c3649939717c765c684a096849347721d",
+      "BIBLE.md": "38d9bb3094088b8986c39b3cb6140a1e34c0f5e83810996ffe7e98ce4853692c",
+      "inputs/draft.md": "2a89216328cf95016d291ad6b7c285a964a3481db6b593480e873421fc30d850",
+      "inputs/followup.csv": "71ad0bc3399ac2804c81f4a4ff5f302413ff1a335752db72e090f21f229a8496",
+      "inputs/planning.md": "8ca0b2a951cc3f45928546f36cb49331a5d66ec9a132945835c89c695e2bb928",
+      "inputs/release.md": "8129f337d6dea8f53eb1aff229450d11ec360482fae022799235227df9d2f201",
+      "knowledge/index.md": "2d77c1ece4e719c37aaf88cfd8e276c4275bd72910132038fd3680d96ae9dbe1",
+      "knowledge/methods/audience-and-positioning.md": "c169662a7fe93ef65b38fd845d31fde6b4dc52274f391446bba49174ff981a26",
+      "knowledge/methods/decision-and-strategy.md": "5f59be25cf875f31512603474e3d4be65905bd4d7732d7de30ecf049649aa25f",
+      "knowledge/methods/metrics-economics-experiments.md": "76678b85e809910026136400a199c5e25b6ce8e783ff285d2d5859ae3cd40f78",
+      "prompts/agenda.md": "d12eaadcf00a950223cf4cd6183b9edc705a0f972719567e667ef34989332b70",
+      "skills/align-strategies/SKILL.md": "3fa7c48eb02cda5a4959c4ec3bcf6935126ef8cac9b1bedc57102c974e18282d",
+      "skills/analyze-data/SKILL.md": "963a465d9c855847247f8dec93876a43ee21602badeec291071ad9b26217ed1e",
+      "skills/compare-options/SKILL.md": "8a0017f97113594f0f9c5458de9c2936f7379523f89d3d7c5ea225e73c5ce4e7",
+      "skills/frame-decision/SKILL.md": "c4349095fb6e94c9a60788cdfbf1aa50c45276b87c7df3c32fb94b5c2b70011f",
+      "skills/investigate/SKILL.md": "23ece121f0f2ec1e97c835cab4e886abcc84f45039bc426513c455e55104020e",
+      "skills/review-decision/SKILL.md": "b152cf4432b30ed179195ecd74357709065460eaf61e0b99a820d1d3748ad198",
+      "skills/review-decision/challenge.md": "70fe2fe3c6f8992847c6cabb15f9f636d796502f67b499a190e9ed270fb1c373"
+    },
+    "tools_completed": [
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "pattern": "BIBLE.md"
+      },
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "pattern": "inputs/**/*"
+      },
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "pattern": "**/*.{md,csv,txt}"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "BIBLE.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/draft.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/planning.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/release.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/followup.csv"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/analyze-data/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/align-strategies/SKILL.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "knowledge/methods/audience-and-positioning.md"
+      },
+      {
+        "tool": "grepToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "knowledge"
+      }
+    ],
+    "answer_sha256": "36522f9b5c0ab96cf025bf62846ee9562f1443514efd222cfe5b2bb5954541ab"
+  },
+  "D": {
+    "cli": {
+      "requested": "grok-4.7-medium",
+      "seconds": 66.86,
+      "exit": 0
+    },
+    "cursor_model": "Grok 4.7 256K Medium",
+    "cursor_outcome": "success",
+    "duration_ms": 61128,
+    "usage_as_reported": {
+      "inputTokens": 9092,
+      "outputTokens": 4201,
+      "cacheReadTokens": 33792,
+      "cacheWriteTokens": 0,
+      "reasoningTokens": 3523
+    },
+    "cash": null,
+    "workspace_unchanged": true,
+    "before_sha256": {
+      ".cursor/rules/strategist.mdc": "bb7450889efdd055c09f364bbbcc02c9970ebd27a9be686691037100165cdcf1",
+      "AGENTS.md": "62ee467f60bda8116c4cf35a3d87ae8c3649939717c765c684a096849347721d",
+      "BIBLE.md": "38d9bb3094088b8986c39b3cb6140a1e34c0f5e83810996ffe7e98ce4853692c",
+      "inputs/draft.md": "fe82f687ad7ba749b7c01a4a1cc1462f4e401fa9940ec4846f58bd48ed1491ef",
+      "inputs/followup.csv": "71ad0bc3399ac2804c81f4a4ff5f302413ff1a335752db72e090f21f229a8496",
+      "inputs/planning.md": "8ca0b2a951cc3f45928546f36cb49331a5d66ec9a132945835c89c695e2bb928",
+      "inputs/release.md": "8129f337d6dea8f53eb1aff229450d11ec360482fae022799235227df9d2f201",
+      "knowledge/index.md": "2d77c1ece4e719c37aaf88cfd8e276c4275bd72910132038fd3680d96ae9dbe1",
+      "knowledge/methods/audience-and-positioning.md": "c169662a7fe93ef65b38fd845d31fde6b4dc52274f391446bba49174ff981a26",
+      "knowledge/methods/decision-and-strategy.md": "5f59be25cf875f31512603474e3d4be65905bd4d7732d7de30ecf049649aa25f",
+      "knowledge/methods/metrics-economics-experiments.md": "76678b85e809910026136400a199c5e25b6ce8e783ff285d2d5859ae3cd40f78",
+      "prompts/agenda.md": "d12eaadcf00a950223cf4cd6183b9edc705a0f972719567e667ef34989332b70",
+      "skills/align-strategies/SKILL.md": "3fa7c48eb02cda5a4959c4ec3bcf6935126ef8cac9b1bedc57102c974e18282d",
+      "skills/analyze-data/SKILL.md": "963a465d9c855847247f8dec93876a43ee21602badeec291071ad9b26217ed1e",
+      "skills/compare-options/SKILL.md": "8a0017f97113594f0f9c5458de9c2936f7379523f89d3d7c5ea225e73c5ce4e7",
+      "skills/frame-decision/SKILL.md": "c4349095fb6e94c9a60788cdfbf1aa50c45276b87c7df3c32fb94b5c2b70011f",
+      "skills/investigate/SKILL.md": "23ece121f0f2ec1e97c835cab4e886abcc84f45039bc426513c455e55104020e",
+      "skills/review-decision/SKILL.md": "b152cf4432b30ed179195ecd74357709065460eaf61e0b99a820d1d3748ad198",
+      "skills/review-decision/challenge.md": "70fe2fe3c6f8992847c6cabb15f9f636d796502f67b499a190e9ed270fb1c373"
+    },
+    "tools_completed": [
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "BIBLE.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "skills/review-decision/challenge.md"
+      },
+      {
+        "tool": "globToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": ".",
+        "pattern": "inputs/**/*"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/draft.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/planning.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/release.md"
+      },
+      {
+        "tool": "readToolCall",
+        "outcome": [
+          "success"
+        ],
+        "path": "inputs/followup.csv"
+      }
+    ],
+    "answer_sha256": "7975f84ff162e00d61e3258ccdc476492fc3f8a991f63b46981cf528965c4657"
+  }
+}
