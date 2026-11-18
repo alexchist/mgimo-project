@@ -31,6 +31,10 @@ def collect(j, out):
         row.update(returncode=r.returncode,seconds=round(time.monotonic()-start,3),cli_model=observed,served=observed,finish=end.get('subtype'),answer=end.get('result',''),tool_events=len(tools),cli_usage=usage,usage={'prompt_tokens':usage.get('inputTokens'),'completion_tokens':usage.get('outputTokens'),'total_tokens':None})
         ok=r.returncode==0 and end.get('subtype')=='success' and bool(row['answer']) and not tools and 'grok 4.7' in observed.lower() and 'medium' in observed.lower()
         row['status']='answered' if ok else 'invalid_cli_observation'
+        if not ok:
+            # Only retain public event labels, never local paths, credentials, or raw diagnostics.
+            row['event_labels']=[[e.get('type'),e.get('subtype')] for e in events]
+            row['stderr_present']=bool(r.stderr.strip())
         tmp=dest.with_suffix('.tmp'); tmp.write_text(json.dumps(row,ensure_ascii=False,indent=2)+'\n');tmp.replace(dest)
         print(j['name'],row['status'],observed,flush=True)
         if not ok: raise RuntimeError('Missing usable tool-free Grok result. No automatic retry.')

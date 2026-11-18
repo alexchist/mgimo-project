@@ -1,0 +1,131 @@
+case,family,measure,A,B,detail_A,detail_B
+ab-market-001,ab-readout,format_compliant,True,True,,
+ab-market-001,ab-readout,branch_correct,True,True,,
+ab-market-001,ab-readout,feasible,,,,
+ab-market-001,ab-readout,regret,,,,
+ab-market-001,ab-readout,g1:decision,1.0,1.0,slot[ab_decision]='ship' acceptable=['ship'],slot[ab_decision]='ship' acceptable=['ship']
+ab-market-002,ab-readout,format_compliant,True,True,,
+ab-market-002,ab-readout,branch_correct,True,True,,
+ab-market-002,ab-readout,feasible,,,,
+ab-market-002,ab-readout,regret,,,,
+ab-market-002,ab-readout,g1:decision,1.0,1.0,slot[ab_decision]='ship' acceptable=['ship'],slot[ab_decision]='ship' acceptable=['ship']
+ab-simpson-001,ab-readout,format_compliant,True,True,,
+ab-simpson-001,ab-readout,branch_correct,True,True,,
+ab-simpson-001,ab-readout,feasible,,,,
+ab-simpson-001,ab-readout,regret,,,,
+ab-simpson-001,ab-readout,g1:decision,0.0,1.0,slot[ab_decision]='ship' acceptable=['hold'],slot[ab_decision]='hold' acceptable=['hold']
+ab-simpson-002,ab-readout,format_compliant,True,True,,
+ab-simpson-002,ab-readout,branch_correct,True,True,,
+ab-simpson-002,ab-readout,feasible,,,,
+ab-simpson-002,ab-readout,regret,,,,
+ab-simpson-002,ab-readout,g1:decision,0.0,0.0,slot[ab_decision]='hold' acceptable=['ship'],slot[ab_decision]='hold' acceptable=['ship']
+act-logistics-001,build-configure-decline,format_compliant,True,True,,
+act-logistics-001,build-configure-decline,branch_correct,True,True,,
+act-logistics-001,build-configure-decline,feasible,,,,
+act-logistics-001,build-configure-decline,regret,,,,
+act-logistics-001,build-configure-decline,g1:decision,1.0,1.0,action=Action.CONFIGURE acceptable=['configure'],action=Action.CONFIGURE acceptable=['configure']
+act-logistics-002,build-configure-decline,format_compliant,True,True,,
+act-logistics-002,build-configure-decline,branch_correct,True,True,,
+act-logistics-002,build-configure-decline,feasible,,,,
+act-logistics-002,build-configure-decline,regret,,,,
+act-logistics-002,build-configure-decline,g1:decision,1.0,1.0,action=Action.CONFIGURE acceptable=['configure'],action=Action.CONFIGURE acceptable=['configure']
+cap-cloud-001,capacity-prioritization,format_compliant,True,True,,
+cap-cloud-001,capacity-prioritization,branch_correct,True,True,,
+cap-cloud-001,capacity-prioritization,feasible,False,True,,
+cap-cloud-001,capacity-prioritization,regret,,0.02,,
+cap-cloud-001,capacity-prioritization,g1:decision,0.0,0.0,"selected=['audit-logs', 'autoscale-v2', 'data-residency', 'sla-dashboard', 'spot-orchestrator'] optimal=[['autoscale-v2', 'billing-api', 'data-residency', 'sla-dashboard', 'spot-orchestrator']] feasible=False regret=None","selected=['audit-logs', 'autoscale-v2', 'sla-dashboard', 'spot-orchestrator', 'sso-hardening'] optimal=[['autoscale-v2', 'billing-api', 'data-residency', 'sla-dashboard', 'spot-orchestrator']] feasible=True regret=0.02"
+cap-cloud-001,capacity-prioritization,g2:sequencing,1.0,1.0,1/1 dependency edges respected,1/1 dependency edges respected
+cap-cloud-001,capacity-prioritization,g3:coverage,1.0,1.0,all criteria covered,all criteria covered
+cap-cloud-002,capacity-prioritization,format_compliant,True,True,,
+cap-cloud-002,capacity-prioritization,branch_correct,True,True,,
+cap-cloud-002,capacity-prioritization,feasible,True,True,,
+cap-cloud-002,capacity-prioritization,regret,0.1750841750841751,0.29292929292929293,,
+cap-cloud-002,capacity-prioritization,g1:decision,0.0,0.0,"selected=['audit-logs', 'autoscale-v2', 'sla-dashboard', 'spot-orchestrator', 'sso-hardening'] optimal=[['autoscale-v2', 'data-residency', 'gpu-serving', 'sla-dashboard']] feasible=True regret=0.1750841750841751","selected=['audit-logs', 'autoscale-v2', 'sla-dashboard', 'spot-orchestrator'] optimal=[['autoscale-v2', 'data-residency', 'gpu-serving', 'sla-dashboard']] feasible=True regret=0.29292929292929293"
+cap-cloud-002,capacity-prioritization,g2:sequencing,1.0,1.0,1/1 dependency edges respected,1/1 dependency edges respected
+cap-cloud-002,capacity-prioritization,g3:coverage,1.0,1.0,all criteria covered,all criteria covered
+cap-fintech-001,capacity-prioritization,format_compliant,True,True,,
+cap-fintech-001,capacity-prioritization,branch_correct,True,True,,
+cap-fintech-001,capacity-prioritization,feasible,False,False,,
+cap-fintech-001,capacity-prioritization,regret,,,,
+cap-fintech-001,capacity-prioritization,g1:decision,0.0,0.0,"selected=['ledger-api', 'sandbox-env', 'sso-scim', 'webhooks-v2'] optimal=[['ledger-api', 'sso-scim', 'webhooks-v2']] feasible=False regret=None","selected=['ledger-api', 'sandbox-env', 'sso-scim', 'webhooks-v2'] optimal=[['ledger-api', 'sso-scim', 'webhooks-v2']] feasible=False regret=None"
+cap-fintech-001,capacity-prioritization,g2:sequencing,1.0,1.0,1/1 dependency edges respected,1/1 dependency edges respected
+cap-fintech-001,capacity-prioritization,g3:coverage,1.0,1.0,all criteria covered,all criteria covered
+cap-fintech-002,capacity-prioritization,format_compliant,True,True,,
+cap-fintech-002,capacity-prioritization,branch_correct,True,True,,
+cap-fintech-002,capacity-prioritization,feasible,True,True,,
+cap-fintech-002,capacity-prioritization,regret,0.16216216216216217,0.16216216216216217,,
+cap-fintech-002,capacity-prioritization,g1:decision,0.0,0.0,"selected=['ledger-api', 'sandbox-env', 'sso-scim'] optimal=[['card-issuing', 'sandbox-env', 'sso-scim']] feasible=True regret=0.16216216216216217","selected=['ledger-api', 'sandbox-env', 'sso-scim'] optimal=[['card-issuing', 'sandbox-env', 'sso-scim']] feasible=True regret=0.16216216216216217"
+cap-fintech-002,capacity-prioritization,g2:sequencing,,,no dependency edges among the model's selected set,no dependency edges among the model's selected set
+cap-fintech-002,capacity-prioritization,g3:coverage,1.0,1.0,all criteria covered,all criteria covered
+clarify-hipaa-001,clarify-vs-decide,format_compliant,True,True,,
+clarify-hipaa-001,clarify-vs-decide,branch_correct,True,True,,
+clarify-hipaa-001,clarify-vs-decide,feasible,,,,
+clarify-hipaa-001,clarify-vs-decide,regret,,,,
+clarify-hipaa-001,clarify-vs-decide,g1:decision,1.0,1.0,action=Action.DECLINE acceptable=['decline'],action=Action.DECLINE acceptable=['decline']
+clarify-hipaa-002,clarify-vs-decide,format_compliant,True,True,,
+clarify-hipaa-002,clarify-vs-decide,branch_correct,True,True,,
+clarify-hipaa-002,clarify-vs-decide,feasible,,,,
+clarify-hipaa-002,clarify-vs-decide,regret,,,,
+clarify-hipaa-002,clarify-vs-decide,g1:clarification,1.0,1.0,"asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-scope']","asked=['q-arr', 'q-scope'] required=['q-arr'] allowed=['q-arr', 'q-scope']"
+clarify-iot-001,clarify-vs-decide,format_compliant,True,True,,
+clarify-iot-001,clarify-vs-decide,branch_correct,True,True,,
+clarify-iot-001,clarify-vs-decide,feasible,,,,
+clarify-iot-001,clarify-vs-decide,regret,,,,
+clarify-iot-001,clarify-vs-decide,g1:clarification,1.0,1.0,"asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-cloud']","asked=['q-arr'] required=['q-arr'] allowed=['q-arr', 'q-cloud']"
+clarify-iot-002,clarify-vs-decide,format_compliant,True,True,,
+clarify-iot-002,clarify-vs-decide,branch_correct,True,True,,
+clarify-iot-002,clarify-vs-decide,feasible,,,,
+clarify-iot-002,clarify-vs-decide,regret,,,,
+clarify-iot-002,clarify-vs-decide,g1:decision,1.0,1.0,action=Action.BUILD acceptable=['build'],action=Action.BUILD acceptable=['build']
+conf-devtools-001,conflicting-customers,format_compliant,True,True,,
+conf-devtools-001,conflicting-customers,branch_correct,True,True,,
+conf-devtools-001,conflicting-customers,feasible,True,True,,
+conf-devtools-001,conflicting-customers,regret,0.0,0.0,,
+conf-devtools-001,conflicting-customers,g1:decision,1.0,1.0,selected=['problem-api-webhooks'] optimal=[['problem-api-webhooks']] feasible=True regret=0.0,selected=['problem-api-webhooks'] optimal=[['problem-api-webhooks']] feasible=True regret=0.0
+conf-devtools-002,conflicting-customers,format_compliant,True,True,,
+conf-devtools-002,conflicting-customers,branch_correct,True,True,,
+conf-devtools-002,conflicting-customers,feasible,True,True,,
+conf-devtools-002,conflicting-customers,regret,0.2571428571428571,0.2571428571428571,,
+conf-devtools-002,conflicting-customers,g1:decision,0.0,0.0,selected=['problem-api-webhooks'] optimal=[['acme-deep-integration']] feasible=True regret=0.2571428571428571,selected=['problem-api-webhooks'] optimal=[['acme-deep-integration']] feasible=True regret=0.2571428571428571
+hist-onboarding-001,historical-attribution,format_compliant,True,True,,
+hist-onboarding-001,historical-attribution,branch_correct,True,True,,
+hist-onboarding-001,historical-attribution,feasible,,,,
+hist-onboarding-001,historical-attribution,regret,,,,
+hist-onboarding-001,historical-attribution,g1:decision,1.0,1.0,action=Action.BUILD acceptable=['build'],action=Action.BUILD acceptable=['build']
+hist-onboarding-002,historical-attribution,format_compliant,True,True,,
+hist-onboarding-002,historical-attribution,branch_correct,True,True,,
+hist-onboarding-002,historical-attribution,feasible,,,,
+hist-onboarding-002,historical-attribution,regret,,,,
+hist-onboarding-002,historical-attribution,g1:decision,1.0,1.0,action=Action.EXPERIMENT acceptable=['experiment'],action=Action.EXPERIMENT acceptable=['experiment']
+messy-featureask-001,messy-intake,format_compliant,True,True,,
+messy-featureask-001,messy-intake,branch_correct,True,True,,
+messy-featureask-001,messy-intake,feasible,,,,
+messy-featureask-001,messy-intake,regret,,,,
+messy-featureask-001,messy-intake,g1:decision,0.0,0.0,action=Action.BUILD acceptable=['defer'],action=Action.BUILD acceptable=['defer']
+messy-featureask-002,messy-intake,format_compliant,True,True,,
+messy-featureask-002,messy-intake,branch_correct,True,True,,
+messy-featureask-002,messy-intake,feasible,,,,
+messy-featureask-002,messy-intake,regret,,,,
+messy-featureask-002,messy-intake,g1:decision,1.0,1.0,action=Action.BUILD acceptable=['build'],action=Action.BUILD acceptable=['build']
+messy-renewal-001,messy-intake,format_compliant,True,True,,
+messy-renewal-001,messy-intake,branch_correct,True,True,,
+messy-renewal-001,messy-intake,feasible,,,,
+messy-renewal-001,messy-intake,regret,,,,
+messy-renewal-001,messy-intake,g1:clarification,1.0,1.0,"asked=['q-budget'] required=['q-budget'] allowed=['q-billing', 'q-budget']","asked=['q-budget'] required=['q-budget'] allowed=['q-billing', 'q-budget']"
+messy-renewal-002,messy-intake,format_compliant,True,True,,
+messy-renewal-002,messy-intake,branch_correct,True,True,,
+messy-renewal-002,messy-intake,feasible,,,,
+messy-renewal-002,messy-intake,regret,,,,
+messy-renewal-002,messy-intake,g1:decision,1.0,1.0,action=Action.BUILD acceptable=['build'],action=Action.BUILD acceptable=['build']
+sig-hrtech-001,signal-analysis,format_compliant,True,True,,
+sig-hrtech-001,signal-analysis,branch_correct,True,True,,
+sig-hrtech-001,signal-analysis,feasible,,,,
+sig-hrtech-001,signal-analysis,regret,,,,
+sig-hrtech-001,signal-analysis,g1:decision,1.0,1.0,action=Action.BUILD acceptable=['build'],action=Action.BUILD acceptable=['build']
+sig-hrtech-001,signal-analysis,g2:signal_analysis,0.9583333333333334,1.0,"balanced_accuracy=0.958 per_dim={'confidence': 1.0, 'materiality': 1.0, 'signal_type': 0.875} exact=14/15","balanced_accuracy=1.000 per_dim={'confidence': 1.0, 'materiality': 1.0, 'signal_type': 1.0} exact=15/15"
+sig-hrtech-002,signal-analysis,format_compliant,True,True,,
+sig-hrtech-002,signal-analysis,branch_correct,True,True,,
+sig-hrtech-002,signal-analysis,feasible,,,,
+sig-hrtech-002,signal-analysis,regret,,,,
+sig-hrtech-002,signal-analysis,g1:decision,0.0,0.0,action=Action.DEFER acceptable=['build'],action=Action.DEFER acceptable=['build']
+sig-hrtech-002,signal-analysis,g2:signal_analysis,0.9583333333333334,0.875,"balanced_accuracy=0.958 per_dim={'confidence': 1.0, 'materiality': 0.875, 'signal_type': 1.0} exact=14/15","balanced_accuracy=0.875 per_dim={'confidence': 0.75, 'materiality': 0.875, 'signal_type': 1.0} exact=13/15"

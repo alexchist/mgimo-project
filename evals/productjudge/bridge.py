@@ -7,7 +7,7 @@ import random
 
 from pjbench.prompt import build_prompt
 from pjbench.providers import Completion, Usage
-from pjbench.runner import REPAIR_TEMPLATE, parse_spec, run_scenario, write_predictions
+from pjbench.runner import PredictionRecord, REPAIR_TEMPLATE, parse_spec, run_scenario, write_predictions
 from pjbench.schema import load_scenarios
 
 
@@ -50,8 +50,8 @@ def checked_answer(out, name, turn, messages):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('step', choices=['prepare','repairs','assemble']); p.add_argument('split', type=Path); p.add_argument('work', type=Path)
-    p.add_argument('--model',default='GigaChat-3-Ultra'); args = p.parse_args(); work=args.work
+    p.add_argument('step', choices=['prepare','repairs','assemble','first']); p.add_argument('split', type=Path); p.add_argument('work', type=Path)
+    p.add_argument('--paired-observed',action='store_true',help='Only for a disclosed partial lane; keep scenarios with two observed first answers'); p.add_argument('--model',default='GigaChat-3-Ultra'); args = p.parse_args(); work=args.work
     root=Path(__file__).resolve().parents[2]
     work.mkdir(parents=True, exist_ok=True)
     batch=[]; records=[]
@@ -59,7 +59,19 @@ def main():
         name=key(s,arm); messages=prefix+user
         if args.step=='prepare':
             batch.append({'name':name,'turn':1,'messages':messages}); continue
+        if args.paired_observed:
+            paths=[work/f'{s.instance_id}.{a}.1.json' for a in 'AB']
+            if not all(p.exists() and load(p)['status']=='answered' for p in paths):continue
         first=checked_answer(work, name, 1, messages)
+        if args.step=='first':
+            spec,err=parse_spec(first['answer'])
+            if first['served'].split(':')[0]!=args.model: raise ValueError('wrong model')
+            records.append(PredictionRecord(instance_id=s.instance_id,model=args.model+'/'+arm,
+                scenario_hash=s.content_hash(),prompt_sha256=sha256(user[0]['content'].encode()).hexdigest(),
+                raw_output=first['answer'],spec=spec,format_compliant=spec is not None,
+                repair_attempted=False,error=err,prompt_tokens=first['usage']['prompt_tokens'] or 0,
+                completion_tokens=first['usage']['completion_tokens'] or 0,duration_s=first['seconds']))
+            continue
         if args.step=='repairs':
             spec,error=parse_spec(first['answer'])
             if spec is None:
@@ -75,11 +87,11 @@ def main():
         if rec.is_provider_failure: raise ValueError(rec.error)
         rec.duration_s=round(sum(r['seconds'] for r in used),3)
         records.append(rec)
-    if args.step=='assemble':
+    if args.step in ('first','assemble'):
         # Numeric default cost in upstream schema does not attest an invoice.
-        write_predictions(records,work/'predictions.jsonl')
+        write_predictions(records,work/('first.jsonl' if args.step=='first' else 'predictions.jsonl'))
     else:
         write_new(work/(args.step+'.json'), batch)
-    print(args.step, len(records) if args.step=='assemble' else len(batch))
+    print(args.step, len(records) if records else len(batch))
 
 if __name__=='__main__':main()
