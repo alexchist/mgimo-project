@@ -1,0 +1,52 @@
+{
+  "old": {
+    "final_original_sha256": "f2aaf84c002a18c7cd00d4bbd15063f0aac6f78b694873574ec16bd522dc46d5",
+    "published_text_sha256": "60cf6eeeff326bff75d0fe6999ebe2929735d88e4dcf5c4f6c0b12be0fb3455f",
+    "usage_as_reported": {
+      "input_tokens": 185140,
+      "cached_input_tokens": 145280,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1458,
+      "reasoning_output_tokens": 19
+    },
+    "completed_commands": 13,
+    "copydesk_commands": [],
+    "input_files": {
+      "AGENTS.md": "62ee467f60bda8116c4cf35a3d87ae8c3649939717c765c684a096849347721d",
+      "BIBLE.md": "38d9bb3094088b8986c39b3cb6140a1e34c0f5e83810996ffe7e98ce4853692c",
+      "prompts/agenda.md": "d12eaadcf00a950223cf4cd6183b9edc705a0f972719567e667ef34989332b70",
+      "skills/review-decision/challenge.md": "70fe2fe3c6f8992847c6cabb15f9f636d796502f67b499a190e9ed270fb1c373",
+      "skills/align-strategies/SKILL.md": "3fa7c48eb02cda5a4959c4ec3bcf6935126ef8cac9b1bedc57102c974e18282d",
+      "examples/demo/state.md": "ad1d2ed7a7498eac514e871c2cba4fc1463a762776fd03a01677dd07bcf4b1a7",
+      "tools/strategist.py": "f8d54d2d5f9de3555e92543e4b410c064f67bd2b41da2e1944d443c9a5bc6071",
+      "final-letter.txt": "bfb08f8e524714da402754ce4aba72a2ed84b9046ea1d902b42c2929b55e6648"
+    }
+  },
+  "new": {
+    "final_original_sha256": "9ea3213d92778a7127bd1c2b071374fc615dec68fe7a95a1fcc65f8ecdd20f44",
+    "published_text_sha256": "05cdda46c6b40a6c7031e16fb83daccbc32c0a4a59a6e3263afdd0d49f1f9304",
+    "usage_as_reported": {
+      "input_tokens": 152372,
+      "cached_input_tokens": 132352,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1155,
+      "reasoning_output_tokens": 43
+    },
+    "completed_commands": 10,
+    "copydesk_commands": [
+      "/bin/bash -lc 'PYTHONDONTWRITEBYTECODE=1 python3 tools/copydesk.py examples/demo final-letter.txt E-014 E-012'"
+    ],
+    "input_files": {
+      "AGENTS.md": "8b9f58319819081757eadc4dbd3440fe147bfb5dccaffe8a059b091b64f630fc",
+      "BIBLE.md": "38d9bb3094088b8986c39b3cb6140a1e34c0f5e83810996ffe7e98ce4853692c",
+      "prompts/agenda.md": "83abbbd9f5f35370515bfe5480c7da6e37f8865a505a106537c1a85cea94ee7f",
+      "skills/review-decision/challenge.md": "429919d387225c42fbd41a9ed9d0efaf3d7da4cac2084e3b6e525dd0499874d2",
+      "skills/align-strategies/SKILL.md": "34090134d60e2d7bbb4dd3b24f805a45f1d5e7b1f63792bf04a812ff544da30f",
+      "examples/demo/state.md": "b901c7a67c2e439dbeb6f420cba683c30e1ebf0e75ba4cf6f9a80dc174460eb5",
+      "examples/demo/decision-memo.md": "a6d27a9506c2dfdc71620b9f92bd8edc52040cc22f90136985ad88fa3c109c90",
+      "tools/strategist.py": "f8d54d2d5f9de3555e92543e4b410c064f67bd2b41da2e1944d443c9a5bc6071",
+      "tools/copydesk.py": "8e895d7c727ebb2d7fcfb00da4435645af58a977b92938154233e83035c57e8e",
+      "final-letter.txt": "bfb08f8e524714da402754ce4aba72a2ed84b9046ea1d902b42c2929b55e6648"
+    }
+  }
+}
