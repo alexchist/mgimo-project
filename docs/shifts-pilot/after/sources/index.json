@@ -1,0 +1,72 @@
+[
+  {
+    "source_id": "S-001",
+    "kind": "md",
+    "title": "brief.md",
+    "origin": "materials/brief.md",
+    "stored_path": "sources/originals/S-001__brief.md",
+    "extract_path": "sources/extracts/S-001.md",
+    "sha256": "2ca99faa06566ceb8eb95943af30cbabb2cbf954b3b8149d66a60ec1ca330fb6",
+    "extract_sha256": "2da9acafb2ea22615d768a61958fc48ae4e3e689f2d012fedfcab7df78e7908d",
+    "retrieved_at": "2026-11-20T09:10:28+00:00",
+    "permission": "owner-provided",
+    "synthetic": false,
+    "record_count": 3,
+    "gaps": [
+      "Текст прочитан построчно; разметка, ссылки и вложенные media не интерпретировались."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-002",
+    "kind": "csv",
+    "title": "retention.csv",
+    "origin": "materials/retention.csv",
+    "stored_path": "sources/originals/S-002__retention.csv",
+    "extract_path": "sources/extracts/S-002.md",
+    "sha256": "4cd873adc331fc5a57d4bebaf244851c2f616bce25b918ff1a337e1898cb782a",
+    "extract_sha256": "7a3f0b86f9b06bd72872c8eb24500bbe913b2c30cc29b2aebc874b2117d76ccb",
+    "retrieved_at": "2026-11-20T09:10:28+00:00",
+    "permission": "owner-provided",
+    "synthetic": false,
+    "record_count": 40,
+    "gaps": [],
+    "status": "active"
+  },
+  {
+    "source_id": "S-003",
+    "kind": "html",
+    "title": "offer.html",
+    "origin": "materials/offer.html",
+    "stored_path": "sources/originals/S-003__offer.html",
+    "extract_path": "sources/extracts/S-003.md",
+    "sha256": "b12bdd47c860309e1c70e8045230d1f792001a6326f9116b797fdc973e45727d",
+    "extract_sha256": "bdc9d7cfa5d1aa8bc017eb5291a0d6823693e823fb0f41c0eaa2c0bdfd37975a",
+    "retrieved_at": "2026-11-20T09:10:28+00:00",
+    "permission": "owner-provided",
+    "synthetic": false,
+    "record_count": 4,
+    "gaps": [
+      "Извлечён только статический HTML-текст: JavaScript-rendered content, CSS visibility, canvas, media and linked pages не интерпретированы."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-004",
+    "kind": "md",
+    "title": "correction.md",
+    "origin": "materials/correction.md",
+    "stored_path": "sources/originals/S-004__correction.md",
+    "extract_path": "sources/extracts/S-004.md",
+    "sha256": "c095973cbbf14cdf95c7fe3499e8245d59f72e432be875edb580963447b4ae33",
+    "extract_sha256": "a0c711c4b2ceac416d0ed4e6c20ea09a4aee5d2bfb9c416d231f203091dcb2c7",
+    "retrieved_at": "2026-11-20T09:16:02+00:00",
+    "permission": "owner-provided",
+    "synthetic": false,
+    "record_count": 2,
+    "gaps": [
+      "Текст прочитан построчно; разметка, ссылки и вложенные media не интерпретировались."
+    ],
+    "status": "active"
+  }
+]

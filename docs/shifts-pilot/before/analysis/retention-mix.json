@@ -1,0 +1,62 @@
+{
+  "source_sha256": "4cd873adc331fc5a57d4bebaf244851c2f616bce25b918ff1a337e1898cb782a",
+  "segment_column": "channel",
+  "cohorts": [
+    "april",
+    "may"
+  ],
+  "period": "2",
+  "segments": [
+    {
+      "segment": "partners",
+      "before": {
+        "base": 900,
+        "active": 540,
+        "base_row": "row:2",
+        "window_row": "row:3",
+        "rate_pct": 60.0
+      },
+      "after": {
+        "base": 200,
+        "active": 100,
+        "base_row": "row:6",
+        "window_row": "row:7",
+        "rate_pct": 50.0
+      }
+    },
+    {
+      "segment": "self_service",
+      "before": {
+        "base": 100,
+        "active": 20,
+        "base_row": "row:4",
+        "window_row": "row:5",
+        "rate_pct": 20.0
+      },
+      "after": {
+        "base": 800,
+        "active": 200,
+        "base_row": "row:8",
+        "window_row": "row:9",
+        "rate_pct": 25.0
+      }
+    }
+  ],
+  "totals": {
+    "before": {
+      "base": 1000,
+      "active": 560
+    },
+    "after": {
+      "base": 1000,
+      "active": 300
+    }
+  },
+  "observed_before_pct": 56.0,
+  "observed_after_pct": 30.0,
+  "after_at_before_mix_pct": 47.5,
+  "observed_delta_pp": -26.0,
+  "within_at_before_mix_pp": -8.5,
+  "mix_at_after_rates_pp": -17.5,
+  "interpretation": "Описательное сравнение, не причинный эффект. Проверьте зрелость окна, определение активности, полноту и непересечение сегментов в источниках."
+}

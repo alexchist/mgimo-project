@@ -1,0 +1,70 @@
+{
+  "runs": {
+    "before": {
+      "cli_usage": {
+        "input_tokens": 728231,
+        "cached_input_tokens": 679936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 12998,
+        "reasoning_output_tokens": 558
+      },
+      "completed_shell_calls": 25,
+      "nonzero_exit_codes": [
+        2,
+        128
+      ],
+      "check": {
+        "ok": true,
+        "warnings": [
+          "Источник S-001: есть пробелы извлечения (1).",
+          "Источник S-003: есть пробелы извлечения (1).",
+          "OP-001: стоимость неизвестна."
+        ]
+      },
+      "relocated_paths_in": [
+        "analysis/retention.csv.method.md"
+      ],
+      "original_file_sha256": {
+        "analysis/retention.csv.method.md": "6ca2e00371f4348a86f588335311fa034d63e01365c1bb57b30c4bd579c38f10"
+      },
+      "original_answer_sha256": "fe5ab75de0cc47eb7a935e9031829c381acf188d7c1a8eabe9a623788d5463cc"
+    },
+    "after": {
+      "cli_usage": {
+        "input_tokens": 599441,
+        "cached_input_tokens": 515072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8191,
+        "reasoning_output_tokens": 529
+      },
+      "completed_shell_calls": 27,
+      "nonzero_exit_codes": [
+        128
+      ],
+      "check": {
+        "ok": true,
+        "warnings": [
+          "Источник S-001: есть пробелы извлечения (1).",
+          "Источник S-003: есть пробелы извлечения (1).",
+          "Источник S-004: есть пробелы извлечения (1).",
+          "OP-001: стоимость неизвестна.",
+          "OP-002: стоимость неизвестна."
+        ]
+      },
+      "relocated_paths_in": [
+        "analysis/retention.csv.method.md"
+      ],
+      "original_file_sha256": {
+        "analysis/retention.csv.method.md": "6ca2e00371f4348a86f588335311fa034d63e01365c1bb57b30c4bd579c38f10"
+      },
+      "original_answer_sha256": "2e6d47dd6f2868ff685f5dca5df79c732257a393abd01f4acb1a983a887951b3"
+    }
+  },
+  "archived_before_files": {
+    "brief.md": "c8d383c20057306e639700cf38df42801d14754efbab37ead97646d3f697ff7e",
+    "decision-memo.md": "ea17b25d24fae02b72af1fcfe7b3ef704a0ac5a220d700c9ccba2a3d50d8c313",
+    "options.md": "3f23b28b9bd35328a6441de9ed526bd4cbac52bf941d5bfb3b6e0dd07f0ab377",
+    "state.md": "7e6293249adb48468cc3ed61869100e8d1c770c38dfeb52119423272d1fd4bb4",
+    "strategy.md": "1ffbd2ff01c2e5519bcfda5618545dbd3fd783480cb11f537c86cb67ccd6436d"
+  }
+}

@@ -1,0 +1,2 @@
+revision_id,recorded_at,old_claim_id,old_status,new_status,new_claim_id,reason,evidence_action,affected_conclusions,affected_decisions,affected_commitments,human_review_required,snapshot_manifest_sha256
+R-001,2026-11-20T09:16:27+00:00,E-007,active,superseded,E-010,"Команда уточнила в S-004#line:3, что PDF был только в прототипе. В действующем продукте график из CSV доступен для просмотра в кабинете. Самостоятельное условие о ручном заполнении полей сохраняется отдельно по S-003#p[1].",new,C-003,,,yes,a04c085c42fa157356ef87cf8f3044600396fba196ae8063f52a9d0908e5fdf1

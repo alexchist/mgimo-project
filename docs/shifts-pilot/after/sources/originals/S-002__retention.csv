@@ -1,0 +1,9 @@
+cohort,channel,period,active_users,cohort_size
+april,partners,0,900,900
+april,partners,2,540,900
+april,self_service,0,100,100
+april,self_service,2,20,100
+may,partners,0,200,200
+may,partners,2,100,200
+may,self_service,0,800,800
+may,self_service,2,200,800
