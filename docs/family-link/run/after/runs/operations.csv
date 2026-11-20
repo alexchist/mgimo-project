@@ -1,0 +1,3 @@
+operation_id,started_at,finished_at,status,tool,inputs,artifact,cost_status,cost_amount,currency,human_minutes,related_operation_id,resolution,notes
+OP-001,2026-11-20T11:40:31+00:00,2026-11-20T11:43:28+00:00,succeeded,local-strategy-review,materials/start,decision-memo.md,not_applicable,,,,,,"Локальная подготовка. Три учебных материала, расчёт и самопроверка. Без внешних расходов."
+OP-002,2026-11-20T11:45:06+00:00,2026-11-20T11:47:55+00:00,succeeded,local-strategy-review,materials/update,decision-memo.md,not_applicable,,,,,,"Локальный пересмотр учебного кейса без внешних расходов и отправок.; S-004/S-005 импортированы и сверены. R-001 сохранила прежние документы. Пересчёт воспроизводится, формулировка для семьи сверена с тарифом. Внешних расходов и отправок не было."

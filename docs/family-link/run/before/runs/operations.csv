@@ -1,0 +1,2 @@
+operation_id,started_at,finished_at,status,tool,inputs,artifact,cost_status,cost_amount,currency,human_minutes,related_operation_id,resolution,notes
+OP-001,2026-11-20T11:40:31+00:00,2026-11-20T11:43:28+00:00,succeeded,local-strategy-review,materials/start,decision-memo.md,not_applicable,,,,,,"Локальная подготовка. Три учебных материала, расчёт и самопроверка. Без внешних расходов."

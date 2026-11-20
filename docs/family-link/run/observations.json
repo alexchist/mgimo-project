@@ -1,0 +1,39 @@
+{
+  "requested_model": "gpt-6.2-sol",
+  "cli": "codex 0.170.0",
+  "requested_effort": "medium",
+  "cost_rub": null,
+  "reader_minutes": null,
+  "runs": {
+    "before": {
+      "seconds": 245.5,
+      "exit": 0,
+      "usage": {
+        "input_tokens": 477948,
+        "cached_input_tokens": 406016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10354,
+        "reasoning_output_tokens": 289
+      },
+      "commands_completed": 21,
+      "nonzero_commands": 3,
+      "thread_id": "01a1f8c1-bf48-74c1-a1ed-b7ee508265b6",
+      "raw_answer_sha256": "6195f0dd9cdcb58a6f0236d9cd5909a16371b221b35a9f68baea576775b31189"
+    },
+    "after": {
+      "seconds": 215.6,
+      "exit": 0,
+      "usage": {
+        "input_tokens": 679742,
+        "cached_input_tokens": 605056,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8512,
+        "reasoning_output_tokens": 189
+      },
+      "commands_completed": 22,
+      "nonzero_commands": 4,
+      "thread_id": "01a1f8c5-df7a-7381-b152-0dc6cedeb47e",
+      "raw_answer_sha256": "5a5766f8c8962fad0d4c439137130af6720ab6e5ada9a94622d96fbb61fdc10a"
+    }
+  }
+}

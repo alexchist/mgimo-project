@@ -1,0 +1,54 @@
+[
+  {
+    "source_id": "S-001",
+    "kind": "md",
+    "title": "meeting.md",
+    "origin": "materials/start/meeting.md",
+    "stored_path": "sources/originals/S-001__meeting.md",
+    "extract_path": "sources/extracts/S-001.md",
+    "sha256": "2ce6683539d1e0303298ee8906463fd705cb0947d8cec8da1ab9b6cb4b8fa031",
+    "extract_sha256": "67f0313028f4f493fbec9e85fe2a4127a08005ac2c99f91f919c721aea0cb6e4",
+    "retrieved_at": "2026-11-20T11:40:31+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 4,
+    "gaps": [
+      "Текст прочитан построчно; разметка, ссылки и вложенные media не интерпретировались."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-002",
+    "kind": "md",
+    "title": "tariff.md",
+    "origin": "materials/start/tariff.md",
+    "stored_path": "sources/originals/S-002__tariff.md",
+    "extract_path": "sources/extracts/S-002.md",
+    "sha256": "b9ceeb9f76dc3ec98330ee508a28b8563884706c2eefea9e90ff8e1e4ba27443",
+    "extract_sha256": "b5454f0af55957946f3eb62d8c29604b3e27a77f6e8e43b092119384d51f7c25",
+    "retrieved_at": "2026-11-20T11:40:31+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 4,
+    "gaps": [
+      "Текст прочитан построчно; разметка, ссылки и вложенные media не интерпретировались."
+    ],
+    "status": "active"
+  },
+  {
+    "source_id": "S-003",
+    "kind": "csv",
+    "title": "design.csv",
+    "origin": "materials/start/design.csv",
+    "stored_path": "sources/originals/S-003__design.csv",
+    "extract_path": "sources/extracts/S-003.md",
+    "sha256": "00a5dbae0def9f41dc87ba9fb0964a93f47193cf3520d57cff9515c6e76fac87",
+    "extract_sha256": "81e113fbc5a1a9a8c36aac04b71200b3f546d47a3900340c46f9d15cfde86532",
+    "retrieved_at": "2026-11-20T11:40:32+00:00",
+    "permission": "synthetic",
+    "synthetic": true,
+    "record_count": 30,
+    "gaps": [],
+    "status": "active"
+  }
+]
