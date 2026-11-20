@@ -1,0 +1,26 @@
+[
+  {
+    "command": "/bin/bash -lc 'cat BIBLE.md'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'cat skills/analyze-data/SKILL.md prompts/agenda.md skills/review-decision/challenge.md'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc \"rg --files -g retention.csv -g AGENTS.md -g state.md -g '\"'!evals/evaluator_only/**'\"'\"",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'nl -ba retention.csv && sha256sum retention.csv'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'PYTHONDONTWRITEBYTECODE=1 python3 tools/strategist.py retention --help && ls -d projects/*'",
+    "exit_code": 2
+  },
+  {
+    "command": "/bin/bash -lc \"python3 -B - <<'PY'\nimport csv\nfrom fractions import Fraction\nwith open('retention.csv', newline='') as source:\n    rows = list(csv.DictReader(source))\ndata = {}\nfor row in rows:\n    assert all(row.values())\n    key = row['cohort'], row['channel'], int(row['period'])\n    assert key not in data\n    active, size = int(row['active_users']), int(row['cohort_size'])\n    assert 0 <= active <= size and size > 0\n    data[key] = active, size\ncohorts = ('april', 'may')\nchannels = ('partners', 'self_service')\nassert set(data) == {(m, c, p) for m in cohorts for c in channels for p in (0, 2)}\nweights, rates = {}, {}\nfor month in cohorts:\n    total = sum(data[month, c, 0][0] for c in channels)\n    for channel in channels:\n        start, start_size = data[month, channel, 0]\n        active, size = data[month, channel, 2]\n        assert start == start_size == size\n        weights[month, channel] = Fraction(start, total)\n        rates[month, channel] = Fraction(active, size)\ndef retention(weight_month, rate_month):\n    return sum(weights[weight_month, c] * rates[rate_month, c] for c in channels)\napril = retention('april', 'april')\nfixed_mix = retention('april', 'may')\nmay = retention('may', 'may')\nprint('April, fixed mix, May, within, mix, total (percent/pp)')\nprint(*(float(x * 100) for x in (april, fixed_mix, may, fixed_mix-april, may-fixed_mix, may-april)))\nPY\"",
+    "exit_code": 0
+  }
+]

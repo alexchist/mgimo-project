@@ -6,6 +6,7 @@ No third-party source code is vendored into the Strategist core.
 
 - GitHub Spec Kit (`github/spec-kit`, commit `e210504aa09c9273a38bba665b12b8088468c96f`) was inspected under the MIT License for a documented process comparison. Its command files are not redistributed here.
 - [ProductJudge-Bench by Christian Ciabattoni](https://github.com/opheleon/ProductJudge-Bench/tree/3732c9a05080e8a6d0de424a626beb8fd4b149d9): [MIT code](https://github.com/opheleon/ProductJudge-Bench/blob/3732c9a05080e8a6d0de424a626beb8fd4b149d9/LICENSE), [CC BY 4.0 public scenarios](https://creativecommons.org/licenses/by/4.0/). `docs/productjudge/` reports our generated answers and evaluation with their unmodified renderer and grader; the guided condition adds our own instruction, not a change to the scenario. No endorsement is implied.
+- The [retention comparison notes](docs/research/retention-mix.md) identify the statistical method illustrated by epitools and the compound-key check illustrated by dbt-utils. Neither project's code or runtime is included.
 - `pdftotext` from Poppler is invoked as an external executable when available and is not bundled.
 - Python is required from the user's environment; no Python packages are vendored.
 - External research pages retain their respective rights. Research notes contain links and limited paraphrase, not copies of books.

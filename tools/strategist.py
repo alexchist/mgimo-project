@@ -140,9 +140,12 @@ def validated_csv_headers(values: list[str]) -> list[str]:
 
 
 def read_csv_dict(path: Path) -> tuple[list[dict[str, str | None]], list[str], str]:
-    raw = path.read_text(encoding="utf-8-sig")
+    return parse_csv_dict(path.read_text(encoding="utf-8-sig"))
+
+
+def parse_csv_dict(raw: str, *, strict: bool = False) -> tuple[list[dict[str, str | None]], list[str], str]:
     dialect = detect_csv_dialect(raw)
-    reader = csv.reader(io.StringIO(raw, newline=""), dialect)
+    reader = csv.reader(io.StringIO(raw, newline=""), dialect, strict=strict)
     try:
         columns = validated_csv_headers(next(reader))
     except StopIteration:

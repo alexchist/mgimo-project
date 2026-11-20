@@ -1,0 +1,30 @@
+[
+  {
+    "command": "/bin/bash -lc 'cat BIBLE.md'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc \"rg --files -g 'retention.csv' -g 'SKILL.md' -g 'agenda.md' -g 'challenge.md' -g 'state.md'\"",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'cat skills/analyze-data/SKILL.md prompts/agenda.md skills/review-decision/challenge.md'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'nl -ba retention.csv'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc \"rg --files -g '\"'!evals/**'\"' | head -80\"",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'sha256sum retention.csv'",
+    "exit_code": 0
+  },
+  {
+    "command": "/bin/bash -lc 'PYTHONDONTWRITEBYTECODE=1 python3 tools/retention_mix.py retention.csv --before april --after may --period 2 --segment channel'",
+    "exit_code": 0
+  }
+]
