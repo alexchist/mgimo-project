@@ -1,0 +1,7 @@
+parameter,value,unit,status,meaning
+recruitment_window,9,weeks,planning_limit,Окно набора во втором квартале; исход для последней семьи читаем ещё неделю
+sample_target,3600,unique_families,design_target,Общий набор в обе равные ветви вместе с запасом на пропуски
+weekly_flow,400,first_eligible_families_per_week,unverified_forecast,Разные семьи с первым подходящим событием на одном тарифе за неделю; не сообщения и не повторные случаи
+base_outcome,12,percent,assumption,Доля назначенных семей с ограничением связи индексного номера из-за исчерпания доли в следующие семь суток в контроле
+alternative_outcome,9,percent,assumption,Уровень под альтернативной гипотезой; не наблюдавшийся результат
+q2_direct_cap,90000,RUB,proposal,Потолок прямых расходов будущего теста; без стоимости разработки и без одобрения

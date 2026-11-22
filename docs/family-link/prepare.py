@@ -24,8 +24,15 @@ def main():
         if dest.exists():
             p.exit(2, 'Folder already exists; nothing was replaced.\n')
         dest.mkdir(parents=True)
-        for name in ['BIBLE.md', 'AGENTS.md', '.cursor/rules/strategist.mdc', '.cursorignore', 'tools/strategist.py', 'tools/README.md', 'tools/precedent.py', 'tools/economics.py', 'tools/retention_mix.py', 'tools/copydesk.py']:
+        for name in ['BIBLE.md', 'AGENTS.md', 'CLAUDE.md', '.cursor/rules/strategist.mdc', '.cursorignore', 'tools/README.md']:
             copy(name, dest / name)
+        # Runtime utilities and their local dictionaries, not tests, answers or generated fixtures.
+        for src in sorted((ROOT / 'tools').iterdir()):
+            if src.is_file() and not src.is_symlink() and src.suffix in {'.py', '.json'} and src.name != 'generate_fixtures.py':
+                copy(src.relative_to(ROOT), dest / 'tools' / src.name)
+        for src in sorted((ROOT / 'adapters').rglob('*')):
+            if src.is_file() and not src.is_symlink() and src.suffix in {'.json','.py'}:
+                copy(src.relative_to(ROOT), dest / src.relative_to(ROOT))
         for area in ['skills', 'prompts', 'templates/project', 'knowledge']:
             for src in sorted((ROOT / area).rglob('*')):
                 if src.is_file() and not src.is_symlink() and (src.name == '.gitkeep' or src.suffix in {'.md', '.csv', '.json'}):

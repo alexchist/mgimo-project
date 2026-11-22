@@ -1,0 +1,358 @@
+{
+ "schema": "strategist.recall-eval-queries/1",
+ "provenance": "Написан отдельной сессией (Claude Sonnet через Agent, 2026-11-20) только по текстам карточек, без доступа к коду и словарю. Автор поиска увидел этот набор при сохранении ДО составления словаря понятий, поэтому он не слепой. Независимого отложенного набора в этом опыте не было.",
+ "author_note": "Queries were written from the card texts only, as fresh new-case situations with paraphrases, colloquial Russian, some English jargon, plus off-domain and same-domain hard negatives.",
+ "queries": [
+  {
+   "id": "H01",
+   "kind": "positive",
+   "text": "В письме клиентам хотим написать про функции, которые пока только в плане разработки. Как не наобещать лишнего?",
+   "relevant": [
+    "P-0001"
+   ],
+   "acceptable": [
+    "P-0007"
+   ],
+   "why": "promise based on planned features"
+  },
+  {
+   "id": "H02",
+   "kind": "positive",
+   "text": "Общий retention за четвёртую неделю просел после запуска новой рекламной кампании, хотя в отдельных источниках всё стабильно",
+   "relevant": [
+    "P-0002"
+   ],
+   "acceptable": [
+    "P-0014"
+   ],
+   "why": "mix shift across channels"
+  },
+  {
+   "id": "H03",
+   "kind": "positive",
+   "text": "Churn вырос после того как мы сменили источники трафика, с чего начать разбор?",
+   "relevant": [
+    "P-0002"
+   ],
+   "acceptable": [],
+   "why": "churn after acquisition change, English jargon"
+  },
+  {
+   "id": "H04",
+   "kind": "positive",
+   "text": "Заказчик прислал в брифе готовые проценты конверсии, а таблицы с выгрузкой нет. Как к ним относиться?",
+   "relevant": [
+    "P-0003"
+   ],
+   "acceptable": [],
+   "why": "percentages without data/spec"
+  },
+  {
+   "id": "H05",
+   "kind": "positive",
+   "text": "После обновления мобильного приложения метрика завершений вдруг упала — может, мы просто не всё логируем?",
+   "relevant": [
+    "P-0004"
+   ],
+   "acceptable": [],
+   "why": "tracking completeness after version change"
+  },
+  {
+   "id": "H06",
+   "kind": "positive",
+   "text": "Payback пилота посчитан по ориентировочной смете исполнителя, насколько можно ему верить?",
+   "relevant": [
+    "P-0005"
+   ],
+   "acceptable": [],
+   "why": "pilot payback from contractor estimate"
+  },
+  {
+   "id": "H07",
+   "kind": "positive",
+   "text": "Клиент просит новую фичу для семейных тарифов мобильной связи, чтобы родители следили за трафиком детей",
+   "relevant": [
+    "P-0006"
+   ],
+   "acceptable": [
+    "P-0015"
+   ],
+   "why": "new feature for family plans"
+  },
+  {
+   "id": "H08",
+   "kind": "positive",
+   "text": "Менеджер магазинов видел красивый макет с выгрузкой расписания и хочет обещать это клиентам",
+   "relevant": [
+    "P-0007"
+   ],
+   "acceptable": [
+    "P-0001"
+   ],
+   "why": "feature seen only in mockup"
+  },
+  {
+   "id": "H09",
+   "kind": "positive",
+   "text": "Мы опросили виртуальных респондентов на базе LLM, и они в восторге от идеи. Можно запускать?",
+   "relevant": [
+    "P-0008"
+   ],
+   "acceptable": [],
+   "why": "synthetic interviews do not prove demand"
+  },
+  {
+   "id": "H10",
+   "kind": "positive",
+   "text": "Продукт почти не растёт и привлечение дорогое, стоит ли его закрыть и как записать условия возврата?",
+   "relevant": [
+    "P-0009"
+   ],
+   "acceptable": [],
+   "why": "sunsetting a small product"
+  },
+  {
+   "id": "H11",
+   "kind": "positive",
+   "text": "Pricing для B2B: предлагаем скидку за оплату на год вперёд, поможет ли это удержать компании?",
+   "relevant": [
+    "P-0010"
+   ],
+   "acceptable": [],
+   "why": "annual discount for business clients"
+  },
+  {
+   "id": "H12",
+   "kind": "positive",
+   "text": "Выкатили новую платную опцию, а в контакт-центр стали звонить в два раза чаще. Что с экономикой?",
+   "relevant": [
+    "P-0011"
+   ],
+   "acceptable": [],
+   "why": "support load after launch"
+  },
+  {
+   "id": "H13",
+   "kind": "positive",
+   "text": "Планируем созвоны с пользователями, как хранить записи и согласия, чтобы не нарушить приватность?",
+   "relevant": [
+    "P-0012"
+   ],
+   "acceptable": [],
+   "why": "interviews and personal data"
+  },
+  {
+   "id": "H14",
+   "kind": "positive",
+   "text": "Самая свежая когорта по удержанию выглядит хуже предыдущих, паниковать?",
+   "relevant": [
+    "P-0014"
+   ],
+   "acceptable": [
+    "P-0002"
+   ],
+   "why": "immature observation window"
+  },
+  {
+   "id": "H15",
+   "kind": "positive",
+   "text": "Родители и так созваниваются в WhatsApp-чате; будут ли они платить за наш сервис присмотра?",
+   "relevant": [
+    "P-0015"
+   ],
+   "acceptable": [
+    "P-0006"
+   ],
+   "why": "free messenger alternative"
+  },
+  {
+   "id": "H16",
+   "kind": "positive",
+   "text": "Сколько дней давать бесплатный триал, чтобы больше людей начали платить?",
+   "relevant": [
+    "P-0013"
+   ],
+   "acceptable": [],
+   "why": "trial length; retired card"
+  },
+  {
+   "id": "H17",
+   "kind": "positive",
+   "text": "Free trial на месяц дал много регистраций, но оплат мало. Это нормально?",
+   "relevant": [
+    "P-0013"
+   ],
+   "acceptable": [],
+   "why": "long trial lowers paid conversion; retired card"
+  },
+  {
+   "id": "H18",
+   "kind": "positive",
+   "text": "Как проверить, что мы не обещаем в рекламе то, чего ещё нет в продукте?",
+   "relevant": [
+    "P-0001",
+    "P-0007"
+   ],
+   "acceptable": [],
+   "why": "claims vs real capability"
+  },
+  {
+   "id": "H19",
+   "kind": "positive",
+   "text": "Конкуренты — это операторы или то, чем люди пользуются бесплатно по привычке?",
+   "relevant": [
+    "P-0015"
+   ],
+   "acceptable": [],
+   "why": "free habitual substitute"
+  },
+  {
+   "id": "H20",
+   "kind": "positive",
+   "text": "Цифры из презентации партнёра не сходятся с нашей таблицей, как договориться об определении метрики?",
+   "relevant": [
+    "P-0003"
+   ],
+   "acceptable": [
+    "P-0004"
+   ],
+   "why": "metric definition and denominator"
+  },
+  {
+   "id": "H21",
+   "kind": "positive",
+   "text": "Пользователь не заметил, что пакет гигабайтов закончился, и злится на оператора",
+   "relevant": [
+    "P-0006"
+   ],
+   "acceptable": [],
+   "why": "late notice of data exhaustion"
+  },
+  {
+   "id": "H22",
+   "kind": "positive",
+   "text": "Сравниваем ручной сервис и автоматизацию на пилоте: при какой цене подрядчика мы выходим в плюс?",
+   "relevant": [
+    "P-0005"
+   ],
+   "acceptable": [],
+   "why": "pilot vs manual service, vendor price"
+  },
+  {
+   "id": "H23",
+   "kind": "positive",
+   "text": "Новая функция требует индивидуальной настройки у каждого клиента, потянет ли поддержка?",
+   "relevant": [
+    "P-0011"
+   ],
+   "acceptable": [],
+   "why": "manual setup and support cost"
+  },
+  {
+   "id": "H24",
+   "kind": "positive",
+   "text": "Onboarding-интервью с клиентами: можно ли класть расшифровки в общий репозиторий?",
+   "relevant": [
+    "P-0012"
+   ],
+   "acceptable": [],
+   "why": "interview transcripts and anonymisation"
+  },
+  {
+   "id": "N01",
+   "kind": "negative",
+   "text": "Как приготовить борщ с говядиной на косточке?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "cooking"
+  },
+  {
+   "id": "N02",
+   "kind": "negative",
+   "text": "Какой фреймворк выбрать для фронтенда на React или Vue?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "software engineering"
+  },
+  {
+   "id": "N03",
+   "kind": "negative",
+   "text": "Как оформить отпуск и получить компенсацию за неиспользованные дни?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "HR topic"
+  },
+  {
+   "id": "N04",
+   "kind": "negative",
+   "text": "Лучшие маршруты для поездки в Грузию осенью",
+   "relevant": [],
+   "acceptable": [],
+   "why": "travel"
+  },
+  {
+   "id": "N05",
+   "kind": "negative",
+   "text": "Как настроить CI-пайплайн в GitLab для Python-проекта?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "devops"
+  },
+  {
+   "id": "N06",
+   "kind": "negative",
+   "text": "Какие упражнения помогут от боли в пояснице?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "health"
+  },
+  {
+   "id": "H25",
+   "kind": "hard_negative",
+   "text": "Как выбрать провайдера интернета для офиса на 20 человек?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "internet as a purchase, not a product case"
+  },
+  {
+   "id": "H26",
+   "kind": "hard_negative",
+   "text": "Как составить расписание смен для курьеров в праздники?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "shift schedule operations, not feature communication"
+  },
+  {
+   "id": "H27",
+   "kind": "hard_negative",
+   "text": "Какой канал выбрать для общения с командой: Slack или Telegram?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "internal messenger choice, not customer demand"
+  },
+  {
+   "id": "H28",
+   "kind": "hard_negative",
+   "text": "Как подготовить годовой бюджет отдела маркетинга?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "budgeting, not retention or pricing lesson"
+  },
+  {
+   "id": "H29",
+   "kind": "hard_negative",
+   "text": "Как нанять аналитика данных в продуктовую команду?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "hiring, not metric reliability"
+  },
+  {
+   "id": "H30",
+   "kind": "hard_negative",
+   "text": "Как провести юзабилити-тест прототипа мобильного приложения?",
+   "relevant": [],
+   "acceptable": [],
+   "why": "usability testing method, not interviews data privacy or synthetic respondents"
+  }
+ ]
+}

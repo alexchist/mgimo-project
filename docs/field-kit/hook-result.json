@@ -1,0 +1,42 @@
+{
+  "type": "hook_response",
+  "exit_code": 0,
+  "response": {
+    "source_id": "S-003",
+    "event": "changed",
+    "imported_sha256": "00a5dbae0def9f41dc87ba9fb0964a93f47193cf3520d57cff9515c6e76fac87",
+    "observed_sha256": "e3dbf1bd8b6d9f9d96db0345a5b64ec8f8b51730ed3e10aff1b7a179041b33fe",
+    "review": {
+      "claims": [
+        "E-006",
+        "E-007",
+        "E-008"
+      ],
+      "conclusions": [
+        "C-002",
+        "C-004"
+      ],
+      "decisions": [],
+      "commitments": [],
+      "document_lines": {
+        "options.md": [
+          3
+        ],
+        "strategy.md": [
+          3,
+          13
+        ],
+        "decision-memo.md": [
+          3,
+          16,
+          18
+        ],
+        "state.md": [
+          7
+        ]
+      },
+      "scope": "Только явные ID и связи. Без ссылки строка может быть затронута по смыслу."
+    },
+    "next": "Сверьте новый материал. Если это поправка, импортируйте её отдельно и вызовите revise до редактирования записки. Ничего не изменено."
+  }
+}

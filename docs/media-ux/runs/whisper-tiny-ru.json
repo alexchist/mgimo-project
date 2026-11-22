@@ -1,0 +1,51 @@
+{
+  "schema": "strategist.media/1.0",
+  "source_name": "family-voice.wav",
+  "original": {
+    "path": "original.wav",
+    "bytes": 295568,
+    "sha256": "46f7fb4b356972be0687a0ad81f0d7419d421cfd1f5398e5ec6c23ed9803c131"
+  },
+  "kind": "audio",
+  "origin": "synthetic",
+  "network_used": false,
+  "duration_seconds": 9.234063,
+  "audio": {
+    "status": "ready",
+    "stream_index": 0,
+    "clock": "container_start",
+    "file": {
+      "path": "audio.wav",
+      "bytes": 295568,
+      "sha256": "46f7fb4b356972be0687a0ad81f0d7419d421cfd1f5398e5ec6c23ed9803c131"
+    }
+  },
+  "transcript": {
+    "status": "ready",
+    "engine": "whisper-cli",
+    "model": "ggml-tiny.bin",
+    "model_sha256": "be07e048e1e599ad46341c8d2a135645097a538221678b7acdd1b1919c6e1b21",
+    "language": "ru",
+    "wall_seconds": 2.786,
+    "raw": {
+      "path": "whisper.json",
+      "bytes": 1227,
+      "sha256": "4eefc860ab615cf87a9716bdb926db0cf87431e127a3f2f0db9befda24021bd7"
+    },
+    "segments": [
+      {
+        "locator": "audio:0.000-3.920",
+        "start_ms": 0,
+        "end_ms": 3920,
+        "text": "Я хочу тебе вивести сашу туристову мере, смотри о вонанце."
+      },
+      {
+        "locator": "audio:3.920-8.920",
+        "start_ms": 3920,
+        "end_ms": 8920,
+        "text": "Но, к ранде, по-днебе, мере, мере, мере, мере. Матсаткатяу мере."
+      }
+    ]
+  },
+  "wall_seconds": 3.03
+}

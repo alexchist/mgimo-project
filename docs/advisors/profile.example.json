@@ -1,0 +1,10 @@
+{
+  "respondent": {
+    "model": "gpt-5.6-sol",
+    "effort": "low"
+  },
+  "critic": {
+    "model": "gpt-6.2-astra",
+    "effort": "medium"
+  }
+}

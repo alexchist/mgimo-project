@@ -1,0 +1,864 @@
+{
+ "contract": "strategist.mcp-roundtrip/1",
+ "client": {
+  "name": "mcp (official Python SDK)",
+  "version": "2.3.0"
+ },
+ "server": "tools/strategist_mcp.py",
+ "workspace": {
+  "case": "projects/lesson-demo",
+  "cards": [
+   {
+    "id": "P-0001",
+    "ref": "D-001",
+    "retired": false
+   },
+   {
+    "id": "P-0002",
+    "ref": "C-002",
+    "retired": false
+   },
+   {
+    "id": "P-0003",
+    "ref": "C-004",
+    "retired": false
+   },
+   {
+    "id": "P-0004",
+    "ref": "C-001",
+    "retired": true
+   }
+  ],
+  "note": "временная копия examples/demo; карточки записаны tools/precedent.py remember/retire"
+ },
+ "literal_find_same_queries": {
+  "paraphrase_promise": [],
+  "paraphrase_churn": []
+ },
+ "runs": [
+  {
+   "mode": "legacy",
+   "calls": [
+    {
+     "label": "paraphrase_promise",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "Можно ли писать клиентам про функцию, которой ещё нет в продукте?"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [
+       {
+        "id": "P-0001",
+        "source_ref": "projects/lesson-demo#D-001",
+        "band": "strong",
+        "score": 0.814,
+        "source_check": "matches",
+        "decision_kind": "simulated",
+        "retired": false,
+        "retire_reason": null,
+        "matched_concepts": [
+         "feature",
+         "promise_gap",
+         "roadmap"
+        ],
+        "use": "Повод проверить переносимость, не факт для этого кейса: назовите одно сходство, одно важное различие и что подтвердить на данных этого кейса."
+       }
+      ],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "feature",
+         "label": "функция продукта",
+         "broad": true,
+         "query_words": [
+          "функцию"
+         ]
+        },
+        {
+         "concept": "promise_gap",
+         "label": "обещание и ожидания клиента против реального продукта",
+         "broad": false,
+         "query_words": [
+          "еще",
+          "которой",
+          "нет"
+         ]
+        },
+        {
+         "concept": "roadmap",
+         "label": "доступность функции: roadmap, макет, прототип",
+         "broad": false,
+         "query_words": [
+          "еще",
+          "нет"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "писать"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "paraphrase_churn",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "churn вырос после запуска промо, что мы уже знаем"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [
+       {
+        "id": "P-0002",
+        "source_ref": "projects/lesson-demo#C-002",
+        "band": "partial",
+        "score": 0.6522,
+        "source_check": "matches",
+        "decision_kind": null,
+        "retired": false,
+        "retire_reason": null,
+        "matched_concepts": [
+         "acquisition",
+         "retention"
+        ],
+        "use": "Повод проверить переносимость, не факт для этого кейса: назовите одно сходство, одно важное различие и что подтвердить на данных этого кейса."
+       }
+      ],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "acquisition",
+         "label": "привлечение и маркетинговые каналы",
+         "broad": true,
+         "query_words": [
+          "промо"
+         ]
+        },
+        {
+         "concept": "retention",
+         "label": "удержание и отток",
+         "broad": false,
+         "query_words": [
+          "churn"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "запуска"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "irrelevant_everyday",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "рецепт борща"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [],
+      "query_analysis": {
+       "concepts": [],
+       "words_outside_lexicon": [
+        "борща",
+        "рецепт"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "irrelevant_same_domain",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "покрытие 5G в новых регионах"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "telecom",
+         "label": "мобильная связь и интернет-пакеты",
+         "broad": true,
+         "query_words": [
+          "5g",
+          "покрытие"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "регионах"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "retired_hidden_by_default",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "цифры в презентации не сходятся с выгрузкой"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "export_formats",
+         "label": "выгрузка и экспорт файлов",
+         "broad": true,
+         "query_words": [
+          "выгрузкой"
+         ]
+        },
+        {
+         "concept": "metric_reproducibility",
+         "label": "воспроизводимость и определение метрики",
+         "broad": false,
+         "query_words": [
+          "не",
+          "сходятся"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "презентации",
+        "цифры"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "retired_shown_as_history",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "цифры в презентации не сходятся с выгрузкой",
+      "include_retired": true
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 4,
+       "retired_excluded": 0
+      },
+      "items": [
+       {
+        "id": "P-0004",
+        "source_ref": "projects/lesson-demo#C-001",
+        "band": "retired_history",
+        "score": 0.8049,
+        "source_check": "matches",
+        "decision_kind": null,
+        "retired": true,
+        "retire_reason": "Учебная карточка отозвана для проверки: показывать только как историю.",
+        "matched_concepts": [
+         "export_formats",
+         "metric_reproducibility"
+        ],
+        "use": "Отозвано: только история. Не применять; причина отзыва — в retire_reason."
+       }
+      ],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "export_formats",
+         "label": "выгрузка и экспорт файлов",
+         "broad": true,
+         "query_words": [
+          "выгрузкой"
+         ]
+        },
+        {
+         "concept": "metric_reproducibility",
+         "label": "воспроизводимость и определение метрики",
+         "broad": false,
+         "query_words": [
+          "не",
+          "сходятся"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "презентации",
+        "цифры"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "case_search",
+     "tool": "case_search",
+     "arguments": {
+      "query": "обещали живого преподавателя"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "items": [
+       {
+        "id": "C-003",
+        "kind": "conclusion",
+        "record": "evidence/conclusions.csv#conclusion_id=C-003",
+        "band": "partial"
+       },
+       {
+        "id": "E-012",
+        "kind": "claim",
+        "record": "evidence/claims.csv#claim_id=E-012",
+        "band": "partial"
+       },
+       {
+        "id": "C-006",
+        "kind": "conclusion",
+        "record": "evidence/conclusions.csv#conclusion_id=C-006",
+        "band": "partial"
+       }
+      ]
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "case_resume",
+     "tool": "case_resume",
+     "arguments": {},
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "contract": "strategist.resume/1.0",
+      "ok": true,
+      "project": {
+       "schema_version": "1.0",
+       "slug": "retention-run",
+       "title": "Удержание: onboarding и коммуникация за восемь недель",
+       "artifact_stage": "decision_draft",
+       "business_decision_status": "pending",
+       "record": "project.json"
+      },
+      "decisions": [
+       "decisions/decisions.csv#decision_id=D-001"
+      ]
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "case_check",
+     "tool": "case_check",
+     "arguments": {},
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "ok": true,
+      "structural_only": true,
+      "counts": {
+       "sources": 6,
+       "claims": 15,
+       "conclusions": 7,
+       "decisions": 1,
+       "commitments": 1,
+       "revisions": 1,
+       "operations": 26,
+       "ingest_failures": 0
+      },
+      "reproduce_with": "python3 tools/strategist.py check projects/lesson-demo"
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "unknown_argument_refused",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "x",
+      "path": "/etc"
+     },
+     "is_error": true,
+     "error_text": "Ошибка инструмента precedent_recall: неизвестные аргументы: path",
+     "summary": {},
+     "expectation_problems": []
+    }
+   ],
+   "negotiated_protocol_version": "2025-11-25",
+   "server_info": {
+    "name": "strategist",
+    "version": "0.1.0"
+   },
+   "tools": [
+    {
+     "name": "precedent_recall",
+     "read_only": true,
+     "arguments": [
+      "include_retired",
+      "limit",
+      "query"
+     ]
+    },
+    {
+     "name": "case_resume",
+     "read_only": true,
+     "arguments": []
+    },
+    {
+     "name": "case_check",
+     "read_only": true,
+     "arguments": []
+    },
+    {
+     "name": "case_search",
+     "read_only": true,
+     "arguments": [
+      "include_inactive",
+      "limit",
+      "query"
+     ]
+    }
+   ]
+  },
+  {
+   "mode": "auto",
+   "calls": [
+    {
+     "label": "paraphrase_promise",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "Можно ли писать клиентам про функцию, которой ещё нет в продукте?"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [
+       {
+        "id": "P-0001",
+        "source_ref": "projects/lesson-demo#D-001",
+        "band": "strong",
+        "score": 0.814,
+        "source_check": "matches",
+        "decision_kind": "simulated",
+        "retired": false,
+        "retire_reason": null,
+        "matched_concepts": [
+         "feature",
+         "promise_gap",
+         "roadmap"
+        ],
+        "use": "Повод проверить переносимость, не факт для этого кейса: назовите одно сходство, одно важное различие и что подтвердить на данных этого кейса."
+       }
+      ],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "feature",
+         "label": "функция продукта",
+         "broad": true,
+         "query_words": [
+          "функцию"
+         ]
+        },
+        {
+         "concept": "promise_gap",
+         "label": "обещание и ожидания клиента против реального продукта",
+         "broad": false,
+         "query_words": [
+          "еще",
+          "которой",
+          "нет"
+         ]
+        },
+        {
+         "concept": "roadmap",
+         "label": "доступность функции: roadmap, макет, прототип",
+         "broad": false,
+         "query_words": [
+          "еще",
+          "нет"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "писать"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "paraphrase_churn",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "churn вырос после запуска промо, что мы уже знаем"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [
+       {
+        "id": "P-0002",
+        "source_ref": "projects/lesson-demo#C-002",
+        "band": "partial",
+        "score": 0.6522,
+        "source_check": "matches",
+        "decision_kind": null,
+        "retired": false,
+        "retire_reason": null,
+        "matched_concepts": [
+         "acquisition",
+         "retention"
+        ],
+        "use": "Повод проверить переносимость, не факт для этого кейса: назовите одно сходство, одно важное различие и что подтвердить на данных этого кейса."
+       }
+      ],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "acquisition",
+         "label": "привлечение и маркетинговые каналы",
+         "broad": true,
+         "query_words": [
+          "промо"
+         ]
+        },
+        {
+         "concept": "retention",
+         "label": "удержание и отток",
+         "broad": false,
+         "query_words": [
+          "churn"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "запуска"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "irrelevant_everyday",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "рецепт борща"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [],
+      "query_analysis": {
+       "concepts": [],
+       "words_outside_lexicon": [
+        "борща",
+        "рецепт"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "irrelevant_same_domain",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "покрытие 5G в новых регионах"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "telecom",
+         "label": "мобильная связь и интернет-пакеты",
+         "broad": true,
+         "query_words": [
+          "5g",
+          "покрытие"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "регионах"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "retired_hidden_by_default",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "цифры в презентации не сходятся с выгрузкой"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 3,
+       "retired_excluded": 1
+      },
+      "items": [],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "export_formats",
+         "label": "выгрузка и экспорт файлов",
+         "broad": true,
+         "query_words": [
+          "выгрузкой"
+         ]
+        },
+        {
+         "concept": "metric_reproducibility",
+         "label": "воспроизводимость и определение метрики",
+         "broad": false,
+         "query_words": [
+          "не",
+          "сходятся"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "презентации",
+        "цифры"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "retired_shown_as_history",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "цифры в презентации не сходятся с выгрузкой",
+      "include_retired": true
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "searched": {
+       "precedents": 4,
+       "retired_excluded": 0
+      },
+      "items": [
+       {
+        "id": "P-0004",
+        "source_ref": "projects/lesson-demo#C-001",
+        "band": "retired_history",
+        "score": 0.8049,
+        "source_check": "matches",
+        "decision_kind": null,
+        "retired": true,
+        "retire_reason": "Учебная карточка отозвана для проверки: показывать только как историю.",
+        "matched_concepts": [
+         "export_formats",
+         "metric_reproducibility"
+        ],
+        "use": "Отозвано: только история. Не применять; причина отзыва — в retire_reason."
+       }
+      ],
+      "query_analysis": {
+       "concepts": [
+        {
+         "concept": "export_formats",
+         "label": "выгрузка и экспорт файлов",
+         "broad": true,
+         "query_words": [
+          "выгрузкой"
+         ]
+        },
+        {
+         "concept": "metric_reproducibility",
+         "label": "воспроизводимость и определение метрики",
+         "broad": false,
+         "query_words": [
+          "не",
+          "сходятся"
+         ]
+        }
+       ],
+       "words_outside_lexicon": [
+        "презентации",
+        "цифры"
+       ]
+      }
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "case_search",
+     "tool": "case_search",
+     "arguments": {
+      "query": "обещали живого преподавателя"
+     },
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "items": [
+       {
+        "id": "C-003",
+        "kind": "conclusion",
+        "record": "evidence/conclusions.csv#conclusion_id=C-003",
+        "band": "partial"
+       },
+       {
+        "id": "E-012",
+        "kind": "claim",
+        "record": "evidence/claims.csv#claim_id=E-012",
+        "band": "partial"
+       },
+       {
+        "id": "C-006",
+        "kind": "conclusion",
+        "record": "evidence/conclusions.csv#conclusion_id=C-006",
+        "band": "partial"
+       }
+      ]
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "case_resume",
+     "tool": "case_resume",
+     "arguments": {},
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "contract": "strategist.resume/1.0",
+      "ok": true,
+      "project": {
+       "schema_version": "1.0",
+       "slug": "retention-run",
+       "title": "Удержание: onboarding и коммуникация за восемь недель",
+       "artifact_stage": "decision_draft",
+       "business_decision_status": "pending",
+       "record": "project.json"
+      },
+      "decisions": [
+       "decisions/decisions.csv#decision_id=D-001"
+      ]
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "case_check",
+     "tool": "case_check",
+     "arguments": {},
+     "is_error": false,
+     "error_text": null,
+     "summary": {
+      "ok": true,
+      "structural_only": true,
+      "counts": {
+       "sources": 6,
+       "claims": 15,
+       "conclusions": 7,
+       "decisions": 1,
+       "commitments": 1,
+       "revisions": 1,
+       "operations": 26,
+       "ingest_failures": 0
+      },
+      "reproduce_with": "python3 tools/strategist.py check projects/lesson-demo"
+     },
+     "expectation_problems": []
+    },
+    {
+     "label": "unknown_argument_refused",
+     "tool": "precedent_recall",
+     "arguments": {
+      "query": "x",
+      "path": "/etc"
+     },
+     "is_error": true,
+     "error_text": "Ошибка инструмента precedent_recall: неизвестные аргументы: path",
+     "summary": {},
+     "expectation_problems": []
+    }
+   ],
+   "negotiated_protocol_version": "2025-11-25",
+   "server_info": {
+    "name": "strategist",
+    "version": "0.1.0"
+   },
+   "tools": [
+    {
+     "name": "precedent_recall",
+     "read_only": true,
+     "arguments": [
+      "include_retired",
+      "limit",
+      "query"
+     ]
+    },
+    {
+     "name": "case_resume",
+     "read_only": true,
+     "arguments": []
+    },
+    {
+     "name": "case_check",
+     "read_only": true,
+     "arguments": []
+    },
+    {
+     "name": "case_search",
+     "read_only": true,
+     "arguments": [
+      "include_inactive",
+      "limit",
+      "query"
+     ]
+    }
+   ]
+  }
+ ]
+}

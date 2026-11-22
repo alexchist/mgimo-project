@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Семейный перевод</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; color: #142e2b; background: #f4f7f4; font: 16px/1.4 system-ui, sans-serif; }
+main { max-width: 400px; min-height: 760px; margin: auto; padding: 32px 25px; display: flex; flex-direction: column; }
+nav { display: flex; justify-content: space-between; align-items: center; }
+a { min-height: 44px; display: inline-flex; align-items: center; color: #27634e; font-weight: 650; text-decoration: none; }
+small { color: #4c6357; font-size: 14px; }
+h1 { margin: 27px 0 6px; font-size: 32px; line-height: 1.13; letter-spacing: -.9px; }
+p { margin: 0; color: #4c6357; }
+.destination { display: flex; align-items: center; gap: 14px; margin: 27px 0 14px; }
+.avatar { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; background: #dcebe4; color: #275944; font-weight: 740; }
+.destination strong { display: block; }
+.card { margin-top: 12px; padding: 19px 20px; border: 1px solid #d7e4dc; background: white; border-radius: 18px; }
+label { display: block; color: #4c6357; font-size: 14px; }
+.amount { margin-top: 4px; font-size: 36px; letter-spacing: -1px; font-weight: 700; }
+dl { margin: 0; }
+dl div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; }
+dl div:first-child { padding-top: 0; }
+dl div:last-child { border-top: 1px solid #d7e4dc; margin-top: 5px; padding-bottom: 0; font-weight: 700; }
+dt, dd { margin: 0; }
+.hint { margin: 12px 2px; font-size: 14px; }
+footer { margin-top: auto; padding-top: 25px; }
+button, footer a { width: 100%; display: grid; place-items: center; min-height: 54px; border: 0; border-radius: 14px; background: #176249; color: white; font: 700 16px system-ui; }
+footer p { margin-top: 10px; text-align: center; font-size: 14px; }
+[hidden] { display: none; }
+</style>
+<main>
+  <nav><a href="#1">‹ Назад</a><small id="progress">Шаг 1 из 2</small></nav>
+  <h1 id="title">Перевод в семью</h1>
+  <p id="lead">Со своего баланса на номер участника.</p>
+  <div class="destination">
+    <span class="avatar" aria-hidden="true">С</span>
+    <div><strong>Саша</strong><small>Участник «Семейной группы»</small></div>
+  </div>
+  <section class="card" id="select">
+    <label>Сумма перевода</label><div class="amount">300 ₽</div>
+  </section>
+  <p class="hint" id="available">На балансе 520 ₽</p>
+  <section class="card" id="summary" hidden>
+    <dl>
+      <div><dt>Сумма перевода</dt><dd>300 ₽</dd></div>
+      <div><dt>Комиссия</dt><dd>25 ₽</dd></div>
+      <div><dt>Спишется</dt><dd>325 ₽</dd></div>
+    </dl>
+  </section>
+  <p class="hint" id="after" hidden>После перевода на балансе останется 195 ₽.</p>
+  <footer><a id="next" href="#2">Далее</a><button id="confirm" hidden>Подтвердить перевод</button><p>С вашего мобильного баланса</p></footer>
+</main>
+<script>
+function setStep() {
+  const second = location.hash === '#2';
+  for (const id of ['select', 'available', 'next']) document.getElementById(id).hidden = second;
+  for (const id of ['summary', 'after', 'confirm']) document.getElementById(id).hidden = !second;
+  document.getElementById('progress').textContent = second ? 'Шаг 2 из 2' : 'Шаг 1 из 2';
+  document.getElementById('title').textContent = second ? 'Проверить перевод' : 'Перевод в семью';
+  document.getElementById('lead').textContent = second ? 'Проверьте получателя и итоговую сумму.' : 'Со своего баланса на номер участника.';
+}
+setStep();
+addEventListener('hashchange', setStep);
+</script>
+</html>

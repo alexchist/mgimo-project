@@ -1,0 +1,67 @@
+{
+  "claude": {
+    "exit": 0,
+    "seconds": 64.32,
+    "stdout_bytes": 7852,
+    "stderr_bytes": 0,
+    "models": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 28,
+        "outputTokens": 7708,
+        "cacheReadInputTokens": 384527,
+        "cacheCreationInputTokens": 33607,
+        "webSearchRequests": 0,
+        "costUSD": 0.2500167,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 1938,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 33607,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "turns": 18,
+    "number_of_permission_denials": 5
+  },
+  "finish": {
+    "exit": 0,
+    "seconds": 121.67,
+    "models": {
+      "claude-sonnet-5-5": {
+        "inputTokens": 38,
+        "outputTokens": 16861,
+        "cacheReadInputTokens": 675182,
+        "cacheCreationInputTokens": 46980,
+        "webSearchRequests": 0,
+        "costUSD": 0.4241242,
+        "contextWindow": 1000000,
+        "maxOutputTokens": 128000,
+        "thinkingTokens": 3339,
+        "cacheCreationEphemeral5mInputTokens": 0,
+        "cacheCreationEphemeral1hInputTokens": 46980,
+        "canonicalModel": "claude-sonnet-5-5",
+        "provider": "firstParty",
+        "costBasis": "list"
+      }
+    },
+    "turns": 36,
+    "number_of_permission_denials": 3
+  },
+  "cursor": {
+    "exit": 1,
+    "seconds": 10.48,
+    "stdout_bytes": 984,
+    "stderr_bytes": 111,
+    "error": "ActionRequiredError: You've hit your usage limit Get Cursor Pro for more Agent usage, unlimited Tab, and more.",
+    "final_answer": false
+  },
+  "unchanged_snapshots": {
+    "brief.md": "a96b1a96986c73901fff57483ca3be51599417c56ab6075f4614034532ec7b43",
+    "options.md": "24877b766bd144d5855f6e3b804b61aa0e4e51062f35561ffd5db5e9c94fe183",
+    "strategy.md": "c7f8d5e0b2d598b10aec62f818765542239e40e0047a8487bebbd1c1d87bf94a",
+    "decision-memo.md": "fe1dac68f78a7352be6f5ce86a53346e473225ab1feee1b5b8baad036093eef1",
+    "state.md": "f531eeb48cb54525c11b5a24ecae6017413ebb4aa2264220f09738d5842b72d4"
+  }
+}

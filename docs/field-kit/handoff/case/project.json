@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.1",
+  "slug": "family",
+  "title": "Связь для близких",
+  "created_at": "2026-11-20T11:40:27+00:00",
+  "artifact_stage": "decision_draft",
+  "mode": "on-demand",
+  "business_decision_status": "pending"
+}

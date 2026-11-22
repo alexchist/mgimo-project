@@ -1,0 +1,3 @@
+operation_id,started_at,finished_at,status,tool,inputs,artifact,cost_status,cost_amount,currency,human_minutes,related_operation_id,resolution,notes
+OP-001,2026-11-20T11:40:31+00:00,2026-11-20T11:43:28+00:00,succeeded,local-strategy-review,materials/start,decision-memo.md,not_applicable,,,,,,"Локальная подготовка. Три учебных материала, расчёт и самопроверка. Без внешних расходов."
+OP-002,2026-11-20T00:00:00+00:00,2026-11-20T00:00:00+00:00,succeeded,local-strategy-review,"update-request.txt; S-004; S-005; R-001","decision-memo.md; options.md; strategy.md; evidence/conclusions.csv; brief.md; state.md",not_applicable,,,,,,"Ручной пересчёт после R-001; метки времени условные. Без скриптов, мощность не считалась. Ingest и revise выполнены прежним чатом и не повторялись."

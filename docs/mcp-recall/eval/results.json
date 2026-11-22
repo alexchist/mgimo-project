@@ -1,0 +1,926 @@
+{
+  "method": {
+    "method": "strategist.recall/1",
+    "kind": "concept_lexicon_and_stems",
+    "embeddings": false,
+    "network": false,
+    "lexicon": "tools/recall_lexicon.json",
+    "lexicon_sha256": "sha256:c98cf460f6301f602c34d4abd48b206076c01914076771ce17d30aa5e83b597e",
+    "concepts": 39,
+    "scope": "Понятия продуктовой и коммуникационной стратегии цифровых и телеком-продуктов, русский и английский. Слово вне словаря ищется только по основе слова. Это не эмбеддинги и не модель языка.",
+    "thresholds": {
+      "strong": 0.75,
+      "partial": 0.5
+    },
+    "false_positive_control": "Показываются только карточки, где покрыта заметная доля слов запроса и есть хотя бы одно специфичное совпадение; широкие понятия (канал, связь, функция, маркетинг...) сами по себе результата не дают. Пустой ответ — не доказательство, что опыта не было."
+  },
+  "sets": {
+    "queries-dev": {
+      "provenance": "Dev-набор: написан автором поиска до словаря понятий и использовался для настройки порогов. Это не независимая проверка. Сравнение с запросами, составленными другой сессией: queries-seen.json.",
+      "queries": 34,
+      "systems": {
+        "recall": {
+          "positive_queries": 23,
+          "recall_at_3": 1.0,
+          "mrr": 1.0,
+          "negative_queries": 10,
+          "negative_queries_clean": 10,
+          "queries_with_false_positive": 1,
+          "shown_items": 31,
+          "false_positive_items": 1,
+          "strong_items": 18,
+          "strong_items_wrong": 1,
+          "retired_only_queries": 1,
+          "retired_found_with_include_retired": 1
+        },
+        "literal_all_words": {
+          "positive_queries": 23,
+          "recall_at_3": 0.0,
+          "mrr": 0.0,
+          "negative_queries": 10,
+          "negative_queries_clean": 10,
+          "queries_with_false_positive": 0,
+          "shown_items": 0,
+          "false_positive_items": 0,
+          "strong_items": 0,
+          "strong_items_wrong": 0,
+          "retired_only_queries": 1,
+          "retired_found_with_include_retired": 0
+        },
+        "literal_any_word": {
+          "positive_queries": 23,
+          "recall_at_3": 0.652,
+          "mrr": 0.63,
+          "negative_queries": 10,
+          "negative_queries_clean": 7,
+          "queries_with_false_positive": 11,
+          "shown_items": 31,
+          "false_positive_items": 11,
+          "strong_items": 31,
+          "strong_items_wrong": 11,
+          "retired_only_queries": 1,
+          "retired_found_with_include_retired": 1
+        }
+      },
+      "per_query": [
+        {
+          "id": "D01",
+          "kind": "positive",
+          "shown": [
+            "P-0002",
+            "P-0010"
+          ],
+          "strong": [
+            "P-0002"
+          ],
+          "relevant": [
+            "P-0002"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D02",
+          "kind": "positive",
+          "shown": [
+            "P-0002"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0002"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D03",
+          "kind": "positive",
+          "shown": [
+            "P-0001",
+            "P-0007"
+          ],
+          "strong": [
+            "P-0001",
+            "P-0007"
+          ],
+          "relevant": [
+            "P-0001",
+            "P-0007"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D04",
+          "kind": "positive",
+          "shown": [
+            "P-0001",
+            "P-0007"
+          ],
+          "strong": [
+            "P-0001"
+          ],
+          "relevant": [
+            "P-0001",
+            "P-0007"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D05",
+          "kind": "positive",
+          "shown": [
+            "P-0003"
+          ],
+          "strong": [
+            "P-0003"
+          ],
+          "relevant": [
+            "P-0003"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D06",
+          "kind": "positive",
+          "shown": [
+            "P-0004"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0004"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D07",
+          "kind": "positive",
+          "shown": [
+            "P-0005",
+            "P-0011"
+          ],
+          "strong": [
+            "P-0005"
+          ],
+          "relevant": [
+            "P-0005"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D08",
+          "kind": "positive",
+          "shown": [
+            "P-0005"
+          ],
+          "strong": [
+            "P-0005"
+          ],
+          "relevant": [
+            "P-0005"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D09",
+          "kind": "positive",
+          "shown": [
+            "P-0006",
+            "P-0015"
+          ],
+          "strong": [
+            "P-0006",
+            "P-0015"
+          ],
+          "relevant": [
+            "P-0006"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D10",
+          "kind": "positive",
+          "shown": [
+            "P-0008"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0008"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D11",
+          "kind": "positive",
+          "shown": [
+            "P-0009"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0009"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D12",
+          "kind": "positive",
+          "shown": [
+            "P-0010"
+          ],
+          "strong": [
+            "P-0010"
+          ],
+          "relevant": [
+            "P-0010"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D13",
+          "kind": "positive",
+          "shown": [
+            "P-0011"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0011"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D14",
+          "kind": "positive",
+          "shown": [
+            "P-0012"
+          ],
+          "strong": [
+            "P-0012"
+          ],
+          "relevant": [
+            "P-0012"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D15",
+          "kind": "positive",
+          "shown": [
+            "P-0014"
+          ],
+          "strong": [
+            "P-0014"
+          ],
+          "relevant": [
+            "P-0014"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D16",
+          "kind": "positive",
+          "shown": [
+            "P-0015"
+          ],
+          "strong": [
+            "P-0015"
+          ],
+          "relevant": [
+            "P-0015"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D17",
+          "kind": "positive",
+          "shown": [
+            "P-0007",
+            "P-0001"
+          ],
+          "strong": [
+            "P-0007"
+          ],
+          "relevant": [
+            "P-0001",
+            "P-0007"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D18",
+          "kind": "positive",
+          "shown": [
+            "P-0002",
+            "P-0010",
+            "P-0014"
+          ],
+          "strong": [
+            "P-0002",
+            "P-0010"
+          ],
+          "relevant": [
+            "P-0002"
+          ],
+          "false_positives": [
+            "P-0010"
+          ]
+        },
+        {
+          "id": "D19",
+          "kind": "positive",
+          "shown": [
+            "P-0003"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0003"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D20",
+          "kind": "positive",
+          "shown": [
+            "P-0006"
+          ],
+          "strong": [
+            "P-0006"
+          ],
+          "relevant": [
+            "P-0006"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D21",
+          "kind": "positive",
+          "shown": [
+            "P-0009"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0009"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D22",
+          "kind": "positive",
+          "shown": [
+            "P-0011"
+          ],
+          "strong": [
+            "P-0011"
+          ],
+          "relevant": [
+            "P-0011"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D23",
+          "kind": "positive",
+          "shown": [],
+          "strong": [],
+          "relevant": [
+            "P-0013"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "D24",
+          "kind": "positive",
+          "shown": [
+            "P-0012"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0012"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "N01",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N02",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N03",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N04",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N05",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N06",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "X01",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "X02",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "X03",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "X04",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        }
+      ]
+    },
+    "queries-seen": {
+      "provenance": "Написан отдельной сессией (Claude Sonnet через Agent, 2026-11-20) только по текстам карточек, без доступа к коду и словарю. Автор поиска увидел этот набор при сохранении ДО составления словаря понятий, поэтому он не слепой. Независимого отложенного набора в этом опыте не было.",
+      "queries": 36,
+      "systems": {
+        "recall": {
+          "positive_queries": 22,
+          "recall_at_3": 0.818,
+          "mrr": 0.795,
+          "negative_queries": 12,
+          "negative_queries_clean": 12,
+          "queries_with_false_positive": 1,
+          "shown_items": 22,
+          "false_positive_items": 1,
+          "strong_items": 8,
+          "strong_items_wrong": 0,
+          "retired_only_queries": 2,
+          "retired_found_with_include_retired": 2
+        },
+        "literal_all_words": {
+          "positive_queries": 22,
+          "recall_at_3": 0.0,
+          "mrr": 0.0,
+          "negative_queries": 12,
+          "negative_queries_clean": 12,
+          "queries_with_false_positive": 0,
+          "shown_items": 0,
+          "false_positive_items": 0,
+          "strong_items": 0,
+          "strong_items_wrong": 0,
+          "retired_only_queries": 2,
+          "retired_found_with_include_retired": 0
+        },
+        "literal_any_word": {
+          "positive_queries": 22,
+          "recall_at_3": 0.818,
+          "mrr": 0.818,
+          "negative_queries": 12,
+          "negative_queries_clean": 7,
+          "queries_with_false_positive": 13,
+          "shown_items": 40,
+          "false_positive_items": 21,
+          "strong_items": 40,
+          "strong_items_wrong": 21,
+          "retired_only_queries": 2,
+          "retired_found_with_include_retired": 2
+        }
+      },
+      "per_query": [
+        {
+          "id": "H01",
+          "kind": "positive",
+          "shown": [
+            "P-0007",
+            "P-0001"
+          ],
+          "strong": [
+            "P-0007"
+          ],
+          "relevant": [
+            "P-0001"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H02",
+          "kind": "positive",
+          "shown": [],
+          "strong": [],
+          "relevant": [
+            "P-0002"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H03",
+          "kind": "positive",
+          "shown": [
+            "P-0002"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0002"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H04",
+          "kind": "positive",
+          "shown": [
+            "P-0003"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0003"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H05",
+          "kind": "positive",
+          "shown": [
+            "P-0004"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0004"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H06",
+          "kind": "positive",
+          "shown": [],
+          "strong": [],
+          "relevant": [
+            "P-0005"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H07",
+          "kind": "positive",
+          "shown": [
+            "P-0006",
+            "P-0015"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0006"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H08",
+          "kind": "positive",
+          "shown": [
+            "P-0007"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0007"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H09",
+          "kind": "positive",
+          "shown": [
+            "P-0008"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0008"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H10",
+          "kind": "positive",
+          "shown": [
+            "P-0009"
+          ],
+          "strong": [
+            "P-0009"
+          ],
+          "relevant": [
+            "P-0009"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H11",
+          "kind": "positive",
+          "shown": [
+            "P-0010"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0010"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H12",
+          "kind": "positive",
+          "shown": [],
+          "strong": [],
+          "relevant": [
+            "P-0011"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H13",
+          "kind": "positive",
+          "shown": [
+            "P-0012"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0012"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H14",
+          "kind": "positive",
+          "shown": [
+            "P-0014"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0014"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H15",
+          "kind": "positive",
+          "shown": [
+            "P-0015"
+          ],
+          "strong": [
+            "P-0015"
+          ],
+          "relevant": [
+            "P-0015"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H16",
+          "kind": "positive",
+          "shown": [],
+          "strong": [],
+          "relevant": [
+            "P-0013"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H17",
+          "kind": "positive",
+          "shown": [
+            "P-0015"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0013"
+          ],
+          "false_positives": [
+            "P-0015"
+          ]
+        },
+        {
+          "id": "H18",
+          "kind": "positive",
+          "shown": [
+            "P-0001",
+            "P-0007"
+          ],
+          "strong": [
+            "P-0001",
+            "P-0007"
+          ],
+          "relevant": [
+            "P-0001",
+            "P-0007"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H19",
+          "kind": "positive",
+          "shown": [
+            "P-0015"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0015"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H20",
+          "kind": "positive",
+          "shown": [
+            "P-0003"
+          ],
+          "strong": [],
+          "relevant": [
+            "P-0003"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H21",
+          "kind": "positive",
+          "shown": [
+            "P-0006"
+          ],
+          "strong": [
+            "P-0006"
+          ],
+          "relevant": [
+            "P-0006"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H22",
+          "kind": "positive",
+          "shown": [
+            "P-0005"
+          ],
+          "strong": [
+            "P-0005"
+          ],
+          "relevant": [
+            "P-0005"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H23",
+          "kind": "positive",
+          "shown": [
+            "P-0011"
+          ],
+          "strong": [
+            "P-0011"
+          ],
+          "relevant": [
+            "P-0011"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "H24",
+          "kind": "positive",
+          "shown": [],
+          "strong": [],
+          "relevant": [
+            "P-0012"
+          ],
+          "false_positives": []
+        },
+        {
+          "id": "N01",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N02",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N03",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N04",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N05",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "N06",
+          "kind": "negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "H25",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "H26",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "H27",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "H28",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "H29",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        },
+        {
+          "id": "H30",
+          "kind": "hard_negative",
+          "shown": [],
+          "strong": [],
+          "relevant": [],
+          "false_positives": []
+        }
+      ]
+    }
+  }
+}

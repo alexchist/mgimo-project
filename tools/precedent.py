@@ -435,12 +435,15 @@ def command_find(args: argparse.Namespace, root: Path) -> dict[str, Any]:
         haystack = searchable_text(item)
         if all(term in haystack for term in terms):
             selected.append(public_item(item, root, checked_at))
-    return {
+    result = {
         "query": args.words,
         "include_retired": args.include_retired,
         "items": selected,
         "notice": "Проверяется совпадение сохранённых строк, а не смысловая актуальность урока.",
     }
+    if terms and not selected:
+        result["hint"] = "Буквально не найдено. Поиск по смыслу: python3 tools/recall.py precedents \"<ситуация своими словами>\""
+    return result
 
 
 def command_retire(args: argparse.Namespace, root: Path) -> dict[str, Any]:

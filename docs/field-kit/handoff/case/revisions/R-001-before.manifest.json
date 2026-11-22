@@ -1,0 +1,27 @@
+{
+  "contract": "strategist.revision-snapshot/1.0",
+  "revision_id": "R-001",
+  "kind": "before_revision_archive",
+  "files": {
+    "brief.md": {
+      "sha256": "a96b1a96986c73901fff57483ca3be51599417c56ab6075f4614034532ec7b43",
+      "bytes": 3873
+    },
+    "options.md": {
+      "sha256": "24877b766bd144d5855f6e3b804b61aa0e4e51062f35561ffd5db5e9c94fe183",
+      "bytes": 9490
+    },
+    "strategy.md": {
+      "sha256": "c7f8d5e0b2d598b10aec62f818765542239e40e0047a8487bebbd1c1d87bf94a",
+      "bytes": 13502
+    },
+    "decision-memo.md": {
+      "sha256": "fe1dac68f78a7352be6f5ce86a53346e473225ab1feee1b5b8baad036093eef1",
+      "bytes": 5363
+    },
+    "state.md": {
+      "sha256": "f531eeb48cb54525c11b5a24ecae6017413ebb4aa2264220f09738d5842b72d4",
+      "bytes": 2753
+    }
+  }
+}

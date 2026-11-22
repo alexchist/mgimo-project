@@ -1,0 +1,22 @@
+{
+  "requested_model": "gpt-6.2-sol",
+  "effort": "medium",
+  "images_sha256": [
+    "eed976874da85ef00fa40bd5344797df393b2eb6fa2fd8a03bc59152197a13d4",
+    "8654ba76faffbdbf1542e98b4b083dc79535faaee9a96ef75a90e8f4b352c30b"
+  ],
+  "prompt_sha256": "4ed2daf371ec2031481ec138bc9ce11aee76a1adbe5370b7cc2f8da26ac3b1a4",
+  "cost": null,
+  "status": "answered",
+  "seconds": 11.95,
+  "exit_code": 0,
+  "usage": [
+    {
+      "input_tokens": 16862,
+      "cached_input_tokens": 13696,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 262,
+      "reasoning_output_tokens": 49
+    }
+  ]
+}

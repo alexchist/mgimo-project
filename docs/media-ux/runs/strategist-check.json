@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "structural_only": true,
+  "completion": {
+    "artifact_stage": "scaffold",
+    "label": "только scaffold",
+    "has_recorded_human_decision": false,
+    "is_completed_decision": false,
+    "not_proven": "Смысловая поддержка claims, качество вариантов и стратегии кодом не проверяются."
+  },
+  "errors": [],
+  "warnings": [
+    "Источник S-001: есть пробелы извлечения (1).",
+    "Источник S-002: есть пробелы извлечения (1).",
+    "Источник S-003: есть пробелы извлечения (1)."
+  ],
+  "revision_snapshots": {
+    "scope": "Проверяются только архивы документов до revise; текущие brief/options/strategy/memo/state с ними не сравниваются.",
+    "items": [],
+    "counts": {
+      "verified": 0,
+      "damaged": 0,
+      "legacy_unverifiable": 0
+    }
+  },
+  "counts": {
+    "sources": 4,
+    "claims": 0,
+    "conclusions": 0,
+    "decisions": 0,
+    "commitments": 0,
+    "revisions": 0,
+    "operations": 0,
+    "ingest_failures": 0
+  }
+}

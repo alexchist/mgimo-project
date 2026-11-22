@@ -1,0 +1,52 @@
+{
+  "schema": "strategist.media/1.0",
+  "source_name": "family-voice-en.wav",
+  "original": {
+    "path": "original.wav",
+    "bytes": 254958,
+    "sha256": "bf3865e21fdb64f3c0dc68eea1505a5d2054431c01cd8d5f6139e6e25b0128b7"
+  },
+  "kind": "audio",
+  "origin": "synthetic",
+  "network_used": false,
+  "duration_seconds": 7.965,
+  "audio": {
+    "status": "ready",
+    "stream_index": 0,
+    "clock": "container_start",
+    "file": {
+      "path": "audio.wav",
+      "bytes": 254958,
+      "sha256": "bf3865e21fdb64f3c0dc68eea1505a5d2054431c01cd8d5f6139e6e25b0128b7"
+    }
+  },
+  "transcript": {
+    "status": "ready",
+    "engine": "whisper-cli",
+    "model": "ggml-base.bin",
+    "model_sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe",
+    "language": "en",
+    "wall_seconds": 4.533,
+    "raw": {
+      "path": "whisper.json",
+      "bytes": 1077,
+      "sha256": "0350cb4a0c773f08a2f9abd5671aa3a8ffd61c4875eb373261206e468207956e"
+    },
+    "segments": [
+      {
+        "locator": "audio:0.000-4.000",
+        "start_ms": 0,
+        "end_ms": 4000,
+        "text": "I want to send 300 rubles to Sasha."
+      },
+      {
+        "locator": "audio:4.000-7.965",
+        "start_ms": 4000,
+        "end_ms": 7965,
+        "text": "The transfer fee is 25 rubles.",
+        "model_end_ms": 9000
+      }
+    ]
+  },
+  "wall_seconds": 5.026
+}

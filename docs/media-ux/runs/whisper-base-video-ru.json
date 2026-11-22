@@ -1,0 +1,82 @@
+{
+  "schema": "strategist.media/1.0",
+  "source_name": "family-walkthrough.mp4",
+  "original": {
+    "path": "original.mp4",
+    "bytes": 348642,
+    "sha256": "3a63008069681dcbc234c4cd337cabe33fd26beef3ad31b7168c200de9d00707"
+  },
+  "kind": "video",
+  "origin": "synthetic",
+  "network_used": false,
+  "duration_seconds": 10.0,
+  "frames": {
+    "status": "ready",
+    "items": [
+      {
+        "locator": "frame:0.000",
+        "source_seconds": 0.0,
+        "path": "frames/001.png",
+        "bytes": 64173,
+        "sha256": "c76d76905de1a734b1b815fabc11767082722ec2e20f17483c22d69b6e27e526"
+      },
+      {
+        "locator": "frame:2.500",
+        "source_seconds": 2.5,
+        "path": "frames/002.png",
+        "bytes": 64135,
+        "sha256": "fb69976d95e889f886c3fabfd6fafa523f92aa95589e0e8eac58bc63b3bda2b8"
+      },
+      {
+        "locator": "frame:5.000",
+        "source_seconds": 5.0,
+        "path": "frames/003.png",
+        "bytes": 83743,
+        "sha256": "9ac6f49965fc218c6e886c7f9fe9838efbca7892e0b21fbcc81d8c41def59968"
+      },
+      {
+        "locator": "frame:7.500",
+        "source_seconds": 7.5,
+        "path": "frames/004.png",
+        "bytes": 81555,
+        "sha256": "535080f7008c3f51a978f88ab6a1a9bc148d6dbd4f1bcb2dff976a3679783a57"
+      }
+    ],
+    "stream_index": 0,
+    "requested_count": 4,
+    "spacing_seconds": 2.5,
+    "clock": "container_start"
+  },
+  "audio": {
+    "status": "ready",
+    "stream_index": 1,
+    "clock": "container_start",
+    "file": {
+      "path": "audio.wav",
+      "bytes": 320530,
+      "sha256": "fd0da3c05fd5dda8b374595b8a7b77dc666c2aaf06b4e05e288ecf019b4ae416"
+    }
+  },
+  "transcript": {
+    "status": "ready",
+    "engine": "whisper-cli",
+    "model": "ggml-base.bin",
+    "model_sha256": "60ed5bc3dd14eea856493d334349b405782ddcaf0028d4b5df4088345fba2efe",
+    "language": "ru",
+    "wall_seconds": 5.943,
+    "raw": {
+      "path": "whisper.json",
+      "bytes": 1068,
+      "sha256": "d5c2b761b22d371358eb628485761376f0dc79defcfdabb24ffb005382d69b94"
+    },
+    "segments": [
+      {
+        "locator": "audio:0.000-8.720",
+        "start_ms": 0,
+        "end_ms": 8720,
+        "text": "Яхать, если бы не вести сашю твиста умеря и смодила воданца, но экран не подверь, вьем не я вьем не жукам миссию, двадцать пройти умеря и..."
+      }
+    ]
+  },
+  "wall_seconds": 6.69
+}

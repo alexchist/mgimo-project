@@ -1,0 +1,39 @@
+{
+  "schema": "strategist.media-vision/1.0",
+  "backend": "codex-cli",
+  "model_requested": "gpt-6.2-sol",
+  "question": "Может ли организатор на последнем шаге проверить, кому и сколько гигабайт передаёт? Какую фразу написать семье и что изменить в продукте? Это макеты, не измерение поведения.",
+  "prompt_sha256": "39c2812ec2f0ac86dd37ce4a428d41277920e5fa6fb72c5fc8caec8f647b339f",
+  "cost_status": "unknown",
+  "attachments": [
+    {
+      "path": "original.png",
+      "bytes": 34948,
+      "sha256": "e1c8d1a2f0a3939a1ba3975fdfa542447b8a0a8c406e3ecfe0d6ab621371e1fd",
+      "locator": "image:1",
+      "attachment": 1,
+      "bundle": 1
+    },
+    {
+      "path": "original.png",
+      "bytes": 35240,
+      "sha256": "71e6f1f07761b0ac14e1a0ba20a2e07527c3723bb2866eb24ac33a4e032a3c3f",
+      "locator": "image:1",
+      "attachment": 2,
+      "bundle": 2
+    }
+  ],
+  "status": "response_saved",
+  "reviewed": false,
+  "usage": {
+    "input_tokens": 14936,
+    "cached_input_tokens": 10368,
+    "output_tokens": 906
+  },
+  "review": {
+    "path": "review.md",
+    "bytes": 5388,
+    "sha256": "96af8bc9cf4800e2c24c57d7c389debbb9c5635010168f451071433fc7cb9a2b"
+  },
+  "wall_seconds": 24.221
+}

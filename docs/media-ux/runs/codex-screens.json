@@ -1,0 +1,37 @@
+{
+  "schema": "strategist.media-vision/1.0",
+  "backend": "codex-cli",
+  "model_requested": null,
+  "cost_status": "unknown",
+  "attachments": [
+    {
+      "path": "original.png",
+      "bytes": 38947,
+      "sha256": "eed976874da85ef00fa40bd5344797df393b2eb6fa2fd8a03bc59152197a13d4",
+      "locator": "image:1",
+      "attachment": 1,
+      "bundle": 1
+    },
+    {
+      "path": "original.png",
+      "bytes": 46247,
+      "sha256": "8654ba76faffbdbf1542e98b4b083dc79535faaee9a96ef75a90e8f4b352c30b",
+      "locator": "image:1",
+      "attachment": 2,
+      "bundle": 2
+    }
+  ],
+  "status": "response_saved",
+  "reviewed": false,
+  "usage": {
+    "input_tokens": 13872,
+    "cached_input_tokens": 0,
+    "output_tokens": 804
+  },
+  "review": {
+    "path": "review.md",
+    "bytes": 4332,
+    "sha256": "c39052345c4f400c4debd7975599730faba7a64cd0ea3bc795814d20bd232af7"
+  },
+  "wall_seconds": 21.125
+}

@@ -1,0 +1,8 @@
+{
+  "hooks": {
+    "PostToolUse": [{
+      "matcher": "Edit|Write",
+      "hooks": [{"type": "command", "command": "cd \"$CLAUDE_PROJECT_DIR\" && python3 tools/source_watch.py projects/family S-003 materials/start/design.csv --claude-hook"}]
+    }]
+  }
+}
