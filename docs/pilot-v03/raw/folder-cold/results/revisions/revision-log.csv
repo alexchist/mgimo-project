@@ -1,4 +1,0 @@
-revision_id,recorded_at,old_claim_id,old_status,new_status,new_claim_id,reason,evidence_action,affected_conclusions,affected_decisions,affected_commitments,human_review_required
-R-001,2026-11-17T15:06:32+00:00,E-012,active,superseded,E-019,S-005 исправляет переменную стоимость paid_pilot: 4800 RUB/аккаунт-месяц полностью заменяет 1500; остальные входы неизменны.,new,C-004;C-006,,,yes
-R-002,2026-11-17T15:08:28+00:00,E-015,active,superseded,E-020,Пересчёт после замены переменной стоимости paid_pilot с 1500 на 4800 RUB/аккаунт-месяц.,new,C-005;C-006,,,yes
-R-003,2026-11-17T15:08:29+00:00,E-016,active,superseded,E-021,Старый порог 22 аккаунта недействителен после исправления: маржа paid_pilot стала ниже маржи manual_service при более высоких фиксированных затратах.,new,C-005;C-006,,,yes

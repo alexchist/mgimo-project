@@ -1,3 +1,0 @@
-failure_id,recorded_at,source_id,input,status,cost_status,error
-IF-001,2026-11-17T14:47:57+00:00,S-001,materials/brief.md,failed,unknown,Формат .md не поддерживается.
-IF-002,2026-11-17T14:47:58+00:00,S-001,materials/notes.md,failed,unknown,Формат .md не поддерживается.

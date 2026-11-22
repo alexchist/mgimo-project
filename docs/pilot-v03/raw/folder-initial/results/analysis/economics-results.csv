@@ -1,8 +1,0 @@
-metric,value,unit
-paid_pilot_margin_per_account_month,4500,RUB
-paid_pilot_three_month_scenario_result,165000,RUB
-paid_pilot_break_even_accounts_exact,17.777778,accounts
-manual_service_margin_per_account_month,1300,RUB
-manual_service_three_month_scenario_result,48000,RUB
-manual_service_break_even_accounts_exact,7.692308,accounts
-same_account_count_switch_paid_vs_manual_exact,21.875000,accounts

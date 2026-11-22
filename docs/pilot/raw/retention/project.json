@@ -1,8 +1,0 @@
-{
-  "schema_version": "1.0",
-  "slug": "retention-run",
-  "title": "Удержание: onboarding и коммуникация за восемь недель",
-  "created_at": "2026-11-17T12:51:42+00:00",
-  "mode": "on-demand",
-  "business_decision_status": "pending"
-}

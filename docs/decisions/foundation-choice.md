@@ -5,7 +5,7 @@
 
 ## Фактически выполненное сравнение
 
-Один и тот же синтетический [мини-бриф](../experiments/foundation-comparison/brief.md) обработан в одной сессии двумя процессами: адаптированным текущим Spec Kit assessment и минимальной папкой. Сохранены все фактические артефакты, а не пересказ ожидаемого поведения. Текущий Spec Kit взят из `github/spec-kit` commit `e210504aa09c9273a38bba665b12b8088468c96f`; просмотрены README и пять command-файлов assess. Код и тексты Spec Kit в ядро не копировались.
+Один и тот же синтетический [мини-бриф](https://github.com/alexchist/mgimo-project/blob/7bc86748e588fb912c5d9f982e673fc6724101d9/docs/experiments/foundation-comparison/brief.md) обработан в одной сессии двумя процессами: адаптированным текущим Spec Kit assessment и минимальной папкой. Сохранены все фактические артефакты, а не пересказ ожидаемого поведения. Текущий Spec Kit взят из `github/spec-kit` commit `e210504aa09c9273a38bba665b12b8088468c96f`; просмотрены README и пять command-файлов assess. Код и тексты Spec Kit в ядро не копировались.
 
 | Наблюдение на мини-кейсе | Spec Kit assess | Минимальная папка |
 |---|---|---|

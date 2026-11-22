@@ -1,7 +1,0 @@
-{"arm": "F0", "files": {"inputs/brief.md": "evals/cases/decision-economics/brief.md", "inputs/economics.csv": "evals/cases/decision-economics/economics.csv", "inputs/interviews.md": "evals/cases/decision-economics/interviews.md", "inputs/product.md": "evals/cases/decision-economics/product.md", "inputs/supplier-update.md": "evals/cases/decision-economics-update/supplier-update.md"}, "system_sha256": "f21c189d7b8eee79c0ce6f2f13cae82f562ded4e2782bd1ab7f52d4eccf436dc", "user_sha256": "276dbe9550aeba9e121e4739df3fa544eecd597382a22f17e45539ea8b726866", "model": "GigaChat-3-Lightning"}
-{"turn": 1, "elapsed_s": 0.999, "served": "GigaChat-3-Lightning:32.4.16.3", "finish": "function_call", "usage": {"prompt_tokens": 275, "completion_tokens": 19, "total_tokens": 294, "precached_prompt_tokens": 0}}
-{"read": ["brief.md"], "content_hashes": {"brief.md": null}}
-{"turn": 2, "elapsed_s": 0.459, "served": "GigaChat-3-Lightning:32.4.16.3", "finish": "function_call", "usage": {"prompt_tokens": 323, "completion_tokens": 21, "total_tokens": 344, "precached_prompt_tokens": 0}}
-{"read": ["economics.csv"], "content_hashes": {"economics.csv": null}}
-{"turn": 3, "elapsed_s": 0.634, "served": "GigaChat-3-Lightning:32.4.16.3", "finish": "stop", "usage": {"prompt_tokens": 369, "completion_tokens": 71, "total_tokens": 440, "precached_prompt_tokens": 0}}
-{"answer_sha256": "b0c2025c45c44c2a75a1f798edeef5161c71036cc0c11737ae8f64b206d85bab"}

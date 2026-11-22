@@ -4,7 +4,7 @@
 
 ## Ошибка, ради которой это сделано
 
-[Lightning в F1](../gigachat-pilot/tool-runs/F1.md) написала «84 000 RUB прибыли» и для пилота, и для ручной альтернативы. [Тогдашний калькулятор](../gigachat-pilot/tool-runs/F1.jsonl) вычислил именно то выражение, которое ему поручили. Для сегодняшней сверки я взял [исходную таблицу](../../evals/cases/decision-economics/economics.csv), заменил в отдельной [копии](corrected.csv) ровно одно поле — `paid_pilot.variable_cost_per_account_month_rub`, 1500 → 4800 по [поправке поставщика, строка 2](../../evals/cases/decision-economics-update/supplier-update.md#L2). Три месяца — из [брифа](../../evals/cases/decision-economics/brief.md#L3). Входы синтетические. Из корня:
+[Lightning в F1](https://github.com/alexchist/mgimo-project/blob/7bc86748e588fb912c5d9f982e673fc6724101d9/docs/gigachat-pilot/tool-runs/F1.md) написала «84 000 RUB прибыли» и для пилота, и для ручной альтернативы. [Тогдашний калькулятор](https://github.com/alexchist/mgimo-project/blob/7bc86748e588fb912c5d9f982e673fc6724101d9/docs/gigachat-pilot/tool-runs/F1.jsonl) вычислил именно то выражение, которое ему поручили. Для сегодняшней сверки я взял [исходную таблицу](../../evals/cases/decision-economics/economics.csv), заменил в отдельной [копии](corrected.csv) ровно одно поле — `paid_pilot.variable_cost_per_account_month_rub`, 1500 → 4800 по [поправке поставщика, строка 2](../../evals/cases/decision-economics-update/supplier-update.md#L2). Три месяца — из [брифа](../../evals/cases/decision-economics/brief.md#L3). Входы синтетические. Из корня:
 
 ```sh
 python3 tools/economics.py docs/verification-pilot/corrected.csv --months 3 \

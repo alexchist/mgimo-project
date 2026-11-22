@@ -1,2 +1,0 @@
-decision_id,recorded_at,decider,decision_kind,status,chosen_option,conclusion_ids,rejected_options,revisit_on,revisit_if,notes
-D-001,2026-11-17T12:54:59Z,strategist-agent,agent_recommendation,recommended,O-2,"C-001;C-002;C-003;C-004;C-005",,"после калибровочного smoke-test и пилота","небезопасный режим данных; неприемлемое качество; отсутствие повторного использования или willingness to pay","Это рекомендация агента, не бизнес-решение. Выбор владельца остаётся pending; варианты не отклонены человеком."
